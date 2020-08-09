@@ -24,7 +24,7 @@ class HistoryFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_history, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
         historyViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            //textView.text = it
         })
         return root
     }
