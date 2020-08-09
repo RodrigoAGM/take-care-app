@@ -7,4 +7,5 @@
     <color name="navDefaultColorText">#000000</color>
     <color name="toolbarTittleColor">#FFFFFF</color>
     <color name="toolbarTextColor">#809497</color>
+    <color name="historyDatePickerColor">#FFFFFF</color>
 </resources>

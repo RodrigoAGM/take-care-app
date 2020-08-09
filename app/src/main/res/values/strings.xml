@@ -5,4 +5,8 @@
     <string name="title_control">Medir</string>
     <string name="title_report">Reporte</string>
     <string name="title_advice">Consejos</string>
+    <string name="history_date_hint">Día/Mes/Año</string>
+    <string name="history_date_from">De:</string>
+    <string name="history_date_to">Hasta:</string>
+    <string name="history_default_hello">Hola usuario! \nNo olvides cuidar tu salud mental \n</string>
 </resources>
