@@ -1,4 +1,4 @@
-package com.example.takecare.ui.home
+package com.example.takecare.ui.control
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.takecare.R
 
-class HomeFragment : Fragment() {
+class ControlFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var controlViewModel: ControlViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        controlViewModel =
+                ViewModelProviders.of(this).get(ControlViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_control, container, false)
+        val textView: TextView = root.findViewById(R.id.text_notifications)
+        controlViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

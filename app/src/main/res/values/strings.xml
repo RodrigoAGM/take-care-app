@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">TakeCare</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Perfil</string>
+    <string name="title_history">Historial</string>
+    <string name="title_control">Medir</string>
+    <string name="title_report">Reporte</string>
+    <string name="title_advice">Consejos</string>
 </resources>
