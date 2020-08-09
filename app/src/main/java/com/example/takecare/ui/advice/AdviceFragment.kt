@@ -1,16 +1,16 @@
 package com.example.takecare.ui.advice
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-
+import androidx.lifecycle.ViewModelProviders
 import com.example.takecare.R
-import com.example.takecare.ui.report.ReportViewModel
+
 
 class AdviceFragment : Fragment() {
 
