@@ -5,8 +5,13 @@
     <string name="title_control">Medir</string>
     <string name="title_report">Reporte</string>
     <string name="title_advice">Consejos</string>
+    <!-- History fragment strings -->
     <string name="history_date_hint">Día/Mes/Año</string>
     <string name="history_date_from">De:</string>
     <string name="history_date_to">Hasta:</string>
     <string name="history_default_hello">Hola usuario! \nNo olvides cuidar tu salud mental \n</string>
+    <string name="history_card_title">NIVEL DE ANSIEDAD: ALTO</string>
+    <string name="history_card_subtitle">Frecuencia cardiaca:</string>
+    <string name="history_card_content">110 \nbpm</string>
+    <string name="history_card_date">Fecha: 5/10/2020</string>
 </resources>
