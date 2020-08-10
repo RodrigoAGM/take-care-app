@@ -10,10 +10,10 @@
     <string name="history_date_from">De:</string>
     <string name="history_date_to">Hasta:</string>
     <string name="history_default_hello">Hola usuario! \nNo olvides cuidar tu salud mental \n</string>
-    <string name="history_card_title">NIVEL DE ANSIEDAD: ALTO</string>
+    <string name="history_card_title">NIVEL DE ANSIEDAD: </string>
     <string name="history_card_subtitle">Frecuencia cardiaca:</string>
     <string name="history_card_content">110 \nbpm</string>
-    <string name="history_card_date">Fecha: 5/10/2020</string>
+    <string name="history_card_date">Fecha: </string>
     <!-- Control fragment strings -->
     <string name="control_title">Para realizar la medición es necesario que tengas vinculado el wearable:</string>
     <string name="control_results_title">Frecuencia cardiaca:</string>
@@ -45,5 +45,4 @@
     <string name="profile_weight_med">kg.</string>
     <string name="profile_height_med">cm.</string>
     <string name="profile_btn_mod">MODIFICAR</string>
-
 </resources>

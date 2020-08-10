@@ -2,11 +2,17 @@ package com.example.takecare.mock
 
 import com.example.takecare.model.History
 
-val HistoryMock = listOf<History>(
+val historyMock = listOf<History>(
     History(
         PatientMock,
         LevelMock[2],
         FrequencyMock[0],
+        "Nothing"
+    ),
+    History(
+        PatientMock,
+        LevelMock[2],
+        FrequencyMock[1],
         "Nothing"
     ),
     History(
@@ -60,7 +66,7 @@ val HistoryMock = listOf<History>(
     History(
         PatientMock,
         LevelMock[2],
-        FrequencyMock[12],
+        FrequencyMock[10],
         "Nothing"
     ),
     History(
