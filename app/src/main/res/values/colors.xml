@@ -11,4 +11,7 @@
     <color name="historyDatePickerColor">#FFFFFF</color>
     <color name="historyItemBackground">#d1f2f6</color>
     <color name="historyCardTextColor">#000000</color>
+    <!--Control fragment colors-->
+    <color name="ControlTextColor">#000000</color>
+    <color name="ControlButtonColor">#FFFFFF</color>
 </resources>

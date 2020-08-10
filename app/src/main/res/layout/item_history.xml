@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="5dp">
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="0dp">
 
     <androidx.cardview.widget.CardView
         app:layout_constraintTop_toTopOf="parent"

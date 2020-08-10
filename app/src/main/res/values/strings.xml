@@ -14,4 +14,6 @@
     <string name="history_card_subtitle">Frecuencia cardiaca:</string>
     <string name="history_card_content">110 \nbpm</string>
     <string name="history_card_date">Fecha: 5/10/2020</string>
+    <!-- Control fragment strings -->
+    <string name="control_title">Para realizar la medición es necesario que tengas vinculado el wearable:</string>
 </resources>

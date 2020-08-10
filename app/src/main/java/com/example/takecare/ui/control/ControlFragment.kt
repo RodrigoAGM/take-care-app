@@ -22,9 +22,7 @@ class ControlFragment : Fragment() {
         controlViewModel =
                 ViewModelProviders.of(this).get(ControlViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_control, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
         controlViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
         })
         return root
     }
