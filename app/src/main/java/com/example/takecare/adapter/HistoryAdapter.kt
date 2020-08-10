@@ -30,8 +30,6 @@ class HistoryAdapter(private var histories: List<History>) : RecyclerView.Adapte
         val date = view.history_card_date
 
         fun bind(history: History) {
-            Log.println(Log.ERROR,"asdasdasdas", "asdasdasdasd")
-
             title.text = "NIVEL DE ANSIEDAD: ${history.level.name}"
             frequency.text = "${history.frequency.heartRate}\nbpm"
             date.text = "Fecha: ${history.frequency.date}"
