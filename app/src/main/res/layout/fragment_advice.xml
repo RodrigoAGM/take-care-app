@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:textSize="18sp"
-            android:textColor="@color/ControlTextColor"
+            android:textColor="@color/adviceTextColor"
             android:text="@string/advice_title"/>
 
         <Button

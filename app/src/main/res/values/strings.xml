@@ -28,4 +28,9 @@
     <string name="advice_btn_relax_sounds">"Sonidos de relajación</string>
     <string name="advice_btn_treatment">Tratamiento</string>
     <string name="advice_btn_tips">Tips</string>
+    <!-- Report fragment strings -->
+    <string name="report_title">Podemos visualizar la evolución de las mediciones realizadas por el usuario</string>
+    <string name="report_date_hint">Día/Mes/Año</string>
+    <string name="report_date_from">De:</string>
+    <string name="report_date_to">Hasta:</string>
 </resources>

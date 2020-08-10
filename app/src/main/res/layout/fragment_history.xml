@@ -30,6 +30,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/text_history_hello"
         app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/historyTextColor"
         android:text="@string/history_date_from"/>
 
     <LinearLayout
@@ -72,6 +73,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/history_from"
         app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/historyTextColor"
+
         android:text="@string/history_date_to"/>
 
     <LinearLayout
