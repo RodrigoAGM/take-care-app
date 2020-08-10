@@ -1,103 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ui.control.ControlFragment"
     android:background="@color/colorPrimary"
-    android:padding="20dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/control_title"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textSize="18sp"
-        android:textColor="@color/ControlTextColor"
-        android:text="@string/control_title"/>
-
-    <LinearLayout
-        android:id="@+id/control_results"
-        android:layout_marginTop="50sp"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:background="@drawable/circle"
-        app:layout_constraintTop_toBottomOf="@id/control_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="vertical">
+        android:padding="20dp">
 
         <TextView
+            android:id="@+id/control_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="18sp"
             android:textColor="@color/ControlTextColor"
+            android:text="@string/control_title"/>
+
+        <LinearLayout
+            android:id="@+id/control_results"
+            android:layout_marginTop="50sp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:background="@drawable/circle"
+            app:layout_constraintTop_toBottomOf="@id/control_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:textColor="@color/ControlTextColor"
+                android:layout_marginTop="30sp"
+                android:paddingStart="55sp"
+                android:paddingEnd="55sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:text="@string/control_results_title"/>
+
+            <TextView
+                android:textColor="@color/ControlTextColor"
+                android:layout_marginTop="15sp"
+                android:paddingStart="55sp"
+                android:paddingEnd="55sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="40sp"
+                android:text="@string/control_results"/>
+
+            <TextView
+                android:textColor="@color/ControlTextColor"
+                android:layout_marginTop="15sp"
+                android:paddingStart="40sp"
+                android:paddingEnd="40sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:text="@string/control_results_text"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/control_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="30sp"
-            android:paddingStart="55sp"
-            android:paddingEnd="55sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/control_results"
+            app:layout_constraintStart_toStartOf="parent"
             android:textAlignment="center"
-            android:textSize="15dp"
-            android:text="Frecuencia cardiaca:"/>
-
-        <TextView
+            android:textSize="18sp"
             android:textColor="@color/ControlTextColor"
-            android:layout_marginTop="15sp"
-            android:paddingStart="55sp"
-            android:paddingEnd="55sp"
-            android:layout_width="match_parent"
+            android:text="@string/control_date"/>
+
+        <Button
+            android:id="@+id/control_btn_med"
+            style="@style/ButtonStyle"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="40dp"
-            android:text="110 \nbpms"/>
+            android:gravity="center"
+            android:layout_marginTop="30sp"
+            android:text="@string/control_btn_med"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/control_date"/>
 
-        <TextView
-            android:textColor="@color/ControlTextColor"
-            android:layout_marginTop="15sp"
-            android:paddingStart="40sp"
-            android:paddingEnd="40sp"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/control_btn_vin"
+            style="@style/ButtonStyle"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="15dp"
-            android:text="Nivel de Ansiedad: Alto"/>
-    </LinearLayout>
+            android:gravity="center"
+            android:layout_marginTop="15sp"
+            android:text="@string/control_btn_vin"
+            android:enabled="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/control_btn_med"/>
 
-    <TextView
-        android:id="@+id/control_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
-        app:layout_constraintTop_toBottomOf="@id/control_results"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textColor="@color/ControlTextColor"
-        android:text="Fecha: 6/11/2020"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/control_btn_med"
-        style="@style/ButtonStyle"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="30sp"
-        android:text="MEDIR"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/control_date"/>
-
-    <Button
-        android:id="@+id/control_btn_vin"
-        style="@style/ButtonStyle"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="15sp"
-        android:text="VINCULAR"
-        android:enabled="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/control_btn_med"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

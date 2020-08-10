@@ -23,9 +23,7 @@ class AdviceFragment : Fragment() {
         adviceViewModel =
             ViewModelProviders.of(this).get(AdviceViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_advice, container, false)
-        val textView: TextView = root.findViewById(R.id.text_advice)
         adviceViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
         })
         return root
     }

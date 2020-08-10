@@ -16,4 +16,16 @@
     <string name="history_card_date">Fecha: 5/10/2020</string>
     <!-- Control fragment strings -->
     <string name="control_title">Para realizar la medición es necesario que tengas vinculado el wearable:</string>
+    <string name="control_results_title">Frecuencia cardiaca:</string>
+    <string name="control_results">110 \nbpms</string>
+    <string name="control_results_text">Nivel de Ansiedad: Alto</string>
+    <string name="control_date">Fecha: 6/11/2020</string>
+    <string name="control_btn_med">MEDIR</string>
+    <string name="control_btn_vin">VINCULAR</string>
+    <!-- Advice fragment strings -->
+    <string name="advice_title">Podemos visualizar la evolución de las mediciones realizadas por el usuario</string>
+    <string name="advice_btn_breath_methods">Métodos de respiración</string>
+    <string name="advice_btn_relax_sounds">"Sonidos de relajación</string>
+    <string name="advice_btn_treatment">Tratamiento</string>
+    <string name="advice_btn_tips">Tips</string>
 </resources>
