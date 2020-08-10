@@ -19,4 +19,7 @@
     <color name="adviceTextColor">#000000</color>
     <!--Report fragment colors-->
     <color name="reportTextColor">#000000</color>
+    <!--Profile fragment colors-->
+    <color name="profileTextColor">#000000</color>
+    <color name="profileImageTextColor">#5639f3</color>
 </resources>
