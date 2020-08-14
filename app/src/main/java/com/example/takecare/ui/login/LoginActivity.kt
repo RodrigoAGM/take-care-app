@@ -14,9 +14,13 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-
         login_btn.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        login_forgot_password.setOnClickListener {
+            val intent = Intent(this, RecoverPasswordActivity::class.java)
             startActivity(intent)
         }
     }
