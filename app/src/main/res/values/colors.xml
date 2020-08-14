@@ -6,6 +6,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="defaultTextColor">#000000</color>
     <color name="defaultTextColorWithe">#FFFFFF</color>
+    <color name="defaultTextColorBlue">#4d27f2</color>
     <color name="navDefaultColor">#000000</color>
     <color name="navDefaultColorText">#000000</color>
     <color name="toolbarTittleColor">#FFFFFF</color>
