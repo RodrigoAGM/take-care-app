@@ -35,10 +35,7 @@ class HistoryFragment : Fragment(){
         historyViewModel.text.observe(viewLifecycleOwner, Observer {
             //textView.text = it
         })
-        /*recyclerHistory = root.history_reclycler_view
-        recyclerHistory.layoutManager = LinearLayoutManager(this.requireContext())
-        val historyAdapter = HistoryAdapter(historyMock)
-        recyclerHistory.adapter = historyAdapter*/
+
         val context = this.requireContext()
 
         root.history_reclycler_view.apply {

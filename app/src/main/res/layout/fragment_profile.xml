@@ -153,7 +153,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:textSize="18sp"
             android:layout_marginTop="5dp"
-            android:labelFor="@id/profile_email"
+            android:labelFor="@id/profile_birthday"
             android:textColor="@color/profileTextColor"
             android:text="@string/profile_birthday_text"/>
 
@@ -275,6 +275,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="10dp"
+            android:textColor="@color/defaultTextColorWhite"
             android:text="@string/profile_btn_mod"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
