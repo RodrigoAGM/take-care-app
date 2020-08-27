@@ -100,7 +100,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:textColor="@color/defaultTextColorBlue"
             android:layout_marginTop="20dp"
-            android:text="@string/forget_password"/>
+            android:text="@string/forget_password" />
+
 
         <Button
             android:id="@+id/login_btn"
@@ -109,11 +110,23 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="25dp"
-            android:textColor="@color/defaultTextColorWhite"
             android:text="@string/login_button"
+            android:textColor="@color/defaultTextColorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_forgot_password" />
+
+        <ProgressBar
+            android:id="@+id/login_progressBar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:indeterminate="true"
+            android:progress="100"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_forgot_password"/>
+            app:layout_constraintTop_toBottomOf="@id/login_forgot_password" />
 
         <LinearLayout
             android:layout_width="wrap_content"
