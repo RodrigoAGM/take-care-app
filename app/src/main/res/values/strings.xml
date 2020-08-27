@@ -49,7 +49,7 @@
     <string name="advice_title">Podemos visualizar la evolución de las mediciones realizadas por el usuario</string>
     <string name="advice_btn_breath_methods">Métodos de respiración</string>
     <string name="advice_btn_relax_sounds">"Sonidos de relajación</string>
-    <string name="advice_btn_treatment">Tratamiento</string>
+    <string name="advice_btn_information">Información</string>
     <string name="advice_btn_tips">Tips</string>
     <!-- Report fragment strings -->
     <string name="report_title">Podemos visualizar la evolución de las mediciones realizadas por el usuario</string>

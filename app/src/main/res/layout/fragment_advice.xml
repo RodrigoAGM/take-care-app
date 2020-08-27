@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@id/advice_btn_breath_methods"/>
 
         <Button
-            android:id="@+id/advice_btn_treatment"
+            android:id="@+id/advice_btn_information"
             android:background="@drawable/advice_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,24 +60,10 @@
             android:layout_marginTop="30dp"
             android:padding="30dp"
             android:textSize="20sp"
-            android:text="@string/advice_btn_treatment"
+            android:text="@string/advice_btn_information"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/advice_btn_relax_sounds"/>
-
-        <Button
-            android:id="@+id/advice_btn_tips"
-            android:background="@drawable/advice_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="30dp"
-            android:padding="30dp"
-            android:textSize="20sp"
-            android:text="@string/advice_btn_tips"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/advice_btn_treatment"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
