@@ -11,6 +11,7 @@
     <color name="navDefaultColorText">#000000</color>
     <color name="toolbarTittleColor">#FFFFFF</color>
     <color name="toolbarTextColor">#809497</color>
+    <color name="redTextColor">#b82332</color>
     <!--History fragment colors-->
     <color name="historyDatePickerColor">#FFFFFF</color>
     <color name="historyItemBackground">#d1f2f6</color>

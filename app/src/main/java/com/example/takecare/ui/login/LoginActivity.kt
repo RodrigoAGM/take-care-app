@@ -42,6 +42,7 @@ class LoginActivity : AppCompatActivity() {
     private fun setupViewModel() {
         viewModel.isLoading.observe(this, isViewLoadingObserver)
         viewModel.isLoginSuccess.observe(this, isLoginSuccess)
+        viewModel.onMessageError.observe(this, onMessageError)
     }
 
     private val isViewLoadingObserver = Observer<Boolean> {
@@ -55,9 +56,12 @@ class LoginActivity : AppCompatActivity() {
         if (it) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-        } else {
-            TODO("Missing error handling strategy")
+            finish()
         }
+    }
+
+    private val onMessageError = Observer<Any> {
+        login_error_text.text = it.toString()
     }
 
 }

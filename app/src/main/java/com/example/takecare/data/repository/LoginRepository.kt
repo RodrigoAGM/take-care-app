@@ -19,8 +19,12 @@ class LoginRepository {
                 return if (it.isSuccessful && it.body() != null) {
                     val data = it.body()
                     OperationResult.Success(data)
-                } else {
-                    OperationResult.Error(Exception("Error al iniciar sesión"))
+                } else{
+                    if (it.code() == 400){
+                        OperationResult.Error(Exception("Usuario o contraseña incorrectos."))
+                    }else{
+                        OperationResult.Error(Exception("Error al iniciar sesión."))
+                    }
                 }
             }
         } catch (e: Exception) {

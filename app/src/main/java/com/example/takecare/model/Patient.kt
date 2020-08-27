@@ -16,5 +16,7 @@ data class Patient(
     val username: String,
     val birthday: String,
     val height: Double?,
-    val weight: Double?
+    val weight: Double?,
+    @SerializedName("image_url")
+    val imageUrl: String?
 ): Serializable
