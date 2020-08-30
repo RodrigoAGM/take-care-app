@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.takecare.MainActivity
@@ -33,7 +34,12 @@ class LoginActivity : AppCompatActivity() {
         login_btn.setOnClickListener {
             val username = login_username.text.trim().toString()
             val password = login_password.text.trim().toString()
-            viewModel.login(username, password)
+
+            if(username.isBlank() || password.isBlank()){
+                Toast.makeText(this, "El usuario y/o contraseña no pueden estar vacíos.", Toast.LENGTH_SHORT).show()
+            }else{
+                viewModel.login(username, password)
+            }
         }
 
         login_forgot_password.setOnClickListener {
