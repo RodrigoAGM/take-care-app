@@ -9,7 +9,7 @@ object PreferenceHelper {
     private const val MODE = Context.MODE_PRIVATE
     private lateinit var preferences: SharedPreferences
 
-    private val FIRST_RUN = Pair("first_run", false)
+    private val LOGGED_IN = Pair("logged_in", false)
     private val USER_TOKEN = Pair("token", "")
     private val USER_REFRESH_TOKEN = Pair("refresh_token", "")
 
@@ -24,10 +24,10 @@ object PreferenceHelper {
         editor.apply()
     }
 
-    var firstRun: Boolean
-        get() = preferences.getBoolean(FIRST_RUN.first, FIRST_RUN.second)
+    var loggedIn: Boolean
+        get() = preferences.getBoolean(LOGGED_IN.first, LOGGED_IN.second)
         set(value) = preferences.edit{
-            it.putBoolean(FIRST_RUN.first, value)
+            it.putBoolean(LOGGED_IN.first, value)
         }
 
     var token: String?

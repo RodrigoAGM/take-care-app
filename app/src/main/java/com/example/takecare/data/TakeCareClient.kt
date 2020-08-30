@@ -21,8 +21,6 @@ object TakeCareClient {
         val retrofit: Retrofit = builder.client(httpClient.build()).build()
         takeCareService = retrofit.create(TakeCareService::class.java)
         return takeCareService
-
-
     }
 
     private fun interceptor(): HttpLoggingInterceptor {

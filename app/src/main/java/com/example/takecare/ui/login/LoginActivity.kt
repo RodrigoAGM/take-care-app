@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import com.example.takecare.MainActivity
 import com.example.takecare.R
 import com.example.takecare.data.repository.LoginRepository
+import com.example.takecare.utils.PreferenceHelper
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -16,15 +17,20 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        if (PreferenceHelper.loggedIn){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val preferences = getSharedPreferences("APP_DATA", Context.MODE_PRIVATE)
-        viewModel = LoginViewModel(LoginRepository(), preferences)
+        viewModel = LoginViewModel(LoginRepository())
         setupViewModel()
 
         login_btn.setOnClickListener {
-
             val username = login_username.text.trim().toString()
             val password = login_password.text.trim().toString()
             viewModel.login(username, password)

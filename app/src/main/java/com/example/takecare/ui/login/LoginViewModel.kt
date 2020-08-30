@@ -1,6 +1,5 @@
 package com.example.takecare.ui.login
 
-import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,17 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.takecare.data.api.OperationResult
 import com.example.takecare.data.api.response.LoginResponse
 import com.example.takecare.data.repository.LoginRepository
+import com.example.takecare.utils.PreferenceHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-
-/**
- * Created by Enzo Lizama Paredes on 8/26/20.
- * Contact: lizama.enzo@gmail.com
- */
-
-class LoginViewModel(private val repository: LoginRepository, private val preferences: SharedPreferences) : ViewModel() {
+class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -38,10 +32,9 @@ class LoginViewModel(private val repository: LoginRepository, private val prefer
             _isLoading.postValue(false)
             when (result) {
                 is OperationResult.Success -> {
-                    preferences.edit()
-                        .putString("token", result.data?.token)
-                        .putString("refreshToken", result.data?.refreshToken)
-                        .apply()
+                    PreferenceHelper.token = result.data?.token
+                    PreferenceHelper.refreshToken = result.data?.token
+                    PreferenceHelper.loggedIn = true
                     _isLoginSuccess.postValue(true)
                 }
                 is OperationResult.Error -> {
