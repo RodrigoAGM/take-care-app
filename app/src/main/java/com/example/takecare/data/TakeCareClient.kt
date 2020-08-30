@@ -7,11 +7,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-/**
- * Created by Enzo Lizama Paredes on 8/26/20.
- * Contact: lizama.enzo@gmail.com
- */
-
 object TakeCareClient {
     private const val BASE_URL = "https://takecareapi.herokuapp.com"
     private lateinit var takeCareService: TakeCareService

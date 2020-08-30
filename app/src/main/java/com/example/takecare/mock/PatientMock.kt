@@ -11,5 +11,6 @@ val PatientMock = Patient(
     "RodrigoAGM",
     "18/07/1999",
     182.0,
-    80.0
+    80.0,
+    ""
 )

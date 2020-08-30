@@ -1,5 +1,6 @@
 package com.example.takecare.ui.login
 
+import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,7 +18,7 @@ import kotlinx.coroutines.withContext
  * Contact: lizama.enzo@gmail.com
  */
 
-class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
+class LoginViewModel(private val repository: LoginRepository, private val preferences: SharedPreferences) : ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -37,6 +38,10 @@ class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
             _isLoading.postValue(false)
             when (result) {
                 is OperationResult.Success -> {
+                    preferences.edit()
+                        .putString("token", result.data?.token)
+                        .putString("refreshToken", result.data?.refreshToken)
+                        .apply()
                     _isLoginSuccess.postValue(true)
                 }
                 is OperationResult.Error -> {

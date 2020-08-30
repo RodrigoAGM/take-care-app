@@ -1,5 +1,6 @@
 package com.example.takecare.ui.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -18,7 +19,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        viewModel = LoginViewModel(LoginRepository())
+        val preferences = getSharedPreferences("APP_DATA", Context.MODE_PRIVATE)
+        viewModel = LoginViewModel(LoginRepository(), preferences)
         setupViewModel()
 
         login_btn.setOnClickListener {
