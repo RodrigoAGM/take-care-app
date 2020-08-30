@@ -18,11 +18,11 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        if (PreferenceHelper.loggedIn){
+        /*if (PreferenceHelper.loggedIn){
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }
+        }*/
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)

@@ -32,8 +32,8 @@ class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
             _isLoading.postValue(false)
             when (result) {
                 is OperationResult.Success -> {
-                    PreferenceHelper.token = result.data?.token
-                    PreferenceHelper.refreshToken = result.data?.token
+                    PreferenceHelper.token = "Bearer " + result.data?.token
+                    PreferenceHelper.refreshToken = "Bearer " + result.data?.token
                     PreferenceHelper.loggedIn = true
                     _isLoginSuccess.postValue(true)
                 }

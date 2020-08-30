@@ -17,7 +17,7 @@ interface TakeCareService {
     suspend fun login(@Body loginRequest: LoginRequest): Response<LoginResponse>
 
     @POST("/auth/refresh")
-    suspend fun refreshToken(@Body refreshTokenRequest: RefreshTokenRequest): Response<RefreshTokenResponse>
+    fun refreshToken(@Body refreshTokenRequest: RefreshTokenRequest): Response<RefreshTokenResponse>
 
     @GET("/admin/users/add")
     suspend fun addUser(@Header("Authorization") token: String)
