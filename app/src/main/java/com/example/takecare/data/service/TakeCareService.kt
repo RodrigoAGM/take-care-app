@@ -1,12 +1,10 @@
 package com.example.takecare.data.service
 
-import com.example.takecare.data.api.request.LoginRequest
-import com.example.takecare.data.api.request.RecoverPasswordRequest
-import com.example.takecare.data.api.request.RefreshTokenRequest
-import com.example.takecare.data.api.request.RequestRecoverPasswordRequest
+import com.example.takecare.data.api.request.*
 import com.example.takecare.data.api.response.LoginResponse
 import com.example.takecare.data.api.response.RecoverPasswordResponse
 import com.example.takecare.data.api.response.RefreshTokenResponse
+import com.example.takecare.data.api.response.RegisterResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -27,6 +25,9 @@ interface TakeCareService {
 
     @POST("/auth/recoverpass")
     suspend fun recoverPassword(@Body recoverPasswordRequest: RecoverPasswordRequest): Response<RecoverPasswordResponse>
+
+    @POST("/users/register")
+    suspend fun register(@Body registerRequest: RegisterRequest): Response<RegisterResponse>
 
     @GET("/admin/users/add")
     suspend fun addUser(@Header("Authorization") token: String)
