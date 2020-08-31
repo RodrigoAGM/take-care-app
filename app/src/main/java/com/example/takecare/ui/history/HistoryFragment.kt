@@ -23,11 +23,15 @@ import com.example.takecare.utils.PreferenceHelper
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_history.view.*
+import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class HistoryFragment : Fragment(){
 
-    private lateinit var recyclerHistory : RecyclerView
+    private lateinit var recyclerHistoryAdapter : HistoryAdapter
+    private lateinit var dateFrom: EditText
+    private lateinit var dateTo: EditText
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -36,34 +40,50 @@ class HistoryFragment : Fragment(){
 
         root.text_history_hello.text = root.text_history_hello.text.toString().replace("usuario", PatientUtil.patient.username)
 
+        dateFrom = root.history_date_from
+        dateTo = root.history_date_to
+        recyclerHistoryAdapter = HistoryAdapter(ArrayList(historyMock))
+
         root.history_reclycler_view.apply {
-            adapter = HistoryAdapter(
-                historyMock
-            )
+            adapter = recyclerHistoryAdapter
             layoutManager = LinearLayoutManager(context)
         }
 
         root.history_date_picker_from.setOnClickListener {
-            PickDate(history_date_from)
+            pickDate(history_date_from)
         }
 
         root.history_date_picker_to.setOnClickListener {
-            PickDate(history_date_to)
+            pickDate(history_date_to)
         }
 
         return root
     }
 
-    fun PickDate(view:EditText){
+    private fun pickDate(view:EditText){
 
         val calendar = Calendar.getInstance()
         val day = calendar.get(Calendar.DAY_OF_MONTH)
         val month = calendar.get(Calendar.MONTH)
         val year = calendar.get(Calendar.YEAR)
-
-        DatePickerDialog(this.requireContext(),
+        val picker = DatePickerDialog(this.requireContext(),
             DatePickerDialog.OnDateSetListener{_, mYear, mMonth, mDay  ->
                 view.setText("" + mDay + "/" + mMonth.plus(1) + "/" + mYear)
-            }, year, month, day).show()
+                filterData()
+            }, year, month, day)
+
+        picker.datePicker.maxDate = Date().time
+        picker.show()
+    }
+
+    private fun filterData(){
+        var filterText = if(dateFrom.text.isBlank() && !dateTo.text.isBlank()){
+            ";${dateTo.text}"
+        }else if(!dateFrom.text.isBlank() && dateTo.text.isBlank()){
+            "${dateFrom.text};"
+        }else{
+            "${dateFrom.text};${dateTo.text}"
+        }
+        recyclerHistoryAdapter.filter.filter(filterText)
     }
 }

@@ -12,7 +12,7 @@ import com.example.takecare.MainActivity
 import com.example.takecare.R
 import com.example.takecare.data.repository.UserRepository
 import kotlinx.android.synthetic.main.activity_register.*
-import java.util.Calendar
+import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -62,10 +62,13 @@ class RegisterActivity : AppCompatActivity() {
         val month = calendar.get(Calendar.MONTH)
         val year = calendar.get(Calendar.YEAR)
 
-        DatePickerDialog(this,
-            DatePickerDialog.OnDateSetListener{ _, mYear, mMonth, mDay  ->
+        val picker = DatePickerDialog(this,
+            DatePickerDialog.OnDateSetListener{_, mYear, mMonth, mDay  ->
                 view.setText("" + mDay + "/" + mMonth.plus(1) + "/" + mYear)
-            }, year, month, day).show()
+            }, year, month, day)
+
+        picker.datePicker.maxDate = Date().time
+        picker.show()
     }
 
     private fun setupViewModel() {
