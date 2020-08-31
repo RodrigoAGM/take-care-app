@@ -19,6 +19,11 @@
     <string name="recover_text">Ingresa el correo de la cuenta que deseas recuperar</string>
     <string name="recover_mail_hint">CORREO ELECTRÓNICO</string>
     <string name="recover_button">ENVIAR</string>
+    <string name="change_password_text">Ingrese su nueva contraseña y el token enviado a su correo para realizar el cambio.</string>
+    <string name="password_hint">CONTRASEÑÁ</string>
+    <string name="new_password_hint">CONFIRMA CONTRASEÑÁ</string>
+    <string name="recover_token_hint">TOKEN</string>
+    <string name="change_password_button">CONFIRMAR</string>
     <!-- Register strings-->
     <string name="register_title">Registro de usuario</string>
     <string name="register_name_text">Nombres:</string>
