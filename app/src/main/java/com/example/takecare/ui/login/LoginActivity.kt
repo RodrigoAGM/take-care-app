@@ -72,6 +72,7 @@ class LoginActivity : AppCompatActivity() {
 
     private val isLoginSuccess = Observer<Boolean> {
         if (it) {
+            PatientUtil.init(PreferenceHelper.userData!!)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
