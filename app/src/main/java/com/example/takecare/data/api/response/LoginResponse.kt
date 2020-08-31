@@ -21,3 +21,4 @@ data class RecoverPasswordResponse(
     val success: Boolean,
     val message:String
 )
+

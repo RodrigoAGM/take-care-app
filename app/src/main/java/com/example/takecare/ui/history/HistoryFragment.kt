@@ -18,6 +18,7 @@ import com.example.takecare.R
 import com.example.takecare.adapter.HistoryAdapter
 import com.example.takecare.mock.historyMock
 import com.example.takecare.model.Patient
+import com.example.takecare.utils.PatientUtil
 import com.example.takecare.utils.PreferenceHelper
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_history.*
@@ -33,8 +34,7 @@ class HistoryFragment : Fragment(){
         val root = inflater.inflate(R.layout.fragment_history, container, false)
         val context = this.requireContext()
 
-        val patient = Gson().fromJson(PreferenceHelper.userData, Patient::class.java)
-        root.text_history_hello.text = root.text_history_hello.text.toString().replace("usuario", patient.username)
+        root.text_history_hello.text = root.text_history_hello.text.toString().replace("usuario", PatientUtil.patient.username)
 
         root.history_reclycler_view.apply {
             adapter = HistoryAdapter(

@@ -11,6 +11,7 @@ import com.example.takecare.MainActivity
 import com.example.takecare.R
 import com.example.takecare.data.repository.LoginRepository
 import com.example.takecare.model.Patient
+import com.example.takecare.utils.PatientUtil
 import com.example.takecare.utils.PreferenceHelper
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_login.*
@@ -21,11 +22,12 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        /*if (PreferenceHelper.loggedIn){
+        if (PreferenceHelper.loggedIn && !PreferenceHelper.userData.isNullOrEmpty()){
+            PatientUtil.init(PreferenceHelper.userData!!)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }*/
+        }
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)

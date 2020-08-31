@@ -22,11 +22,12 @@
             android:src="@drawable/ic_profile"/>
 
         <TextView
+            android:id="@+id/main_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:textColor="@color/toolbarTextColor"
-            android:text="UserName"/>
+            android:text=""/>
 
     </androidx.appcompat.widget.Toolbar>
 
