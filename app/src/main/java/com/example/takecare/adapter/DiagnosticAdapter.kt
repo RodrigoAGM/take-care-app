@@ -8,13 +8,13 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takecare.R
-import com.example.takecare.model.History
+import com.example.takecare.model.Diagnostic
 import kotlinx.android.synthetic.main.item_history.view.*
 import java.text.SimpleDateFormat
 
-class HistoryAdapter(private var histories: ArrayList<History>) : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>(), Filterable {
+class DiagnosticAdapter(private var diagnostics: ArrayList<Diagnostic>) : RecyclerView.Adapter<DiagnosticAdapter.HistoryViewHolder>(), Filterable {
 
-    private val filteredHistories = ArrayList<History>(histories)
+    private val filteredDiagnostics = ArrayList<Diagnostic>(diagnostics)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
         return HistoryViewHolder(
@@ -22,10 +22,10 @@ class HistoryAdapter(private var histories: ArrayList<History>) : RecyclerView.A
         )
     }
 
-    override fun getItemCount(): Int = filteredHistories.size
+    override fun getItemCount(): Int = filteredDiagnostics.size
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
-        val history = filteredHistories[position]
+        val history = filteredDiagnostics[position]
         holder.bind(history)
     }
 
@@ -34,10 +34,10 @@ class HistoryAdapter(private var histories: ArrayList<History>) : RecyclerView.A
         val frequency = view.history_card_content
         val date = view.history_card_date
 
-        fun bind(history: History) {
-            title.text = "NIVEL DE ANSIEDAD: ${history.level.name}"
-            frequency.text = "${history.frequency.heartRate}\nbpm"
-            date.text = "Fecha: ${history.frequency.date}"
+        fun bind(diagnostic: Diagnostic) {
+            title.text = "NIVEL DE ANSIEDAD: ${diagnostic.level.name}"
+            frequency.text = "${diagnostic.frequency.heartRate}\nbpm"
+            date.text = "Fecha: ${diagnostic.frequency.date}"
 
         }
     }
@@ -49,14 +49,14 @@ class HistoryAdapter(private var histories: ArrayList<History>) : RecyclerView.A
     inner class DateFilter: Filter(){
         override fun performFiltering(text: CharSequence?): FilterResults {
 
-            val filteredList = ArrayList<History>()
+            val filteredList = ArrayList<Diagnostic>()
 
             if(text.toString().isEmpty()){
-                filteredList.addAll(histories)
+                filteredList.addAll(diagnostics)
             }else{
-                for(history in histories){
+                for(diagnostic in diagnostics){
                     val formatter = SimpleDateFormat("dd/MM/yyyy")
-                    val historyDate = formatter.parse(history.frequency.date)!!
+                    val diagnosticDate = formatter.parse(diagnostic.frequency.date)!!
 
                     val dates = text.toString().split(";")
                     val start = dates[0]
@@ -64,21 +64,21 @@ class HistoryAdapter(private var histories: ArrayList<History>) : RecyclerView.A
 
                     if(start.isBlank() && !end.isBlank()){
                         val dateEnd = formatter.parse(end)
-                        if(historyDate.before(dateEnd) || historyDate == dateEnd){
-                            filteredList.add(history)
+                        if(diagnosticDate.before(dateEnd) || diagnosticDate == dateEnd){
+                            filteredList.add(diagnostic)
                         }
                     }else if(!start.isBlank() && end.isBlank()){
                         val dateStart = formatter.parse(start)
-                        if(historyDate.after(dateStart) || historyDate == dateStart){
-                            filteredList.add(history)
+                        if(diagnosticDate.after(dateStart) || diagnosticDate == dateStart){
+                            filteredList.add(diagnostic)
                         }
                     }else{
                         val dateStart = formatter.parse(start)
                         val dateEnd = formatter.parse(end)
                         Log.println(Log.ERROR, "Date", dateEnd.toString())
-                        Log.println(Log.ERROR, "Date real", historyDate.toString())
-                        if((historyDate.before(dateEnd) || historyDate == dateEnd) && (historyDate.after(dateStart)|| historyDate == dateStart)){
-                            filteredList.add(history)
+                        Log.println(Log.ERROR, "Date real", diagnosticDate.toString())
+                        if((diagnosticDate.before(dateEnd) || diagnosticDate == dateEnd) && (diagnosticDate.after(dateStart)|| diagnosticDate == dateStart)){
+                            filteredList.add(diagnostic)
                         }
                     }
                 }
@@ -91,8 +91,8 @@ class HistoryAdapter(private var histories: ArrayList<History>) : RecyclerView.A
         }
 
         override fun publishResults(text: CharSequence?, results: FilterResults?) {
-            filteredHistories.clear()
-            filteredHistories.addAll(results!!.values as Collection<History>)
+            filteredDiagnostics.clear()
+            filteredDiagnostics.addAll(results!!.values as Collection<Diagnostic>)
             notifyDataSetChanged()
         }
 
