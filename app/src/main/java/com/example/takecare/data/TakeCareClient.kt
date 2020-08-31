@@ -1,6 +1,5 @@
 package com.example.takecare.data
 
-import android.content.SharedPreferences
 import com.example.takecare.data.api.request.RefreshTokenRequest
 import com.example.takecare.data.service.TakeCareService
 import com.example.takecare.utils.PreferenceHelper

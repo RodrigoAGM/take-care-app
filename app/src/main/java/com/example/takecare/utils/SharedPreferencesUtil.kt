@@ -12,6 +12,7 @@ object PreferenceHelper {
     private val LOGGED_IN = Pair("logged_in", false)
     private val USER_TOKEN = Pair("token", "")
     private val USER_REFRESH_TOKEN = Pair("refresh_token", "")
+    private val USER_DATA = Pair("user_data", "")
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences(NAME, MODE)
@@ -40,5 +41,11 @@ object PreferenceHelper {
         get() = preferences.getString(USER_REFRESH_TOKEN.first, USER_REFRESH_TOKEN.second)
         set(value) = preferences.edit{
             it.putString(USER_REFRESH_TOKEN.first, value)
+        }
+
+    var userData: String?
+        get() = preferences.getString(USER_DATA.first, USER_DATA.second)
+        set(value) = preferences.edit{
+            it.putString(USER_DATA.first, value)
         }
 }

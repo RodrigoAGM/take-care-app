@@ -8,6 +8,7 @@ import com.example.takecare.data.api.OperationResult
 import com.example.takecare.data.api.response.LoginResponse
 import com.example.takecare.data.repository.LoginRepository
 import com.example.takecare.utils.PreferenceHelper
+import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -35,6 +36,11 @@ class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
                     PreferenceHelper.token = "Bearer " + result.data?.token
                     PreferenceHelper.refreshToken = "Bearer " + result.data?.token
                     PreferenceHelper.loggedIn = true
+                    //Save user to Shared Preferences
+                    val user = result.data?.patient
+                    val userJson = Gson().toJson(user)
+                    PreferenceHelper.userData = userJson
+
                     _isLoginSuccess.postValue(true)
                 }
                 is OperationResult.Error -> {

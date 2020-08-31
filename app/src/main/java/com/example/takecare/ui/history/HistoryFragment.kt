@@ -17,26 +17,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.takecare.R
 import com.example.takecare.adapter.HistoryAdapter
 import com.example.takecare.mock.historyMock
+import com.example.takecare.model.Patient
+import com.example.takecare.utils.PreferenceHelper
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_history.view.*
 import java.util.*
 
 class HistoryFragment : Fragment(){
 
-    private lateinit var historyViewModel: HistoryViewModel
     private lateinit var recyclerHistory : RecyclerView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        historyViewModel = ViewModelProviders.of(this).get(HistoryViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_history, container, false)
-
-        val textView: TextView = root.findViewById(R.id.text_history_hello)
-        historyViewModel.text.observe(viewLifecycleOwner, Observer {
-            //textView.text = it
-        })
-
         val context = this.requireContext()
+
+        val patient = Gson().fromJson(PreferenceHelper.userData, Patient::class.java)
+        root.text_history_hello.text = root.text_history_hello.text.toString().replace("usuario", patient.username)
 
         root.history_reclycler_view.apply {
             adapter = HistoryAdapter(
