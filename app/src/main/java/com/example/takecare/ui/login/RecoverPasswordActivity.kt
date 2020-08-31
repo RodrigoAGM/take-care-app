@@ -52,6 +52,7 @@ class RecoverPasswordActivity : AppCompatActivity() {
 
     private val isRequestSuccess = Observer<Boolean> {
         if (it) {
+            Toast.makeText(this, "Token enviado al correo", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ChangePasswordActivity::class.java)
             intent.putExtra("mail", mail)
             startActivity(intent)

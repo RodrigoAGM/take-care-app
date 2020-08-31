@@ -4,15 +4,14 @@ import com.example.takecare.data.TakeCareClient
 import com.example.takecare.data.api.OperationResult
 import com.example.takecare.data.api.request.RegisterRequest
 import com.example.takecare.data.api.response.RegisterResponse
-import com.example.takecare.model.Patient
 
 class UserRepository {
 
     suspend fun register(name: String, last_name: String, mail: String, birthday: String,
-                         password: String): OperationResult<RegisterResponse> {
+                         password: String, username: String): OperationResult<RegisterResponse> {
         try {
             val response = TakeCareClient.build().register(RegisterRequest(
-               name, last_name, mail, birthday, password))
+               name, last_name, mail, birthday, password, username))
 
             response.let {
                 return if (it.isSuccessful && it.body() != null) {
