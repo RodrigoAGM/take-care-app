@@ -15,7 +15,7 @@ interface TakeCareService {
     suspend fun login(@Body loginRequest: LoginRequest): Response<LoginResponse>
 
     @POST("/auth/refresh")
-    fun refreshToken(@Body refreshTokenRequest: RefreshTokenRequest): Response<RefreshTokenResponse>
+    fun refreshToken(@Body refreshTokenRequest: RefreshTokenRequest): retrofit2.Call<RefreshTokenResponse>
 
     @POST("/auth/request/recover")
     suspend fun requestRecoverPassword(@Body requestRecoverPasswordRequest: RequestRecoverPasswordRequest): Response<RecoverPasswordResponse>

@@ -38,7 +38,22 @@ object TakeCareClient {
 class TokenAuthenticator: Authenticator{
 
     override fun authenticate(route: Route?, response: Response): Request? {
-        val updatedToken = getRefreshedToken()
+        val refreshToken = PreferenceHelper.refreshToken
+        var updatedToken = ""
+
+        if(!refreshToken.isNullOrBlank()){
+            val authTokenResponse = TakeCareClient.build().refreshToken(RefreshTokenRequest(refreshToken)).execute().body()!!
+            updatedToken = authTokenResponse.accessToken
+
+            if(!updatedToken.isBlank()){
+                PreferenceHelper.token = "Bearer $updatedToken"
+            }else{
+                return null
+            }
+        }else{
+            return null
+        }
+
         return response.request.newBuilder()
             .header("Authorization", updatedToken)
             .method(response.request.method, response.request.body)
@@ -50,7 +65,7 @@ class TokenAuthenticator: Authenticator{
         var newToken = ""
 
         if(!refreshToken.isNullOrBlank()){
-            val authTokenResponse = TakeCareClient.build().refreshToken(RefreshTokenRequest(refreshToken)).body()!!
+            val authTokenResponse = TakeCareClient.build().refreshToken(RefreshTokenRequest(refreshToken)).execute().body()!!
             newToken = authTokenResponse.accessToken
 
             if(!newToken.isBlank()){

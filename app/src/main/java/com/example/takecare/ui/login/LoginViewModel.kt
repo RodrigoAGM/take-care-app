@@ -34,7 +34,7 @@ class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
             when (result) {
                 is OperationResult.Success -> {
                     PreferenceHelper.token = "Bearer " + result.data?.token
-                    PreferenceHelper.refreshToken = "Bearer " + result.data?.token
+                    PreferenceHelper.refreshToken = "Bearer " + result.data?.refreshToken
                     PreferenceHelper.loggedIn = true
                     //Save user to Shared Preferences
                     val user = result.data?.patient
