@@ -75,8 +75,6 @@ class DiagnosticAdapter(private var diagnostics: ArrayList<Diagnostic>) : Recycl
                     }else{
                         val dateStart = formatter.parse(start)
                         val dateEnd = formatter.parse(end)
-                        Log.println(Log.ERROR, "Date", dateEnd.toString())
-                        Log.println(Log.ERROR, "Date real", diagnosticDate.toString())
                         if((diagnosticDate.before(dateEnd) || diagnosticDate == dateEnd) && (diagnosticDate.after(dateStart)|| diagnosticDate == dateStart)){
                             filteredList.add(diagnostic)
                         }

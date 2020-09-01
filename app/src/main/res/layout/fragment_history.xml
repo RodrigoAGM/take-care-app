@@ -144,6 +144,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text=""
+        android:visibility="invisible"
         android:textStyle="bold"
         android:textColor="@color/redTextColor"/>
 

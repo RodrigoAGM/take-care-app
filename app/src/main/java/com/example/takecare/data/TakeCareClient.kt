@@ -1,5 +1,6 @@
 package com.example.takecare.data
 
+import android.util.Log
 import com.example.takecare.data.api.request.RefreshTokenRequest
 import com.example.takecare.data.service.TakeCareService
 import com.example.takecare.utils.PreferenceHelper
@@ -7,6 +8,8 @@ import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.time.Duration
+import java.util.concurrent.TimeUnit
 
 
 object TakeCareClient {
@@ -19,9 +22,10 @@ object TakeCareClient {
             .addConverterFactory(GsonConverterFactory.create())
 
         val httpClient = OkHttpClient.Builder()
-            .authenticator(TokenAuthenticator())
+            .readTimeout(15, TimeUnit.SECONDS)
             .addInterceptor(TokenHeader())
             .addInterceptor(interceptor())
+            .authenticator(TokenAuthenticator())
 
         val retrofit: Retrofit = builder.client(httpClient.build()).build()
         takeCareService = retrofit.create(TakeCareService::class.java)
@@ -37,25 +41,31 @@ object TakeCareClient {
 
 class TokenAuthenticator: Authenticator{
 
+    private var mCounter = 0;
+
     override fun authenticate(route: Route?, response: Response): Request? {
         val refreshToken = PreferenceHelper.refreshToken
         var updatedToken = ""
+        if(mCounter > 0){
+            return null
+        }else{
+            mCounter += 1
+            if(!refreshToken.isNullOrBlank()){
+                val authTokenResponse = TakeCareClient.build().refreshToken(RefreshTokenRequest(refreshToken)).execute().body()!!
+                updatedToken = authTokenResponse.accessToken
 
-        if(!refreshToken.isNullOrBlank()){
-            val authTokenResponse = TakeCareClient.build().refreshToken(RefreshTokenRequest(refreshToken)).execute().body()!!
-            updatedToken = authTokenResponse.accessToken
-
-            if(!updatedToken.isBlank()){
-                PreferenceHelper.token = "Bearer $updatedToken"
+                if(!updatedToken.isBlank()){
+                    PreferenceHelper.token = "Bearer $updatedToken"
+                }else{
+                    return null
+                }
             }else{
                 return null
             }
-        }else{
-            return null
         }
 
         return response.request.newBuilder()
-            .header("Authorization", updatedToken)
+            .header("Authorization", "Bearer $updatedToken")
             .method(response.request.method, response.request.body)
             .build()
     }

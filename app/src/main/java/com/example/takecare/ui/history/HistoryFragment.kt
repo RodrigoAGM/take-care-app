@@ -125,7 +125,12 @@ class HistoryFragment : Fragment(){
     }
 
     private val onMessageError = Observer<Any> {
-        //login_error_text.text = it.toString()
+        if(!it.toString().isBlank()){
+            progressBar.visibility = View.INVISIBLE
+            recyclerViewDiagnostic.visibility = View.INVISIBLE
+            errorText.visibility = View.VISIBLE
+            errorText.text = it.toString()
+        }
     }
 
     private val diagnosticsData = Observer<List<Diagnostic>> {

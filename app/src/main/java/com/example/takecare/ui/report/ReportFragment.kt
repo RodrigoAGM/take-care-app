@@ -25,11 +25,8 @@ class ReportFragment : Fragment() {
 
     private lateinit var reportViewModel: ReportViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         reportViewModel =
             ViewModelProviders.of(this).get(ReportViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_report, container, false)
