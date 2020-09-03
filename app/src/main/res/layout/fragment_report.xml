@@ -53,8 +53,9 @@
                 android:background="@drawable/rounded_rectangle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true"
+                android:clickable="false"
+                android:focusable="false"
+                android:cursorVisible="false"
                 android:hint="@string/history_date_hint" />
 
             <ImageView
@@ -95,8 +96,9 @@
                 android:background="@drawable/rounded_rectangle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true"
+                android:clickable="false"
+                android:focusable="false"
+                android:cursorVisible="false"
                 android:hint="@string/report_date_hint" />
 
             <ImageView
@@ -116,6 +118,32 @@
             android:layout_height="300dp"
             app:layout_constraintTop_toBottomOf="@id/report_to"
             app:layout_constraintStart_toStartOf="parent"/>
+
+        <ProgressBar
+            android:id="@+id/report_progressBar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:indeterminate="true"
+            android:progress="100"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/report_to" />
+
+        <TextView
+            android:id="@+id/report_error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/report_to"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text=""
+            android:visibility="invisible"
+            android:textStyle="bold"
+            android:textColor="@color/redTextColor"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

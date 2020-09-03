@@ -3,18 +3,28 @@ package com.example.takecare.ui.report
 import android.app.DatePickerDialog
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.takecare.R
+import com.example.takecare.adapter.DiagnosticAdapter
+import com.example.takecare.data.repository.DiagnosticRepository
 import com.example.takecare.mock.FrequencyMock
+import com.example.takecare.model.Diagnostic
 import com.example.takecare.model.Frequency
+import com.example.takecare.ui.history.HistoryViewModel
 import com.jjoe64.graphview.DefaultLabelFormatter
+import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
+import kotlinx.android.synthetic.main.fragment_history.view.*
 import kotlinx.android.synthetic.main.fragment_report.*
 import kotlinx.android.synthetic.main.fragment_report.view.*
 import java.text.SimpleDateFormat
@@ -23,59 +33,62 @@ import kotlin.collections.ArrayList
 
 class ReportFragment : Fragment() {
 
-    private lateinit var reportViewModel: ReportViewModel
+    private lateinit var viewModel: ReportViewModel
+    private lateinit var reportGraph : GraphView
+    private lateinit var progressBar: ProgressBar
+    private lateinit var errorText: TextView
+    private lateinit var dateFrom: EditText
+    private lateinit var dateTo: EditText
+    private lateinit var diagnosticList: ArrayList<Diagnostic>
+    private lateinit var filteredDiagnosticList: ArrayList<Diagnostic>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        reportViewModel =
-            ViewModelProviders.of(this).get(ReportViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_report, container, false)
+        reportGraph = root.report_graph
 
-        val graph = root.report_graph
-        val series = LineGraphSeries<DataPoint>(createDataPoints(FrequencyMock))
+        //View model setup
+        viewModel = ReportViewModel(DiagnosticRepository())
+        setupViewModel()
+        viewModel.getDiagnostics()
 
-        graph.gridLabelRenderer.labelFormatter = LabelFormater()
-        graph.addSeries(series)
+        //Views setup
+        dateFrom = root.report_date_from
+        dateTo = root.report_date_to
+        progressBar = root.report_progressBar
+        errorText = root.report_error_text
 
-        reportViewModel.text.observe(viewLifecycleOwner, Observer {
-        })
+        diagnosticList = ArrayList<Diagnostic>()
+        filteredDiagnosticList = ArrayList<Diagnostic>()
 
         root.report_date_picker_from.setOnClickListener {
-            PickDate(report_date_from)
+            pickDate(report_date_from)
         }
 
         root.report_date_picker_to.setOnClickListener {
-            PickDate(report_date_to)
+            pickDate(report_date_to)
         }
         return root
     }
 
-    private fun createDataPoints(frequencies: List<Frequency>):Array<DataPoint>{
+    private fun createDataPoints(frequencies: ArrayList<Diagnostic>):Array<DataPoint>{
         val dataPointArray = ArrayList<DataPoint>()
+        var num = 0.0
 
-        frequencies.forEach {
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
-            val date = dateFormat.parse(it.date)
-
-            dataPointArray.add(DataPoint(date, it.heartRate.toDouble()))
+        if(frequencies.size == 1){
+            dataPointArray.add(DataPoint(0.0, frequencies[0].frequency.heartRate.toDouble()))
+            dataPointArray.add(DataPoint(0.0, frequencies[0].frequency.heartRate.toDouble()))
+        }else{
+            frequencies.forEach {
+                dataPointArray.add(DataPoint(num, it.frequency.heartRate.toDouble()))
+                num += 1
+            }
         }
 
         return dataPointArray.toTypedArray()
     }
 
-    inner class LabelFormater : DefaultLabelFormatter(){
-        override fun formatLabel(value: Double, isValueX: Boolean): String {
-            val dateFormat = SimpleDateFormat("dd/MM")
-            var res = super.formatLabel(value, isValueX)
-
-            if(isValueX){
-                res = dateFormat.format(Date(value.toLong()))
-            }
-            return res
-        }
-    }
-
-    fun PickDate(view: EditText){
+    private fun pickDate(view: EditText){
 
         val calendar = Calendar.getInstance()
         val day = calendar.get(Calendar.DAY_OF_MONTH)
@@ -85,6 +98,93 @@ class ReportFragment : Fragment() {
         DatePickerDialog(this.requireContext(),
             DatePickerDialog.OnDateSetListener{ _, mYear, mMonth, mDay  ->
                 view.setText("" + mDay + "/" + mMonth.plus(1) + "/" + mYear)
+                filterData()
             }, year, month, day).show()
+    }
+
+    private fun setupViewModel() {
+        viewModel.isLoading.observe(viewLifecycleOwner, isViewLoadingObserver)
+        viewModel.isRequestSuccess.observe(viewLifecycleOwner, isRequestSuccess)
+        viewModel.onMessageError.observe(viewLifecycleOwner, onMessageError)
+        viewModel.diagnosticsData.observe(viewLifecycleOwner, diagnosticsData)
+    }
+
+    private val isViewLoadingObserver = Observer<Boolean> {
+        val progressBarVisibility = if (it) View.VISIBLE else View.GONE
+        val btnVisibility = if (it) View.INVISIBLE else View.VISIBLE
+        progressBar.visibility = progressBarVisibility
+        reportGraph.visibility = btnVisibility
+    }
+
+    private val isRequestSuccess = Observer<Boolean> {
+        if (it) {
+            val series = LineGraphSeries<DataPoint>(createDataPoints(filteredDiagnosticList))
+
+            reportGraph.viewport.isXAxisBoundsManual = true
+            reportGraph.viewport.setMaxX(filteredDiagnosticList.size.toDouble()-1)
+            reportGraph.gridLabelRenderer.horizontalAxisTitle = "Diagnósticos"
+            reportGraph.gridLabelRenderer.isHorizontalLabelsVisible = false
+            reportGraph.addSeries(series)
+            series.isDrawDataPoints = true
+            series.dataPointsRadius = 15f
+        }
+    }
+
+    private val onMessageError = Observer<Any> {
+        if(!it.toString().isBlank()){
+            progressBar.visibility = View.INVISIBLE
+            reportGraph.visibility = View.INVISIBLE
+            errorText.visibility = View.VISIBLE
+            errorText.text = it.toString()
+        }
+    }
+
+    private val diagnosticsData = Observer<List<Diagnostic>> {
+        if(!it.isNullOrEmpty()){
+            diagnosticList.addAll(ArrayList(it))
+            filteredDiagnosticList.addAll(ArrayList(it))
+        }
+    }
+
+    private fun filterData(){
+        val formatter = SimpleDateFormat("dd/MM/yyyy")
+        val newFilteredList = ArrayList<Diagnostic>()
+        val end = dateTo.text.toString()
+        val start = dateFrom.text.toString()
+
+        for(diagnostic in diagnosticList){
+            val diagnosticDate = formatter.parse(diagnostic.date)!!
+
+            if(start.isBlank() && !end.isBlank()){
+                val dateEnd = formatter.parse(end)
+                if(diagnosticDate.before(dateEnd) || diagnosticDate == dateEnd){
+                    newFilteredList.add(diagnostic)
+                }
+            }else if(!start.isBlank() && end.isBlank()){
+                val dateStart = formatter.parse(start)
+                if(diagnosticDate.after(dateStart) || diagnosticDate == dateStart){
+                    newFilteredList.add(diagnostic)
+                }
+            }else{
+                val dateStart = formatter.parse(start)
+                val dateEnd = formatter.parse(end)
+                if((diagnosticDate.before(dateEnd) || diagnosticDate == dateEnd) && (diagnosticDate.after(dateStart)|| diagnosticDate == dateStart)){
+                    newFilteredList.add(diagnostic)
+                }
+            }
+        }
+        filteredDiagnosticList.clear()
+        filteredDiagnosticList.addAll(newFilteredList)
+
+        val series = LineGraphSeries<DataPoint>(createDataPoints(filteredDiagnosticList))
+
+        reportGraph.removeAllSeries()
+        reportGraph.viewport.isXAxisBoundsManual = true
+        reportGraph.viewport.setMaxX(filteredDiagnosticList.size.toDouble()-1)
+        reportGraph.gridLabelRenderer.horizontalAxisTitle = "Diagnósticos"
+        reportGraph.gridLabelRenderer.isHorizontalLabelsVisible = false
+        reportGraph.addSeries(series)
+        series.isDrawDataPoints = true
+        series.dataPointsRadius = 15f
     }
 }

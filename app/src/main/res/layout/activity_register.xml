@@ -176,6 +176,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/defaultTextColor"
+                android:clickable="false"
+                android:focusable="false"
+                android:cursorVisible="false"
                 android:hint="@string/history_date_hint"
                 android:importantForAutofill="no" />
 
