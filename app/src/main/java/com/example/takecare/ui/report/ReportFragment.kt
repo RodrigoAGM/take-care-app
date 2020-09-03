@@ -95,11 +95,14 @@ class ReportFragment : Fragment() {
         val month = calendar.get(Calendar.MONTH)
         val year = calendar.get(Calendar.YEAR)
 
-        DatePickerDialog(this.requireContext(),
+        val picker = DatePickerDialog(this.requireContext(),
             DatePickerDialog.OnDateSetListener{ _, mYear, mMonth, mDay  ->
                 view.setText("" + mDay + "/" + mMonth.plus(1) + "/" + mYear)
                 filterData()
-            }, year, month, day).show()
+            }, year, month, day)
+
+        picker.datePicker.maxDate = Date().time
+        picker.show()
     }
 
     private fun setupViewModel() {

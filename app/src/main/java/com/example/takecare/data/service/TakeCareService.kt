@@ -29,6 +29,6 @@ interface TakeCareService {
     @GET("/diagnostics/get")
     suspend fun getDiagnostics() : Response<GetDiagnosticsResponse>
 
-    @GET("/admin/users/add")
-    suspend fun addUser(@Header("Authorization") token: String)
+    @GET("/users/update/")
+    suspend fun updateUser(@Body updateRequest: UpdateRequest) : Response<UpdateResponse>
 }
