@@ -64,11 +64,11 @@
     <string name="report_date_to">Hasta:</string>
     <!-- Profile fragment strings -->
     <string name="profile_change_image">Cambiar foto</string>
-    <string name="profile_name_text">Nombres:</string>
-    <string name="profile_lastname_text">Apellidos:</string>
-    <string name="profile_email_text">Correo Electrónico:</string>
+    <string name="profile_name_text">Nombres*:</string>
+    <string name="profile_lastname_text">Apellidos*:</string>
+    <string name="profile_email_text">Correo Electrónico*:</string>
     <string name="profile_sex_text">Sexo:</string>
-    <string name="profile_birthday_text">Cumpleaños:</string>
+    <string name="profile_birthday_text">Cumpleaños*:</string>
     <string name="profile_weight_text">Peso:</string>
     <string name="profile_height_text">Talla:</string>
     <string name="profile_weight_med">kg.</string>
@@ -83,4 +83,9 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string-array name="gender">
+        <item>No seleccionado</item>
+        <item>Masculino</item>
+        <item>Femenino</item>
+    </string-array>
 </resources>

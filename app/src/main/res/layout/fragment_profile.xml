@@ -141,7 +141,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
-                android:textColor="@color/profileTextColor"/>
+                android:textColor="@color/profileTextColor"
+                android:entries="@array/gender"/>
         </LinearLayout>
 
         <!-- Cumpleaños -->
@@ -174,6 +175,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/profileTextColor"
+                android:clickable="false"
+                android:focusable="false"
+                android:cursorVisible="false"
                 android:hint="@string/history_date_hint"
                 android:importantForAutofill="no" />
 

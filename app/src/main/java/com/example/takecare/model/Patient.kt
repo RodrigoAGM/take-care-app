@@ -10,7 +10,7 @@ data class Patient(
     @SerializedName("last_name")
     val lastName: String,
     val age: Int?,
-    val gender: String?,
+    val gender: Int?,
     val mail: String,
     @SerializedName("username")
     val username: String,

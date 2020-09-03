@@ -6,7 +6,7 @@ val PatientMock = Patient(
     "Rodrigo",
     "Guadalupe",
     21,
-    "Masculino",
+    0,
     "example@email.com",
     "RodrigoAGM",
     "18/07/1999",
