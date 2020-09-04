@@ -1,30 +1,37 @@
 package com.example.takecare.ui.advice
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.example.takecare.R
+import kotlinx.android.synthetic.main.fragment_advice.*
+import kotlinx.android.synthetic.main.fragment_advice.view.*
 
 
 class AdviceFragment : Fragment() {
 
-    private lateinit var adviceViewModel: AdviceViewModel
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        adviceViewModel =
-            ViewModelProviders.of(this).get(AdviceViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_advice, container, false)
-        adviceViewModel.text.observe(viewLifecycleOwner, Observer {
-        })
+
+        root.advice_btn_breath_methods.setOnClickListener {
+            val intent = Intent(this.requireContext(), BreathActivity::class.java)
+            startActivity(intent)
+        }
+
+        root.advice_btn_relax_sounds.setOnClickListener {
+            val intent = Intent(this.requireContext(), SoundsActivity::class.java)
+            startActivity(intent)
+        }
+
+        root.advice_btn_information.setOnClickListener {
+            val intent = Intent(this.requireContext(), InformationActivity::class.java)
+            startActivity(intent)
+        }
+
         return root
     }
 }
