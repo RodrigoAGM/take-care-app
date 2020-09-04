@@ -6,17 +6,17 @@ import java.io.Serializable
 
 data class Patient(
     @SerializedName("name")
-    val name: String,
+    var name: String,
     @SerializedName("last_name")
-    val lastName: String,
-    val age: Int?,
-    val gender: Int?,
-    val mail: String,
+    var lastName: String,
+    var age: Int?,
+    var gender: Int?,
+    var mail: String,
     @SerializedName("username")
-    val username: String,
-    val birthday: String,
-    val height: Double?,
-    val weight: Double?,
+    var username: String,
+    var birthday: String,
+    var height: Double?,
+    var weight: Double?,
     @SerializedName("image_url")
-    val imageUrl: String?
+    var imageUrl: String?
 ): Serializable

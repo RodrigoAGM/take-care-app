@@ -32,11 +32,11 @@ class UserRepository {
         }
     }
 
-    suspend fun update(name: String, last_name: String, age: Int?, gender: String?, mail: String,
+    suspend fun update(name: String, last_name: String, gender: Int?, mail: String,
                        birthday: String, height: Double?, weight: Double?, image_url: String?): OperationResult<UpdateResponse> {
         try {
             val response = TakeCareClient.build().updateUser(
-                UpdateRequest(name,last_name, age, gender, mail, birthday, height, weight, image_url)
+                UpdateRequest(name,last_name, gender, mail, birthday, height, weight, image_url)
             )
 
             response.let {

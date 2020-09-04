@@ -3,10 +3,7 @@ package com.example.takecare.data.service
 import com.example.takecare.data.api.request.*
 import com.example.takecare.data.api.response.*
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 
 interface TakeCareService {
@@ -29,6 +26,6 @@ interface TakeCareService {
     @GET("/diagnostics/get")
     suspend fun getDiagnostics() : Response<GetDiagnosticsResponse>
 
-    @GET("/users/update/")
+    @PUT("/users/update/")
     suspend fun updateUser(@Body updateRequest: UpdateRequest) : Response<UpdateResponse>
 }

@@ -14,8 +14,7 @@ data class RegisterRequest(
 data class UpdateRequest(
     val name: String,
     val last_name: String,
-    val age: Int?,
-    val gender: String?,
+    val gender: Int?,
     val mail: String,
     val birthday: String,
     val height: Double?,
