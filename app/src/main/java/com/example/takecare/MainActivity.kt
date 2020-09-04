@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         main_user_name.text = PatientUtil.patient.username
 
         toolbar_profile.setOnClickListener {
-            var popupMenu = PopupMenu(this, toolbar_profile)
+            val popupMenu = PopupMenu(this, toolbar_profile)
             popupMenu.menuInflater.inflate(R.menu.toolbar_menu, popupMenu.menu)
 
             popupMenu.show()

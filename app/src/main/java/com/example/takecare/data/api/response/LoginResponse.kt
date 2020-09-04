@@ -22,3 +22,6 @@ data class RecoverPasswordResponse(
     val message:String
 )
 
+data class LogoutResponse(
+    val success: Boolean
+)
