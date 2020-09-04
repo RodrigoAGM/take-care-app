@@ -38,6 +38,7 @@
                 android:id="@+id/tittle1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:textAlignment="textStart"
                 android:textStyle="bold"
                 android:text="@string/title1" />
@@ -46,6 +47,7 @@
                 android:id="@+id/text1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text1"
                 android:layout_marginTop="10dp"/>
 
@@ -63,6 +65,7 @@
                 android:id="@+id/tittle2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:textAlignment="textStart"
                 android:textStyle="bold"
                 android:text="@string/title2"
@@ -72,6 +75,7 @@
                 android:id="@+id/text2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text2"
                 android:layout_marginTop="10dp"/>
 
@@ -79,6 +83,7 @@
                 android:id="@+id/text3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text3"
                 android:layout_marginTop="10dp"/>
 
@@ -96,6 +101,7 @@
                 android:id="@+id/tittle3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:textAlignment="textStart"
                 android:textStyle="bold"
                 android:text="@string/title3"
@@ -112,6 +118,7 @@
                 android:id="@+id/tittle4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:textAlignment="textStart"
                 android:textStyle="bold"
                 android:text="@string/title4"
@@ -121,6 +128,7 @@
                 android:id="@+id/text5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text5"
                 android:layout_marginTop="10dp"/>
 
@@ -128,6 +136,7 @@
                 android:id="@+id/text6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text6"
                 android:layout_marginTop="10dp"/>
 
@@ -135,6 +144,7 @@
                 android:id="@+id/text7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text7"
                 android:layout_marginTop="10dp"/>
 
@@ -142,6 +152,7 @@
                 android:id="@+id/text8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text8"
                 android:layout_marginTop="10dp"/>
 
@@ -159,6 +170,7 @@
                 android:id="@+id/tittle5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:textAlignment="textStart"
                 android:textStyle="bold"
                 android:text="@string/title5"
@@ -168,6 +180,7 @@
                 android:id="@+id/text9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text9"
                 android:layout_marginTop="10dp"/>
 
@@ -175,6 +188,7 @@
                 android:id="@+id/text10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text10"
                 android:layout_marginTop="10dp"/>
 
@@ -182,6 +196,7 @@
                 android:id="@+id/text11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text11"
                 android:layout_marginTop="10dp"/>
 
@@ -199,6 +214,7 @@
                 android:id="@+id/tittle6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:textAlignment="textStart"
                 android:textStyle="bold"
                 android:text="@string/title6"
@@ -208,6 +224,7 @@
                 android:id="@+id/text12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text12"
                 android:layout_marginTop="10dp"/>
 
@@ -215,6 +232,7 @@
                 android:id="@+id/text13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text13"
                 android:layout_marginTop="10dp"/>
 
@@ -232,6 +250,7 @@
                 android:id="@+id/tittle7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:textAlignment="textStart"
                 android:textStyle="bold"
                 android:text="@string/title7"
@@ -239,8 +258,7 @@
 
             <com.codesgood.views.JustifiedTextView
                 android:id="@+id/text14"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/defaultTextColor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text14" />
