@@ -6,6 +6,8 @@
     <string name="title_control">Medir</string>
     <string name="title_report">Reporte</string>
     <string name="title_advice">Consejos</string>
+    <!-- Menu -->
+    <string name="menu_logout">Cerrar sesión</string>
     <!-- Login strings -->
     <string name="login_title">Member Login</string>
     <string name="login_username_hint">NOMBRE DE USUARIO</string>

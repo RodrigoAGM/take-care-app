@@ -1,6 +1,8 @@
 package com.example.takecare
 
 import android.os.Bundle
+import android.view.Menu
+import android.widget.PopupMenu
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -21,6 +23,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         main_user_name.text = PatientUtil.patient.username
+
+        toolbar_profile.setOnClickListener {
+            var popupMenu = PopupMenu(this, toolbar_profile)
+            popupMenu.menuInflater.inflate(R.menu.toolbar_menu, popupMenu.menu)
+
+            popupMenu.show()
+        }
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
