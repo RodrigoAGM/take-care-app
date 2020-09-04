@@ -15,6 +15,12 @@
         <item name="textAllCaps">true</item>
     </style>
 
+    <style name="ToolbarLargeTitleStyle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
     <style name="ToolbarTitleStyleNoCaps" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">25sp</item>
     </style>

@@ -1,9 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".ui.advice.SoundsActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_information"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextAppearance="@style/ToolbarLargeTitleStyle"
+        app:titleTextColor="@color/toolbarTittleColor"
+        app:title="@string/sounds_title"
+        android:background="@color/colorPrimary">
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <com.codesgood.views.JustifiedTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textColor="@color/defaultTextColor"
+                android:text="@string/sounds_text"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:text="@string/sound_1_text"/>
+
+            <ImageButton
+                android:id="@+id/sound_1"
+                android:background="@drawable/rounded_rectangle"
+                android:layout_width="match_parent"
+                android:src="@drawable/ic_play_arrow_black_24dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:text="@string/sound_2_text"/>
+
+            <ImageButton
+                android:id="@+id/sound_2"
+                android:background="@drawable/rounded_rectangle"
+                android:layout_width="match_parent"
+                android:src="@drawable/ic_play_arrow_black_24dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:text="@string/sound_3_text"/>
+
+            <ImageButton
+                android:id="@+id/sound_3"
+                android:background="@drawable/rounded_rectangle"
+                android:layout_width="match_parent"
+                android:src="@drawable/ic_play_arrow_black_24dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:text="@string/sound_4_text"/>
+
+            <ImageButton
+                android:id="@+id/sound_4"
+                android:background="@drawable/rounded_rectangle"
+                android:layout_width="match_parent"
+                android:src="@drawable/ic_play_arrow_black_24dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:text="@string/sound_5_text"/>
+
+            <ImageButton
+                android:id="@+id/sound_5"
+                android:background="@drawable/rounded_rectangle"
+                android:layout_width="match_parent"
+                android:src="@drawable/ic_play_arrow_black_24dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"/>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

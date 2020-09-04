@@ -92,7 +92,7 @@
     </string-array>
 
     <!-- Information -->
-    <string name="screen_title">Cuidado y bienestar</string>
+    <string name="information_title">Cuidado y bienestar</string>
     <string name="title1">¿Qué es la ansiedad?</string>
     <string name="text1">La ansiedad es una reacción adaptativa ante una preocupación futura que puede o no ocurrir asociada con la tensión muscular y el comportamiento de evitación. Es normal presentar ansiedad ante situaciones estresantes para la persona, como exponer o desarrollar evaluación. </string>
     <string name="title2">Descansar adecuadamente</string>
@@ -114,4 +114,19 @@
     <string name="text13">Hacer al menos 30 minutos de ejercicio por día entre tres y cinco veces por semana puede mejorar de forma considerable los síntomas de depresión o de ansiedad. No obstante, las sesiones más breves de actividad física —entre 10 y 15 minutos cada una— puede marcar la diferencia. Mejorar tu estado de ánimo puede llevar menos tiempo de entrenamiento si haces actividades más intensas, como correr o andar en bicicleta.</string>
     <string name="title7">Métodos de distracción</string>
     <string name="text14">Si empleamos distracciones adecuadas podemos interrumpir, aunque sea temporalmente, el pensamiento que nos provoca ansiedad: parada de pensamiento, lectura, ocio, pasear, entre otros. Aplique estrategias de regulación emocional: Las técnicas de respiración, atención plena, el ejercicio físico, entre otras estrategias pueden ser útiles para la desactivación emocional, fisiológica y/o cognitiva.</string>
+
+    <!-- Sounds -->
+    <string name="sounds_title">SONIDOS DE RELAJACIÓN</string>
+    <string name="sounds_text">A continuación encontrarás algunos sonidos de relajación que te ayudarán a relajarte</string>
+    <string name="sound_1_text">Sonidos de la selva y pájaros</string>
+    <string name="sound_2_text">Sonidos del bosque</string>
+    <string name="sound_3_text">Sonidos de mar y playa</string>
+    <string name="sound_4_text">Sonidos del río</string>
+    <string name="sound_5_text">Sonidos de fogata</string>
+    <string name="sounds_1_url">https://firebasestorage.googleapis.com/v0/b/takecare-80b19.appspot.com/o/Audios%2FSonidos%20de%20la%20Selva%20Y%20Pjaros%20-%20Msica%20Relajante.mp3?alt=media&amp;token=63c32fab-fbbe-4393-b2c9-90d159e7f0ad</string>
+    <string name="sounds_2_url">https://firebasestorage.googleapis.com/v0/b/takecare-80b19.appspot.com/o/Audios%2FSonidos%20del%20Bosque%20-%20Relajarse%20-%20Sonidos%20de%20la%20Naturaleza.mp3?alt=media&amp;token=1afc7222-911c-4377-8a39-e18facc120b7</string>
+    <string name="sounds_3_url">https://firebasestorage.googleapis.com/v0/b/takecare-80b19.appspot.com/o/Audios%2FRelajarse%20Sonidos%20del%20Mar%20Playa%20HD%20-%20Relajacin.mp3?alt=media&amp;token=6be705cc-b665-44a9-8bfb-7d589f879692</string>
+    <string name="sounds_4_url">https://firebasestorage.googleapis.com/v0/b/takecare-80b19.appspot.com/o/Audios%2FSONIDOS%20DEL%20RIO%20SONIDOS%20DE%20LA%20NATURALEZA%20RELAJANTES%20PARA%20ESTUDIAR%20TRABAJAR%20DORMIR%20NATURE.mp3?alt=media&amp;token=aee46714-eb26-47ba-a2e6-8ba04f77a42f</string>
+    <string name="sounds_5_url">https://firebasestorage.googleapis.com/v0/b/takecare-80b19.appspot.com/o/Audios%2FSonidos%20de%20fogata%20naturaleza%20del%20bosque%20en%20la%20noche%20Para%20dormir%20profundamente.mp3?alt=media&amp;token=ae9e1722-5e79-4059-be82-4d04400ae783</string>
+
 </resources>

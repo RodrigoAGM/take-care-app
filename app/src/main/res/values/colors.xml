@@ -27,4 +27,7 @@
     <!--Profile fragment colors-->
     <color name="profileTextColor">#000000</color>
     <color name="profileImageTextColor">#5639f3</color>
+
+    <color name="playing_color">#32c259</color>
+    <color name="pause_color">#FFFFFF</color>
 </resources>

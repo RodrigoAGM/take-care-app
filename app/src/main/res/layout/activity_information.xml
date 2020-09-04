@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextAppearance="@style/ToolbarTitleStyle"
         app:titleTextColor="@color/toolbarTittleColor"
-        app:title="@string/screen_title"
+        app:title="@string/information_title"
         android:background="@color/colorPrimary">
 
     </androidx.appcompat.widget.Toolbar>
