@@ -1,9 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".ui.advice.InformationActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_information"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextAppearance="@style/ToolbarTitleStyle"
+        app:titleTextColor="@color/toolbarTittleColor"
+        app:title="@string/screen_title"
+        android:background="@color/colorPrimary">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/tittle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:text="@string/title1" />
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text1"
+                android:layout_marginTop="10dp"/>
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_height="200dp"
+                android:src="@drawable/info_img_1"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/title1"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/tittle2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:text="@string/title2"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text2"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text3"
+                android:layout_marginTop="10dp"/>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_height="200dp"
+                android:src="@drawable/info_img_2"
+                android:contentDescription="@string/title2"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/tittle3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:text="@string/title3"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text4"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/tittle4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:text="@string/title4"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text5"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text6"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text7"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text8"
+                android:layout_marginTop="10dp"/>
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_height="200dp"
+                android:src="@drawable/info_img_3"
+                android:layout_gravity="center"
+                android:contentDescription="@string/title4"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/tittle5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:text="@string/title5"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text9"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text10"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text11"
+                android:layout_marginTop="10dp"/>
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_height="200dp"
+                android:src="@drawable/info_img_5"
+                android:layout_gravity="center"
+                android:contentDescription="@string/title5"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/tittle6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:text="@string/title6"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text12"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text13"
+                android:layout_marginTop="10dp"/>
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_height="200dp"
+                android:src="@drawable/info_img_6"
+                android:layout_gravity="center"
+                android:contentDescription="@string/title6"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/tittle7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:text="@string/title7"
+                android:layout_marginTop="10dp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/text14"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text14" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:src="@drawable/info_img_7"
+                android:contentDescription="@string/title7"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

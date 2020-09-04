@@ -90,4 +90,28 @@
         <item>Masculino</item>
         <item>Femenino</item>
     </string-array>
+
+    <!-- Information -->
+    <string name="screen_title">Cuidado y bienestar</string>
+    <string name="title1">¿Qué es la ansiedad?</string>
+    <string name="text1">La ansiedad es una reacción adaptativa ante una preocupación futura que puede o no ocurrir asociada con la tensión muscular y el comportamiento de evitación. Es normal presentar ansiedad ante situaciones estresantes para la persona, como exponer o desarrollar evaluación. </string>
+    <string name="title2">Descansar adecuadamente</string>
+    <string name="text2">Dormir profundamente es el mejor ansiolítico para la ansiedad. Por ello se recomienda descansar de 7 a 8 horas diarias.</string>
+    <string name="text3">Investigadores de UC Berkeley (Estados Unidos) han descubierto que el sueño profundo ayuda a calmar los estados de ansiedad, ya que ayuda a reorganizar las conexiones cerebrales, por lo que siempre que se duerma profundamente todos los días servirá como un ansiolítico natural.</string>
+    <string name="title3">Alimentación sana</string>
+    <string name="text4">Lo que comemos tiene efectos directos sobre cómo nos sentimos física y emocionalmente</string>
+    <string name="title4">Conviene limitar el consumo de:</string>
+    <string name="text5">Grasas, vísceras y charcutería: El consumo excesivo de grasas puede favorecer la obesidad y elevar los niveles de colesterol, poniendo bajo un esfuerzo innecesario al sistema cardiovascular.</string>
+    <string name="text6">Estimulantes y alcohol: Algunos alimentos o bebidas que acompañan la comida pueden llevar sustancias que estimulan el sistema nervioso y sobre-activan al organismo, lo que puede provocar ansiedad, nerviosismo e insomnio.</string>
+    <string name="text7">Sales y azúcar:  La sal disminuye las reservas de potasio de nuestro cuerpo, un mineral muy importante para el funcionamiento apropiado del sistema nervioso.</string>
+    <string name="text8">Aditivos y otros productos artificiales: Existen muchos aditivos químicos utilizados en el procesamiento de comida industrial. No se conocen bien aún sus efectos sobre el organismo a largo plazo. Son productos que nuestro cuerpo procesa con más dificultad. </string>
+    <string name="title5">Conviene poner en práctica:</string>
+    <string name="text9">Incluye proteínas en el desayuno. Si comes proteínas en el desayuno, puedes sentirte satisfecho durante más tiempo y la glucemia se mantendrá en niveles normales.</string>
+    <string name="text10">Consume hidratos de carbono complejos. Se cree que los hidratos de carbono aumentan el nivel de serotonina en el cerebro, lo cual genera un efecto tranquilizante. Bebe mucha agua. Incluso una deshidratación leve puede afectar el estado de ánimo.</string>
+    <string name="text11">Intenta consumir comidas equilibradas y saludables. La alimentación saludable es importante para la salud física y mental en general. Come muchas frutas y vegetales frescos, pero no en exceso. También ayuda comer regularmente pescados ricos en ácidos grasos omega-3, como el salmón.</string>
+    <string name="title6">Realizar actividad física</string>
+    <string name="text12">Hacer ejercicio y otras formas de actividad física sin duda alivia los síntomas de depresión o ansiedad, y puede hacerte sentir mejor. El ejercicio también puede evitar que regresen la depresión y la ansiedad cuando empiezas a sentirte mejor.</string>
+    <string name="text13">Hacer al menos 30 minutos de ejercicio por día entre tres y cinco veces por semana puede mejorar de forma considerable los síntomas de depresión o de ansiedad. No obstante, las sesiones más breves de actividad física —entre 10 y 15 minutos cada una— puede marcar la diferencia. Mejorar tu estado de ánimo puede llevar menos tiempo de entrenamiento si haces actividades más intensas, como correr o andar en bicicleta.</string>
+    <string name="title7">Métodos de distracción</string>
+    <string name="text14">Si empleamos distracciones adecuadas podemos interrumpir, aunque sea temporalmente, el pensamiento que nos provoca ansiedad: parada de pensamiento, lectura, ocio, pasear, entre otros. Aplique estrategias de regulación emocional: Las técnicas de respiración, atención plena, el ejercicio físico, entre otras estrategias pueden ser útiles para la desactivación emocional, fisiológica y/o cognitiva.</string>
 </resources>
