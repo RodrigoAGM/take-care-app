@@ -2,9 +2,7 @@ package com.example.takecare
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -12,21 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.takecare.data.repository.LoginRepository
-import com.example.takecare.data.repository.UserRepository
-import com.example.takecare.model.Patient
 import com.example.takecare.ui.login.LoginActivity
 import com.example.takecare.utils.PatientUtil
 import com.example.takecare.utils.PreferenceHelper
-import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_history.view.*
-import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,7 +37,8 @@ class MainActivity : AppCompatActivity() {
             Glide.with(this).load(localUser).apply(RequestOptions.circleCropTransform())
                 .into(toolbar_profile)
         }else{
-            TODO("Implement")
+            Glide.with(this).load(PatientUtil.patient.imageUrl).apply(RequestOptions.circleCropTransform())
+                .into(toolbar_profile)
         }
 
         toolbar_profile.setOnClickListener {

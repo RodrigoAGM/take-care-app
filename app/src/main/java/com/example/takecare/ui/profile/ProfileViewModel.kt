@@ -1,5 +1,6 @@
 package com.example.takecare.ui.profile
 
+import androidx.core.net.toUri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,11 +9,15 @@ import com.example.takecare.data.api.OperationResult
 import com.example.takecare.data.api.response.UpdateResponse
 import com.example.takecare.data.repository.UserRepository
 import com.example.takecare.model.Patient
+import com.example.takecare.utils.PatientUtil
 import com.example.takecare.utils.PreferenceHelper
+import com.google.firebase.storage.FirebaseStorage
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
+
 
 class ProfileViewModel(private val repository: UserRepository) : ViewModel() {
 
@@ -28,14 +33,33 @@ class ProfileViewModel(private val repository: UserRepository) : ViewModel() {
     fun update(name: String, last_name: String, gender: Int?, mail: String,
               birthday: String, height: Double?, weight: Double?, image_url: String?) {
         _isLoading.postValue(true)
+
         viewModelScope.launch {
+            var firebaseImage = ""
+
+            if(!image_url.isNullOrBlank()){
+                val storage = FirebaseStorage.getInstance()
+                val reference = storage.reference
+
+                val imageRef = reference.child("profile/" + PatientUtil.patient.username)
+                imageRef.putFile(image_url.toUri()).addOnSuccessListener {
+
+                    imageRef.downloadUrl.addOnSuccessListener {
+                        firebaseImage = it.toString()
+                    }
+
+                }.addOnFailureListener{
+                    _isRequestSuccess.postValue(false)
+                    _onMessageError.postValue("Error al subir imagen.")
+                }
+            }
+
             val result: OperationResult<UpdateResponse> = withContext(Dispatchers.IO) {
-                repository.update(name, last_name, gender, mail, birthday, height, weight, image_url)
+                repository.update(name, last_name, gender, mail, birthday, height, weight, firebaseImage)
             }
             _isLoading.postValue(false)
             when (result) {
                 is OperationResult.Success -> {
-
                     //Save user to Shared Preferences
                     val user = Gson().fromJson(PreferenceHelper.userData, Patient::class.java)
                     user.name = name

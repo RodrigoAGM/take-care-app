@@ -21,6 +21,7 @@ import com.example.takecare.utils.PatientUtil
 import com.example.takecare.utils.PreferenceHelper
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import java.io.File
@@ -32,6 +33,8 @@ class ProfileFragment : Fragment(){
 
     private lateinit var profileViewModel: ProfileViewModel
     private lateinit var profileBtn: Button
+    private lateinit var profileImageView: ImageView
+    private lateinit var toolbarImage: ImageView
     private lateinit var profileProgressBar: ProgressBar
     private lateinit var errorText: TextView
 
@@ -53,6 +56,8 @@ class ProfileFragment : Fragment(){
         profileBtn = root.profile_btn
         profileProgressBar = root.profile_progressBar
         errorText = root.profile_error_text
+        profileImageView = root.profile_image
+        toolbarImage = requireActivity().toolbar_profile!!
 
         root.profile_name.setText(if (user.name.isBlank()) "" else user.name)
         root.profile_lastname.setText(if (user.lastName.isBlank()) "" else user.lastName)
@@ -65,9 +70,10 @@ class ProfileFragment : Fragment(){
         if(user.imageUrl.isNullOrBlank()){
             val localUser = resources.getIdentifier("ic_profile", "drawable", this.requireContext().packageName)
             Glide.with(this.requireContext()).load(localUser).apply(RequestOptions.circleCropTransform())
-                .into(root.profile_image)
+                .into(profileImageView)
         }else{
-            TODO("Connect")
+            Glide.with(this.requireContext()).load(user.imageUrl).apply(RequestOptions.circleCropTransform())
+                .into(profileImageView)
         }
 
         profileBtn.setOnClickListener {
@@ -82,7 +88,7 @@ class ProfileFragment : Fragment(){
             if(name.isBlank() || lastName.isBlank() || mail.isBlank() || birthday.isBlank()){
                 Toast.makeText(this.requireContext(), "Debes llenar todos los campos obligatorios (*)", Toast.LENGTH_SHORT).show()
             }else{
-                profileViewModel.update(name, lastName, gender, mail, birthday, height, weight, "")
+                profileViewModel.update(name, lastName, gender, mail, birthday, height, weight, imageUri.toString())
             }
         }
 
@@ -137,6 +143,9 @@ class ProfileFragment : Fragment(){
         if (it) {
             PatientUtil.init(PreferenceHelper.userData!!)
             Toast.makeText(this.requireContext(), "Datos actualizados !", Toast.LENGTH_SHORT).show()
+
+            Glide.with(this).load(PatientUtil.patient.imageUrl).apply(RequestOptions.circleCropTransform())
+                .into(toolbarImage)
         }
     }
 
@@ -175,7 +184,7 @@ class ProfileFragment : Fragment(){
             if(data?.data != null){
                 imageUri = data.data
                 Glide.with(this).load(data.data).apply(RequestOptions.circleCropTransform())
-                    .into(profile_image)
+                    .into(profileImageView)
             }else{
                 Toast.makeText(this.requireContext(), "Error al cargar la imagen", Toast.LENGTH_SHORT).show()
             }
