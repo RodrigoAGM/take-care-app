@@ -283,7 +283,7 @@
             android:gravity="center"
             android:layout_marginTop="20dp"
             android:textColor="@color/defaultTextColorWhite"
-            android:text="@string/profile_btn_mod"
+            android:text="@string/register_btn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/register_terms_combo"/>

@@ -41,7 +41,6 @@ class HistoryFragment : Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val root = inflater.inflate(R.layout.fragment_history, container, false)
-        val context = this.requireContext()
 
         //View model setup
         viewModel = HistoryViewModel(DiagnosticRepository())
@@ -68,6 +67,12 @@ class HistoryFragment : Fragment(){
 
         root.history_date_picker_to.setOnClickListener {
             pickDate(history_date_to)
+        }
+
+        root.clear_filter_btn.setOnClickListener {
+            dateFrom.setText("")
+            dateTo.setText("")
+            recyclerDiagnosticAdapter.filter.filter("")
         }
 
         return root

@@ -111,6 +111,7 @@
                 android:id="@+id/text4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
                 android:text="@string/text4"
                 android:layout_marginTop="10dp"/>
 
