@@ -16,7 +16,6 @@ import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.*
 
 
 class ProfileViewModel(private val repository: UserRepository) : ViewModel() {
@@ -45,36 +44,35 @@ class ProfileViewModel(private val repository: UserRepository) : ViewModel() {
 
                 imageRef.downloadUrl.addOnSuccessListener {
                     firebaseImage = it.toString()
-                }
 
-                viewModelScope.launch {
-                    val result: OperationResult<UpdateResponse> = withContext(Dispatchers.IO) {
-                        repository.update(name, last_name, gender, mail, birthday, height, weight, firebaseImage)
-                    }
-                    _isLoading.postValue(false)
-                    when (result) {
-                        is OperationResult.Success -> {
-                            //Save user to Shared Preferences
-                            val user = Gson().fromJson(PreferenceHelper.userData, Patient::class.java)
-                            user.name = name
-                            user.lastName = last_name
-                            user.birthday = birthday
-                            user.mail = mail
-                            user.gender = gender
-                            user.height = height
-                            user.weight = weight
-                            user.imageUrl = firebaseImage
-                            PreferenceHelper.userData = Gson().toJson(user)
-
-                            _isRequestSuccess.postValue(true)
+                    viewModelScope.launch {
+                        val result: OperationResult<UpdateResponse> = withContext(Dispatchers.IO) {
+                            repository.update(name, last_name, gender, mail, birthday, height, weight, firebaseImage)
                         }
-                        is OperationResult.Error -> {
-                            _isRequestSuccess.postValue(false)
-                            _onMessageError.postValue(result.exception?.message)
+                        _isLoading.postValue(false)
+                        when (result) {
+                            is OperationResult.Success -> {
+                                //Save user to Shared Preferences
+                                val user = Gson().fromJson(PreferenceHelper.userData, Patient::class.java)
+                                user.name = name
+                                user.lastName = last_name
+                                user.birthday = birthday
+                                user.mail = mail
+                                user.gender = gender
+                                user.height = height
+                                user.weight = weight
+                                user.imageUrl = firebaseImage
+                                PreferenceHelper.userData = Gson().toJson(user)
+
+                                _isRequestSuccess.postValue(true)
+                            }
+                            is OperationResult.Error -> {
+                                _isRequestSuccess.postValue(false)
+                                _onMessageError.postValue(result.exception?.message)
+                            }
                         }
                     }
                 }
-
             }.addOnFailureListener{
                 _isRequestSuccess.postValue(false)
                 _onMessageError.postValue("Error al subir imagen.")
