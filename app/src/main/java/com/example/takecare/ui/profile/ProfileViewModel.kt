@@ -34,51 +34,53 @@ class ProfileViewModel(private val repository: UserRepository) : ViewModel() {
               birthday: String, height: Double?, weight: Double?, image_url: String?) {
         _isLoading.postValue(true)
 
-        viewModelScope.launch {
-            var firebaseImage = ""
+        var firebaseImage = ""
 
-            if(!image_url.isNullOrBlank()){
-                val storage = FirebaseStorage.getInstance()
-                val reference = storage.reference
+        if(!image_url.isNullOrBlank()){
+            val storage = FirebaseStorage.getInstance()
+            val reference = storage.reference
 
-                val imageRef = reference.child("profile/" + PatientUtil.patient.username)
-                imageRef.putFile(image_url.toUri()).addOnSuccessListener {
+            val imageRef = reference.child("profile/" + PatientUtil.patient.username)
+            imageRef.putFile(image_url.toUri()).addOnSuccessListener {
 
-                    imageRef.downloadUrl.addOnSuccessListener {
-                        firebaseImage = it.toString()
+                imageRef.downloadUrl.addOnSuccessListener {
+                    firebaseImage = it.toString()
+                }
+
+                viewModelScope.launch {
+                    val result: OperationResult<UpdateResponse> = withContext(Dispatchers.IO) {
+                        repository.update(name, last_name, gender, mail, birthday, height, weight, firebaseImage)
                     }
+                    _isLoading.postValue(false)
+                    when (result) {
+                        is OperationResult.Success -> {
+                            //Save user to Shared Preferences
+                            val user = Gson().fromJson(PreferenceHelper.userData, Patient::class.java)
+                            user.name = name
+                            user.lastName = last_name
+                            user.birthday = birthday
+                            user.mail = mail
+                            user.gender = gender
+                            user.height = height
+                            user.weight = weight
+                            user.imageUrl = firebaseImage
+                            PreferenceHelper.userData = Gson().toJson(user)
 
-                }.addOnFailureListener{
-                    _isRequestSuccess.postValue(false)
-                    _onMessageError.postValue("Error al subir imagen.")
+                            _isRequestSuccess.postValue(true)
+                        }
+                        is OperationResult.Error -> {
+                            _isRequestSuccess.postValue(false)
+                            _onMessageError.postValue(result.exception?.message)
+                        }
+                    }
                 }
-            }
 
-            val result: OperationResult<UpdateResponse> = withContext(Dispatchers.IO) {
-                repository.update(name, last_name, gender, mail, birthday, height, weight, firebaseImage)
-            }
-            _isLoading.postValue(false)
-            when (result) {
-                is OperationResult.Success -> {
-                    //Save user to Shared Preferences
-                    val user = Gson().fromJson(PreferenceHelper.userData, Patient::class.java)
-                    user.name = name
-                    user.lastName = last_name
-                    user.birthday = birthday
-                    user.mail = mail
-                    user.gender = gender
-                    user.height = height
-                    user.weight = weight
-                    user.imageUrl = image_url
-                    PreferenceHelper.userData = Gson().toJson(user)
-
-                    _isRequestSuccess.postValue(true)
-                }
-                is OperationResult.Error -> {
-                    _isRequestSuccess.postValue(false)
-                    _onMessageError.postValue(result.exception?.message)
-                }
+            }.addOnFailureListener{
+                _isRequestSuccess.postValue(false)
+                _onMessageError.postValue("Error al subir imagen.")
             }
         }
+
+
     }
 }

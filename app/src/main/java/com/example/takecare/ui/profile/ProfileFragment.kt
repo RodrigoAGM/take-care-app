@@ -146,7 +146,7 @@ class ProfileFragment : Fragment(){
             PatientUtil.init(PreferenceHelper.userData!!)
             Toast.makeText(this.requireContext(), "Datos actualizados !", Toast.LENGTH_SHORT).show()
 
-            Glide.with(this).load(PatientUtil.patient.imageUrl).apply(RequestOptions.circleCropTransform())
+            Glide.with(this.requireContext()).load(PatientUtil.patient.imageUrl).apply(RequestOptions.circleCropTransform())
                 .into(toolbarImage)
         }
     }
