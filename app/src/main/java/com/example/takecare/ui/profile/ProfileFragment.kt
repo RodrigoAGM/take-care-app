@@ -67,12 +67,14 @@ class ProfileFragment : Fragment(){
         root.profile_weight.setText(if(user.weight == null) "" else user.weight.toString())
         root.profile_sex.setSelection(if(user.gender == null) 0 else user.gender!! + 1)
 
+        val localUser = resources.getIdentifier("ic_profile", "drawable", this.requireContext().packageName)
+
         if(user.imageUrl.isNullOrBlank()){
-            val localUser = resources.getIdentifier("ic_profile", "drawable", this.requireContext().packageName)
             Glide.with(this.requireContext()).load(localUser).apply(RequestOptions.circleCropTransform())
                 .into(profileImageView)
         }else{
-            Glide.with(this.requireContext()).load(user.imageUrl).apply(RequestOptions.circleCropTransform())
+            Glide.with(this.requireContext()).load(user.imageUrl).error(localUser)
+                .apply(RequestOptions.circleCropTransform())
                 .into(profileImageView)
         }
 

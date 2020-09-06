@@ -31,13 +31,15 @@ class MainActivity : AppCompatActivity() {
         setupViewModel()
 
         main_user_name.text = PatientUtil.patient.username
+        val localUser = resources.getIdentifier("ic_profile", "drawable", this.packageName)
 
         if(PatientUtil.patient.imageUrl.isNullOrBlank()){
-            val localUser = resources.getIdentifier("ic_profile", "drawable", this.packageName)
+
             Glide.with(this).load(localUser).apply(RequestOptions.circleCropTransform())
                 .into(toolbar_profile)
         }else{
-            Glide.with(this).load(PatientUtil.patient.imageUrl).apply(RequestOptions.circleCropTransform())
+            Glide.with(this).load(PatientUtil.patient.imageUrl).error(localUser)
+                .apply(RequestOptions.circleCropTransform())
                 .into(toolbar_profile)
         }
 
