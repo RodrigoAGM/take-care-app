@@ -146,7 +146,9 @@ class ProfileFragment : Fragment(){
             PatientUtil.init(PreferenceHelper.userData!!)
             Toast.makeText(this.requireContext(), "Datos actualizados !", Toast.LENGTH_SHORT).show()
 
-            Glide.with(this.requireContext()).load(PatientUtil.patient.imageUrl).apply(RequestOptions.circleCropTransform())
+            val localUser = resources.getIdentifier("ic_profile", "drawable", this.requireContext().packageName)
+            Glide.with(this.requireContext()).load(PatientUtil.patient.imageUrl).error(localUser)
+                .apply(RequestOptions.circleCropTransform())
                 .into(toolbarImage)
         }
     }

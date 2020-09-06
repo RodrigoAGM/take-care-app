@@ -44,41 +44,49 @@ class ProfileViewModel(private val repository: UserRepository) : ViewModel() {
 
                 imageRef.downloadUrl.addOnSuccessListener {
                     firebaseImage = it.toString()
+                    updateScope(name, last_name, gender, mail, birthday, height, weight, firebaseImage)
 
-                    viewModelScope.launch {
-                        val result: OperationResult<UpdateResponse> = withContext(Dispatchers.IO) {
-                            repository.update(name, last_name, gender, mail, birthday, height, weight, firebaseImage)
-                        }
-                        _isLoading.postValue(false)
-                        when (result) {
-                            is OperationResult.Success -> {
-                                //Save user to Shared Preferences
-                                val user = Gson().fromJson(PreferenceHelper.userData, Patient::class.java)
-                                user.name = name
-                                user.lastName = last_name
-                                user.birthday = birthday
-                                user.mail = mail
-                                user.gender = gender
-                                user.height = height
-                                user.weight = weight
-                                user.imageUrl = firebaseImage
-                                PreferenceHelper.userData = Gson().toJson(user)
-
-                                _isRequestSuccess.postValue(true)
-                            }
-                            is OperationResult.Error -> {
-                                _isRequestSuccess.postValue(false)
-                                _onMessageError.postValue(result.exception?.message)
-                            }
-                        }
-                    }
+                }.addOnFailureListener{
+                    _isRequestSuccess.postValue(false)
+                    _onMessageError.postValue("Error al subir imagen.")
                 }
             }.addOnFailureListener{
                 _isRequestSuccess.postValue(false)
                 _onMessageError.postValue("Error al subir imagen.")
             }
+        }else{
+            updateScope(name, last_name, gender, mail, birthday, height, weight, PatientUtil.patient.imageUrl)
         }
+    }
 
+    fun updateScope(name: String, last_name: String, gender: Int?, mail: String,
+                    birthday: String, height: Double?, weight: Double?, image_url: String?){
+        viewModelScope.launch {
+            val result: OperationResult<UpdateResponse> = withContext(Dispatchers.IO) {
+                repository.update(name, last_name, gender, mail, birthday, height, weight, image_url)
+            }
+            _isLoading.postValue(false)
+            when (result) {
+                is OperationResult.Success -> {
+                    //Save user to Shared Preferences
+                    val user = Gson().fromJson(PreferenceHelper.userData, Patient::class.java)
+                    user.name = name
+                    user.lastName = last_name
+                    user.birthday = birthday
+                    user.mail = mail
+                    user.gender = gender
+                    user.height = height
+                    user.weight = weight
+                    user.imageUrl = image_url
+                    PreferenceHelper.userData = Gson().toJson(user)
 
+                    _isRequestSuccess.postValue(true)
+                }
+                is OperationResult.Error -> {
+                    _isRequestSuccess.postValue(false)
+                    _onMessageError.postValue(result.exception?.message)
+                }
+            }
+        }
     }
 }
