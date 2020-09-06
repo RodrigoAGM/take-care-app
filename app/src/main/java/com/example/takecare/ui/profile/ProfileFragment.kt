@@ -1,6 +1,11 @@
 package com.example.takecare.ui.profile
 
+import android.Manifest
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,13 +24,17 @@ import kotlinx.android.synthetic.main.fragment_profile.view.*
 import java.util.Calendar
 import java.util.Date
 
-
 class ProfileFragment : Fragment(){
 
     private lateinit var profileViewModel: ProfileViewModel
     private lateinit var profileBtn: Button
     private lateinit var profileProgressBar: ProgressBar
     private lateinit var errorText: TextView
+
+    companion object{
+        private var IMAGE_PICK_CODE = 1000
+        private var PERMISSION_CODE = 1001
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -61,6 +70,17 @@ class ProfileFragment : Fragment(){
                 Toast.makeText(this.requireContext(), "Debes llenar todos los campos obligatorios (*)", Toast.LENGTH_SHORT).show()
             }else{
                 profileViewModel.update(name, lastName, gender, mail, birthday, height, weight, "")
+            }
+        }
+
+        root.profile_change_image.setOnClickListener {
+            if(this.requireContext().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
+
+                val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+                requestPermissions(permissions, PERMISSION_CODE)
+
+            }else{
+                pickImageFromGallery()
             }
         }
 
@@ -109,5 +129,37 @@ class ProfileFragment : Fragment(){
 
     private val onMessageError = Observer<Any> {
         errorText.text = it.toString()
+    }
+
+    private fun pickImageFromGallery(){
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_PICK_CODE)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when(requestCode){
+            PERMISSION_CODE -> {
+                if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    pickImageFromGallery()
+                }
+                else{
+                    Toast.makeText(this.requireContext(), "Permiso denegado.", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == IMAGE_PICK_CODE && resultCode == Activity.RESULT_OK){
+            Toast.makeText(this.requireContext(), "Imagen correctamente elegida", Toast.LENGTH_SHORT).show()
+        }
     }
 }
