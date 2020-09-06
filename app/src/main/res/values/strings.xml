@@ -135,6 +135,7 @@
     <string name="breath_text">El siguiente método de respiración ayuda a disminuir la ansiedad</string>
     <string name="breath_title">MÉTODO DE RESPIRACIÓN</string>
     <string name="breath_circle_text">EMPEZAR</string>
+    <string name="breath_circle_text_breathing">RESPIRA</string>
     <string name="breath_circle_counter">00:00</string>
 
 </resources>

@@ -21,9 +21,12 @@ class BreathActivity : AppCompatActivity() {
                 chronometer.base = SystemClock.elapsedRealtime()
                 chronometer.start()
                 breathing = true
+                breath_inner_circle_text.text = getString(R.string.breath_circle_text_breathing)
             }else{
+                chronometer.stop()
                 chronometer.base = SystemClock.elapsedRealtime()
                 breathing = false
+                breath_inner_circle_text.text = getString(R.string.breath_circle_text)
             }
         }
     }
