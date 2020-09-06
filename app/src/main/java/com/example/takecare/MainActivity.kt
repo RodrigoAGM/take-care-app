@@ -14,6 +14,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.takecare.data.repository.LoginRepository
 import com.example.takecare.data.repository.UserRepository
 import com.example.takecare.model.Patient
@@ -24,6 +26,7 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_history.view.*
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +40,14 @@ class MainActivity : AppCompatActivity() {
         setupViewModel()
 
         main_user_name.text = PatientUtil.patient.username
+
+        if(PatientUtil.patient.imageUrl.isNullOrBlank()){
+            val localUser = resources.getIdentifier("ic_profile", "drawable", this.packageName)
+            Glide.with(this).load(localUser).apply(RequestOptions.circleCropTransform())
+                .into(toolbar_profile)
+        }else{
+            TODO("Implement")
+        }
 
         toolbar_profile.setOnClickListener {
             val popupMenu = PopupMenu(this, toolbar_profile)

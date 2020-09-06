@@ -5,7 +5,7 @@ import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,14 +13,18 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.takecare.R
 import com.example.takecare.data.repository.UserRepository
-import com.example.takecare.model.Patient
 import com.example.takecare.utils.PatientUtil
 import com.example.takecare.utils.PreferenceHelper
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
+import java.io.File
+import java.net.URI
 import java.util.Calendar
 import java.util.Date
 
@@ -34,13 +38,14 @@ class ProfileFragment : Fragment(){
     companion object{
         private var IMAGE_PICK_CODE = 1000
         private var PERMISSION_CODE = 1001
+        private var imageUri = Uri.parse("")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
 
-        val user = Gson().fromJson(PreferenceHelper.userData, Patient::class.java)
+        val user = PatientUtil.patient
 
         profileViewModel = ProfileViewModel(UserRepository())
         setupViewModel()
@@ -56,6 +61,14 @@ class ProfileFragment : Fragment(){
         root.profile_height.setText(if(user.height == null) "" else user.height.toString())
         root.profile_weight.setText(if(user.weight == null) "" else user.weight.toString())
         root.profile_sex.setSelection(if(user.gender == null) 0 else user.gender!! + 1)
+
+        if(user.imageUrl.isNullOrBlank()){
+            val localUser = resources.getIdentifier("ic_profile", "drawable", this.requireContext().packageName)
+            Glide.with(this.requireContext()).load(localUser).apply(RequestOptions.circleCropTransform())
+                .into(root.profile_image)
+        }else{
+            TODO("Connect")
+        }
 
         profileBtn.setOnClickListener {
             val name = root.profile_name.text.toString()
@@ -159,7 +172,14 @@ class ProfileFragment : Fragment(){
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == IMAGE_PICK_CODE && resultCode == Activity.RESULT_OK){
-            Toast.makeText(this.requireContext(), "Imagen correctamente elegida", Toast.LENGTH_SHORT).show()
+            if(data?.data != null){
+                imageUri = data.data
+                Glide.with(this).load(data.data).apply(RequestOptions.circleCropTransform())
+                    .into(profile_image)
+            }else{
+                Toast.makeText(this.requireContext(), "Error al cargar la imagen", Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
 }
