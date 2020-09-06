@@ -131,4 +131,10 @@
     <string name="sounds_4_url">https://firebasestorage.googleapis.com/v0/b/takecare-80b19.appspot.com/o/Audios%2FSONIDOS%20DEL%20RIO%20SONIDOS%20DE%20LA%20NATURALEZA%20RELAJANTES%20PARA%20ESTUDIAR%20TRABAJAR%20DORMIR%20NATURE.mp3?alt=media&amp;token=aee46714-eb26-47ba-a2e6-8ba04f77a42f</string>
     <string name="sounds_5_url">https://firebasestorage.googleapis.com/v0/b/takecare-80b19.appspot.com/o/Audios%2FSonidos%20de%20fogata%20naturaleza%20del%20bosque%20en%20la%20noche%20Para%20dormir%20profundamente.mp3?alt=media&amp;token=ae9e1722-5e79-4059-be82-4d04400ae783</string>
 
+    <!-- Breath -->
+    <string name="breath_text">El siguiente método de respiración ayuda a disminuir la ansiedad</string>
+    <string name="breath_title">MÉTODO DE RESPIRACIÓN</string>
+    <string name="breath_circle_text">EMPEZAR</string>
+    <string name="breath_circle_counter">00:00</string>
+
 </resources>

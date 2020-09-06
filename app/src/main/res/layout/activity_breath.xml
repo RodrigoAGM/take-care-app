@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.advice.BreathActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_information"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextAppearance="@style/ToolbarLargeTitleStyle"
+        app:titleTextColor="@color/toolbarTittleColor"
+        app:title="@string/breath_title"
+        android:background="@color/colorPrimary">
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_information"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/breath_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="18sp"
+            android:textColor="@color/defaultTextColor"
+            android:text="@string/breath_text"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/breath_circle"
+            android:layout_marginTop="50sp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:background="@drawable/circle_empty"
+            app:layout_constraintTop_toBottomOf="@id/breath_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="vertical">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/breath_inner_circle"
+            android:layout_marginTop="50sp"
+            android:layout_width="165dp"
+            android:layout_height="165dp"
+            android:background="@drawable/circle"
+            app:layout_constraintTop_toBottomOf="@id/breath_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/breath_inner_circle_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/breath_inner_circle_counter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                android:textColor="@color/defaultTextColor"
+                android:text="@string/breath_circle_text"/>
+
+            <Chronometer
+                android:id="@+id/breath_inner_circle_counter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="0dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="@color/defaultTextColor"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/breath_inner_circle"
+            android:id="@+id/control_results1"
+            android:layout_marginBottom="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/circle"
+            android:orientation="vertical" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
