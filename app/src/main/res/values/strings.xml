@@ -22,8 +22,8 @@
     <string name="recover_mail_hint">CORREO ELECTRÓNICO</string>
     <string name="recover_button">ENVIAR</string>
     <string name="change_password_text">Ingrese su nueva contraseña y el token enviado a su correo para realizar el cambio.</string>
-    <string name="password_hint">CONTRASEÑÁ</string>
-    <string name="new_password_hint">CONFIRMA CONTRASEÑÁ</string>
+    <string name="password_hint">CONTRASEÑA</string>
+    <string name="new_password_hint">CONFIRMA CONTRASEÑA</string>
     <string name="recover_token_hint">TOKEN</string>
     <string name="change_password_button">CONFIRMAR</string>
     <!-- Register strings-->
