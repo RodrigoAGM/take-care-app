@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 
 
 object TakeCareClient {
-    private const val BASE_URL = "https://takecareapi.herokuapp.com"
+    private const val BASE_URL = "https://takecare-rest-api.herokuapp.com/"
     private lateinit var takeCareService: TakeCareService
 
     fun build(): TakeCareService {

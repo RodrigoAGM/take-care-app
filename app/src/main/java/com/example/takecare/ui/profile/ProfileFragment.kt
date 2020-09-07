@@ -60,9 +60,9 @@ class ProfileFragment : Fragment(){
         toolbarImage = requireActivity().toolbar_profile!!
 
         root.profile_name.setText(if (user.name.isBlank()) "" else user.name)
-        root.profile_lastname.setText(if (user.lastName.isBlank()) "" else user.lastName)
-        root.profile_birthday.setText(if (user.birthday.isBlank()) "" else user.birthday)
-        root.profile_email.setText(if (user.mail.isBlank()) "" else user.mail)
+        root.profile_lastname.setText(if (user.lastName.isNullOrBlank()) "" else user.lastName)
+        root.profile_birthday.setText(if (user.birthday.isNullOrBlank()) "" else user.birthday)
+        root.profile_email.setText(if (user.mail.isNullOrBlank()) "" else user.mail)
         root.profile_height.setText(if(user.height == null) "" else user.height.toString())
         root.profile_weight.setText(if(user.weight == null) "" else user.weight.toString())
         root.profile_sex.setSelection(if(user.gender == null) 0 else user.gender!! + 1)
