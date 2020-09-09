@@ -36,11 +36,11 @@ class ChangePasswordActivity : AppCompatActivity() {
 
             if(password.isBlank() || confirmPassword.isBlank() || token.isBlank()){
                 Toast.makeText(this, "Las contraseñas o el token no pueden ser vacíos", Toast.LENGTH_SHORT).show()
-            }else if (patternLength.matcher(password).matches()){
+            }else if (!patternLength.matcher(password).matches()){
                 Toast.makeText(this, "Las contraseña debe ser mayor de 6 dígitos", Toast.LENGTH_SHORT).show()
-            }else if (patternCapital.matcher(password).matches()){
+            }else if (!patternCapital.matcher(password).matches()){
                 Toast.makeText(this, "Las contraseña debe contener al menos una mayúscula", Toast.LENGTH_SHORT).show()
-            }else if (patternNumber.matcher(password).matches()){
+            }else if (!patternNumber.matcher(password).matches()){
                 Toast.makeText(this, "Las contraseña debe contener al menos un número", Toast.LENGTH_SHORT).show()
             }else if(password != confirmPassword){
                 Toast.makeText(this, "Las contraseñas no son iguales.", Toast.LENGTH_SHORT).show()
