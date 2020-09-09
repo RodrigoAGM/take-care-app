@@ -10,6 +10,7 @@ import com.example.takecare.R
 import com.example.takecare.data.repository.RecoverPasswordRepository
 import kotlinx.android.synthetic.main.activity_change_password.*
 import kotlinx.android.synthetic.main.activity_recover_password.*
+import java.util.regex.Pattern
 
 class ChangePasswordActivity : AppCompatActivity() {
 
@@ -29,8 +30,18 @@ class ChangePasswordActivity : AppCompatActivity() {
             val confirmPassword = change_confirm_new_password.text.trim().toString()
             val token = recovery_token.text.trim().toString()
 
+            val patternLength = Pattern.compile("^(?=\\S+$).{6,}$")
+            val patternCapital = Pattern.compile( "^(?=.*[A-Z])(?=\\S+$).{6,}$")
+            val patternNumber = Pattern.compile("^(?=.*[0-9])(?=\\S+$).{6,}$")
+
             if(password.isBlank() || confirmPassword.isBlank() || token.isBlank()){
                 Toast.makeText(this, "Las contraseñas o el token no pueden ser vacíos", Toast.LENGTH_SHORT).show()
+            }else if (patternLength.matcher(password).matches()){
+                Toast.makeText(this, "Las contraseña debe ser mayor de 6 dígitos", Toast.LENGTH_SHORT).show()
+            }else if (patternCapital.matcher(password).matches()){
+                Toast.makeText(this, "Las contraseña debe contener al menos una mayúscula", Toast.LENGTH_SHORT).show()
+            }else if (patternNumber.matcher(password).matches()){
+                Toast.makeText(this, "Las contraseña debe contener al menos un número", Toast.LENGTH_SHORT).show()
             }else if(password != confirmPassword){
                 Toast.makeText(this, "Las contraseñas no son iguales.", Toast.LENGTH_SHORT).show()
             }else{

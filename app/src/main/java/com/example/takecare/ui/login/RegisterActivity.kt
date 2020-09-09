@@ -13,6 +13,7 @@ import com.example.takecare.R
 import com.example.takecare.data.repository.UserRepository
 import kotlinx.android.synthetic.main.activity_register.*
 import java.util.*
+import java.util.regex.Pattern
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -42,9 +43,21 @@ class RegisterActivity : AppCompatActivity() {
             val confirmPassword = register_confirm_password.text.trim().toString()
             val terms = register_terms_combo.isChecked
 
+            //val expression = "^(?=.*[0-9])(?=.*[A-Z])(?=\\S+$).{6,}$";
+
+            val patternLength = Pattern.compile("^(?=\\S+$).{6,}$")
+            val patternCapital = Pattern.compile( "^(?=.*[A-Z])(?=\\S+$).{6,}$")
+            val patternNumber = Pattern.compile("^(?=.*[0-9])(?=\\S+$).{6,}$")
+
             if(name.isBlank() || lastName.isBlank() || mail.isBlank() || birthday.isBlank() ||
                 password.isBlank() || confirmPassword.isBlank() || username.isBlank()){
                 Toast.makeText(this, "No puede haber campos vacíos.", Toast.LENGTH_SHORT).show()
+            }else if (patternLength.matcher(password).matches()){
+                Toast.makeText(this, "Las contraseña debe ser mayor de 6 dígitos", Toast.LENGTH_SHORT).show()
+            }else if (patternCapital.matcher(password).matches()){
+                Toast.makeText(this, "Las contraseña debe contener al menos una mayúscula", Toast.LENGTH_SHORT).show()
+            }else if (patternNumber.matcher(password).matches()){
+                Toast.makeText(this, "Las contraseña debe contener al menos un número", Toast.LENGTH_SHORT).show()
             }else if(password != confirmPassword){
                 Toast.makeText(this, "Las contraseñas ingresadas no son iguales", Toast.LENGTH_SHORT).show()
             }else if(!terms){

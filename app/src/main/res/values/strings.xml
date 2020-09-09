@@ -34,6 +34,7 @@
     <string name="register_username_text">Nombre de usuario:</string>
     <string name="register_birthday_text">Cumpleaños:</string>
     <string name="register_password_text">Contraseña:</string>
+    <string name="register_password_label">Mayor a 6 dígitos, 1 mayúscula y 1 número</string>
     <string name="register_confirm_password_text">Repetir contraseña:</string>
     <string name="register_terms">Acepto las Condiciones de uso y Políticas de privacidad</string>
     <string name="register_btn">REGISTRAR</string>
