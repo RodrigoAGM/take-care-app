@@ -9,10 +9,12 @@ import kotlinx.android.synthetic.main.activity_sounds.*
 
 class SoundsActivity : AppCompatActivity() {
 
+    private lateinit var mediaPlayer: MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sounds)
-        val mediaPlayer = MediaPlayer()
+        mediaPlayer = MediaPlayer()
 
         sound_1.setOnClickListener {
             if(mediaPlayer.isPlaying){
@@ -101,5 +103,19 @@ class SoundsActivity : AppCompatActivity() {
         (sound_5 as ImageButton).background = getDrawable(R.drawable.rounded_rectangle)
         (sound_5 as ImageButton).setImageResource(R.drawable.ic_play_arrow_black_24dp)
 
+    }
+
+    override fun onStop() {
+        super.onStop()
+        resetPlayers()
+        mediaPlayer.stop()
+        mediaPlayer.reset()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        resetPlayers()
+        mediaPlayer.stop()
+        mediaPlayer.reset()
     }
 }
