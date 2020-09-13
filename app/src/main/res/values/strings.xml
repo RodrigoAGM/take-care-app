@@ -27,6 +27,13 @@
     <string name="new_password_hint">CONFIRMA CONTRASEÑA</string>
     <string name="recover_token_hint">TOKEN</string>
     <string name="change_password_button">CONFIRMAR</string>
+    <!-- Update password strings-->
+    <string name="update_password_button">ACTUALIZAR</string>
+    <string name="update_password_toolbar_text">ACTUALIZAR CONTRASEÑA</string>
+    <string name="update_password_text">Ingrese su contraseña antigua y la contraseña nueva que desea tener.</string>
+    <string name="update_password_hint">CONTRASEÑA ANTIGUA</string>
+    <string name="update_new_password_hint">CONTRASEÑA NUEVA</string>
+    <string name="update_confirm_new_password_hint">CONFIRMA CONTRASEÑA</string>
     <!-- Register strings-->
     <string name="register_title">Registro de usuario</string>
     <string name="register_name_text">Nombres:</string>
