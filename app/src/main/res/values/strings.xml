@@ -8,6 +8,7 @@
     <string name="title_advice">Consejos</string>
     <!-- Menu -->
     <string name="menu_logout">Cerrar sesión</string>
+    <string name="menu_change_pass">Cambiar contraseña</string>
     <!-- Login strings -->
     <string name="login_title">Member Login</string>
     <string name="login_username_hint">NOMBRE DE USUARIO</string>
