@@ -13,3 +13,8 @@ data class RegisterResponse(
 data class UpdateResponse(
     val success: Boolean
 )
+
+data class UpdatePasswordResponse(
+    val success: Boolean,
+    val message:String
+)

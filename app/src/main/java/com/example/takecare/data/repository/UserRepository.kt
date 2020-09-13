@@ -3,8 +3,10 @@ package com.example.takecare.data.repository
 import com.example.takecare.data.TakeCareClient
 import com.example.takecare.data.api.OperationResult
 import com.example.takecare.data.api.request.RegisterRequest
+import com.example.takecare.data.api.request.UpdatePasswordRequest
 import com.example.takecare.data.api.request.UpdateRequest
 import com.example.takecare.data.api.response.RegisterResponse
+import com.example.takecare.data.api.response.UpdatePasswordResponse
 import com.example.takecare.data.api.response.UpdateResponse
 
 class UserRepository {
@@ -45,6 +47,26 @@ class UserRepository {
                     OperationResult.Success(data)
                 } else{
                     OperationResult.Error(Exception("Error al actualizar."))
+                }
+            }
+        } catch (e: Exception) {
+            return OperationResult.Error(e)
+        }
+    }
+
+    suspend fun updatePassword(password: String, oldPassword:String): OperationResult<UpdatePasswordResponse> {
+        try {
+            val response = TakeCareClient.build().updatePassword(UpdatePasswordRequest(password, oldPassword))
+            response.let {
+                return if (it.isSuccessful && it.body() != null) {
+                    val data = it.body()
+                    OperationResult.Success(data)
+                } else{
+                    if (it.code() == 400){
+                        OperationResult.Error(Exception("La contraseña ingresada es incorrecta."))
+                    }else{
+                        OperationResult.Error(Exception("Error al actualizar contraseña."))
+                    }
                 }
             }
         } catch (e: Exception) {

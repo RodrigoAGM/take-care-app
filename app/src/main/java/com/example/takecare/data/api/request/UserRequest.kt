@@ -21,3 +21,8 @@ data class UpdateRequest(
     val weight: Double?,
     val image_url: String?
 )
+
+data class UpdatePasswordRequest(
+    val password: String,
+    val oldPassword: String
+)

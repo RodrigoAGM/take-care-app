@@ -29,6 +29,9 @@ interface TakeCareService {
     @PUT("/users/update/")
     suspend fun updateUser(@Body updateRequest: UpdateRequest) : Response<UpdateResponse>
 
+    @PUT("/users/update/password")
+    suspend fun updatePassword(@Body updatePasswordRequest: UpdatePasswordRequest) : Response<UpdatePasswordResponse>
+
     @POST("/auth/logout")
     suspend fun logout() : Response<LogoutResponse>
 }
