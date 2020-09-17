@@ -17,9 +17,9 @@ class LoginRepository {
                     OperationResult.Success(data)
                 } else{
                     if (it.code() == 400){
-                        OperationResult.Error(Exception("Usuario o contraseña incorrectos."))
+                        OperationResult.Error(Exception("Usuario o contraseña incorrecto"))
                     }else{
-                        OperationResult.Error(Exception("Error al iniciar sesión."))
+                        OperationResult.Error(Exception("Error al iniciar sesión"))
                     }
                 }
             }
@@ -36,7 +36,7 @@ class LoginRepository {
                     val data = it.body()
                     OperationResult.Success(data)
                 } else{
-                    OperationResult.Error(Exception("Error al cerrar sesión."))
+                    OperationResult.Error(Exception("Error al cerrar sesión"))
                 }
             }
         } catch (e: Exception) {

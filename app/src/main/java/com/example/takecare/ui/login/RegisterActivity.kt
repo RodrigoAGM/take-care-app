@@ -51,9 +51,12 @@ class RegisterActivity : AppCompatActivity() {
 
             if(name.isBlank() || lastName.isBlank() || mail.isBlank() || birthday.isBlank() ||
                 password.isBlank() || confirmPassword.isBlank() || username.isBlank()){
-                Toast.makeText(this, "No puede haber campos vacíos.", Toast.LENGTH_SHORT).show()
-            }else if (!patternLength.matcher(password).matches()){
-                Toast.makeText(this, "Las contraseña debe ser mayor de 6 dígitos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Por favor complete todos los campos", Toast.LENGTH_SHORT).show()
+            }else if(!mail.contains("@") || !mail.contains(".com")){
+                Toast.makeText(this, "Correo inválido, ingrese otro correo", Toast.LENGTH_SHORT).show()
+            }
+            else if (!patternLength.matcher(password).matches()){
+                Toast.makeText(this, "Las contraseña debe tener 6 dígitos", Toast.LENGTH_SHORT).show()
             }else if (!patternCapital.matcher(password).matches()){
                 Toast.makeText(this, "Las contraseña debe contener al menos una mayúscula", Toast.LENGTH_SHORT).show()
             }else if (!patternNumber.matcher(password).matches()){
@@ -99,7 +102,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private val isRequestSuccess = Observer<Boolean> {
         if (it) {
-            Toast.makeText(this, "Registro exitoso !", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
             finish()
         }
     }

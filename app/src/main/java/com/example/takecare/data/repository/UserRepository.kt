@@ -23,9 +23,9 @@ class UserRepository {
                     OperationResult.Success(data)
                 } else{
                     if (it.code() == 400){
-                        OperationResult.Error(Exception("El mail o username ya está registrado."))
+                        OperationResult.Error(Exception("El correo o nombre de usuario ya está registrado"))
                     }else{
-                        OperationResult.Error(Exception("Error al registrar."))
+                        OperationResult.Error(Exception("Error al registrar"))
                     }
                 }
             }
@@ -46,7 +46,7 @@ class UserRepository {
                     val data = it.body()
                     OperationResult.Success(data)
                 } else{
-                    OperationResult.Error(Exception("Error al actualizar."))
+                    OperationResult.Error(Exception("Error al actualizar"))
                 }
             }
         } catch (e: Exception) {
@@ -63,9 +63,9 @@ class UserRepository {
                     OperationResult.Success(data)
                 } else{
                     if (it.code() == 400){
-                        OperationResult.Error(Exception("La contraseña ingresada es incorrecta."))
+                        OperationResult.Error(Exception("La contraseña ingresada es incorrecta"))
                     }else{
-                        OperationResult.Error(Exception("Error al actualizar contraseña."))
+                        OperationResult.Error(Exception("Error al actualizar contraseña"))
                     }
                 }
             }

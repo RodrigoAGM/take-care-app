@@ -30,7 +30,9 @@ class RecoverPasswordActivity : AppCompatActivity() {
         recover_btn.setOnClickListener {
             mail = recover_email.text.trim().toString()
             if(mail.isBlank()){
-                Toast.makeText(this, "El mail no puede estar vacío.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "El correo no puede estar vacío", Toast.LENGTH_SHORT).show()
+            }else if(!mail.contains("@") || !mail.contains(".com")){
+                Toast.makeText(this, "Correo inválido, ingrese otro correo", Toast.LENGTH_SHORT).show()
             }else{
                 viewModel.requestRecoverPassword(mail)
             }

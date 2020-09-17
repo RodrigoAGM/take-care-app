@@ -89,6 +89,8 @@ class ProfileFragment : Fragment(){
 
             if(name.isBlank() || lastName.isBlank() || mail.isBlank() || birthday.isBlank()){
                 Toast.makeText(this.requireContext(), "Debes llenar todos los campos obligatorios (*)", Toast.LENGTH_SHORT).show()
+            }else if(!mail.contains("@") || !mail.contains(".com")){
+                Toast.makeText(this.requireContext(), "Correo inválido, ingrese otro correo", Toast.LENGTH_SHORT).show()
             }else{
                 profileViewModel.update(name, lastName, gender, mail, birthday, height, weight, imageUri.toString())
             }
@@ -189,6 +191,7 @@ class ProfileFragment : Fragment(){
                 imageUri = data.data
                 Glide.with(this).load(data.data).apply(RequestOptions.circleCropTransform())
                     .into(profileImageView)
+                Toast.makeText(this.requireContext(), "Imagen cargada, pulsa guardar para mantener los cambios", Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(this.requireContext(), "Error al cargar la imagen", Toast.LENGTH_SHORT).show()
             }
