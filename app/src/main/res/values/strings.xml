@@ -66,10 +66,11 @@
     <string name="control_btn_vin">VINCULAR</string>
     <!-- Advice fragment strings -->
     <string name="advice_title">Podemos visualizar la evolución de las mediciones realizadas por el usuario</string>
+    <string name="advice_btn_quotes">Citas</string>
+    <string name="advice_btn_treatments">Tratamiento</string>
     <string name="advice_btn_breath_methods">Métodos de respiración</string>
-    <string name="advice_btn_relax_sounds">"Sonidos de relajación</string>
-    <string name="advice_btn_information">Información</string>
-    <string name="advice_btn_tips">Tips</string>
+    <string name="advice_btn_relax_sounds">"Sonidos relajantes</string>
+    <string name="advice_btn_information">Tips de relajación</string>
     <!-- Report fragment strings -->
     <string name="report_title">Podemos visualizar la evolución de las mediciones realizadas por el usuario</string>
     <string name="report_date_hint">Día/Mes/Año</string>
@@ -118,7 +119,7 @@
     <string name="text14">Si empleamos distracciones adecuadas podemos interrumpir, aunque sea temporalmente, el pensamiento que nos provoca ansiedad: parada de pensamiento, lectura, ocio, pasear, entre otros. Aplique estrategias de regulación emocional: Las técnicas de respiración, atención plena, el ejercicio físico, entre otras estrategias pueden ser útiles para la desactivación emocional, fisiológica y/o cognitiva.</string>
 
     <!-- Sounds -->
-    <string name="sounds_title">SONIDOS DE RELAJACIÓN</string>
+    <string name="sounds_title">SONIDOS RELAJANTES</string>
     <string name="sounds_text">A continuación encontrarás algunos sonidos de relajación que te ayudarán a relajarte</string>
     <string name="sound_1_text">Sonidos de la selva y pájaros</string>
     <string name="sound_2_text">Sonidos del bosque</string>

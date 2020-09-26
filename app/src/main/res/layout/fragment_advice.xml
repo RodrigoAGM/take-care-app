@@ -24,6 +24,32 @@
             android:text="@string/advice_title"/>
 
         <Button
+            android:id="@+id/advice_btn_treatments"
+            android:background="@drawable/advice_button"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:gravity="center"
+            android:layout_marginTop="30sp"
+            android:textSize="20sp"
+            android:text="@string/advice_btn_treatments"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/advice_title"/>
+
+        <Button
+            android:id="@+id/advice_btn_quotes"
+            android:background="@drawable/advice_button"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:gravity="center"
+            android:layout_marginTop="30sp"
+            android:textSize="20sp"
+            android:text="@string/advice_btn_quotes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/advice_btn_treatments"/>
+
+        <Button
             android:id="@+id/advice_btn_breath_methods"
             android:background="@drawable/advice_button"
             android:layout_width="match_parent"
@@ -34,7 +60,7 @@
             android:text="@string/advice_btn_breath_methods"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/advice_title"/>
+            app:layout_constraintTop_toBottomOf="@id/advice_btn_quotes"/>
 
         <Button
             android:id="@+id/advice_btn_relax_sounds"
