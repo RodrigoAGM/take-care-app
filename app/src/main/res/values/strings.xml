@@ -10,12 +10,12 @@
     <string name="menu_logout">Cerrar sesión</string>
     <string name="menu_change_pass">Cambiar contraseña</string>
     <!-- Login strings -->
-    <string name="login_title">Member Login</string>
-    <string name="login_username_hint">NOMBRE DE USUARIO</string>
-    <string name="login_password_hint">CONTRASEÑA</string>
-    <string name="forget_password"><u>¿Olvidó su contraseña?</u></string>
+    <string name="login_title">INICIAR SESIÓN</string>
+    <string name="login_username_hint">Usuario</string>
+    <string name="login_password_hint">Contraseña</string>
+    <string name="forget_password">¿Olvidó su contraseña?</string>
     <string name="login_button">INGRESAR</string>
-    <string name="login_register"><u>Regístrate aquí</u></string>
+    <string name="login_register">Regístrate aquí</string>
     <string name="login_no_account">¿No tienes cuenta? </string>
     <!-- Recover password strings-->
     <string name="recover_title">Recuperar tu cuenta</string>
