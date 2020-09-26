@@ -20,15 +20,3 @@ data class UpdatePasswordResponse(
     val success: Boolean,
     val message:String
 )
-
-data class GetTreatmentResponse(
-    val success: Boolean,
-    @SerializedName("data")
-    val treatments: List<Treatment>
-)
-
-data class GetQuotesResponse(
-    val success: Boolean,
-    @SerializedName("data")
-    val quotes: List<Quote>
-)
