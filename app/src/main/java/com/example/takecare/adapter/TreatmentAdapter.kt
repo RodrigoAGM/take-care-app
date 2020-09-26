@@ -40,11 +40,14 @@ class TreatmentAdapter(private var treatments: ArrayList<Treatment>)  : Recycler
         @SuppressLint("SetTextI18n")
         fun bind(treatment: Treatment) {
 
-            indications.text = treatment.description
+            var medicationDescription = ""
+            for (medicine in treatment.details){
+                val days = ( medicine.quantity.toDouble() / (24.0/ medicine.frequency.toDouble()) )
+                medicationDescription += "${medicine.quantity} pastillas de ${medicine.name} cada ${medicine.frequency} por ${ceil(days).toInt()} días \n"
+            }
 
-            val days = ( treatment.quantity.toDouble() / (24.0/ treatment.frequency.toDouble()) )
-            medication.text = "${treatment.quantity} pastillas de ${treatment.medicineName} cada ${treatment.frequency} por ${ceil(days).toInt()} días"
-
+            medication.text = medicationDescription
+            indications.text = treatment.indications
             date.text = "Fecha: ${treatment.creationDate.dropLast(14)}"
             date.isEnabled = (treatment.status == 1)
 

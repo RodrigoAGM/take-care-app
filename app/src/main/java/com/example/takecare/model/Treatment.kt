@@ -8,7 +8,7 @@ data class Treatment (
     var creationDate: String,
     var status: Int,
     var indications: String,
-    @SerializedName("name_psychiatrist")
+    @SerializedName("psychiatrist_name")
     var psychiatristName: String,
     @SerializedName("psychiatrist_last_name")
     var psychiatristLastName: String,
