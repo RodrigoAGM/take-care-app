@@ -34,4 +34,10 @@ interface TakeCareService {
 
     @POST("/auth/logout")
     suspend fun logout() : Response<LogoutResponse>
+
+    @GET("/treatment/getTreatmentsByPatient")
+    suspend fun getTreatments() : Response<GetTreatmentResponse>
+
+    @GET("/quote/getQuoteByPatient")
+    suspend fun getQuotes() : Response<GetQuotesResponse>
 }
