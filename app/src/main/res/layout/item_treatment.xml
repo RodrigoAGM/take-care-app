@@ -27,7 +27,8 @@
                 android:textAlignment="textStart"
                 android:padding="10dp"
                 android:textStyle="bold"
-                android:background="@color/treatmentCardTitleColorActive"
+                android:background="@drawable/control_card"
+                android:enabled="false"
                 android:text="@string/treatment_card_date"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>

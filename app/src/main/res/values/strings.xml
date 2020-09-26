@@ -143,7 +143,7 @@
     <string name="treatment_title">TRATAMIENTOS</string>
     <string name="treatment_card_date">Fecha: </string>
     <string name="treatment_card_medicine">Medicamentos: </string>
-    <string name="treatment_card_indications">Recomendaciones: </string>
+    <string name="treatment_card_indications">Indicaciones: </string>
     <string name="treatment_card_psychiatrist">Psiquiatra: </string>
 
     <!-- Quotes -->
