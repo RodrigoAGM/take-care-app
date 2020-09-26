@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.takecare.R
 import com.example.takecare.model.Treatment
 import kotlinx.android.synthetic.main.item_treatment.view.*
+import java.text.SimpleDateFormat
 import kotlin.math.ceil
 
 class TreatmentAdapter(private var treatments: ArrayList<Treatment>)  : RecyclerView.Adapter<TreatmentAdapter.HistoryViewHolder>() {
@@ -35,10 +36,11 @@ class TreatmentAdapter(private var treatments: ArrayList<Treatment>)  : Recycler
 
         @SuppressLint("SetTextI18n")
         fun bind(treatment: Treatment) {
+
             indications.text = treatment.description
-            val days = ( treatment.quantity / (24/ treatment.frequency) ) * 1.0
+            val days = ( treatment.quantity.toDouble() / (24.0/ treatment.frequency.toDouble()) )
             medication.text = "${treatment.quantity} pastillas de ${treatment.medicineName} cada ${treatment.frequency} por ${ceil(days)} días"
-            date.text = "Fecha: ${treatment.creationDate}"
+            date.text = "Fecha: ${treatment.creationDate.dropLast(14)}"
             psychiatrist.text = "Psiquiatra: ${treatment.psychiatristName} ${treatment.psychiatristLastName}"
         }
     }
