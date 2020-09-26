@@ -138,4 +138,11 @@
     <string name="breath_circle_text">EMPEZAR</string>
     <string name="breath_circle_text_breathing">RESPIRA</string>
     <string name="breath_circle_counter">00:00</string>
+
+    <!-- Treatment -->
+    <string name="treatment_title">TRATAMIENTOS</string>
+
+    <!-- Quotes -->
+    <string name="quote_title">CITAS</string>
+
 </resources>

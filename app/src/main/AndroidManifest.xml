@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.profile.UpdatePasswordActivity"></activity>
+        <activity android:name=".ui.advice.quote.QuoteActivity"></activity>
+        <activity android:name=".ui.advice.treatment.TreatmentActivity" />
+        <activity android:name=".ui.profile.UpdatePasswordActivity" />
         <activity
             android:name=".ui.advice.SoundsActivity"
             android:screenOrientation="portrait"

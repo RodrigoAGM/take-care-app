@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.takecare.R
+import com.example.takecare.ui.advice.quote.QuoteActivity
+import com.example.takecare.ui.advice.treatment.TreatmentActivity
 import kotlinx.android.synthetic.main.fragment_advice.*
 import kotlinx.android.synthetic.main.fragment_advice.view.*
 
@@ -29,6 +31,16 @@ class AdviceFragment : Fragment() {
 
         root.advice_btn_information.setOnClickListener {
             val intent = Intent(this.requireContext(), InformationActivity::class.java)
+            startActivity(intent)
+        }
+
+        root.advice_btn_quotes.setOnClickListener {
+            val intent = Intent(this.requireContext(), QuoteActivity::class.java)
+            startActivity(intent)
+        }
+
+        root.advice_btn_treatments.setOnClickListener {
+            val intent = Intent(this.requireContext(), TreatmentActivity::class.java)
             startActivity(intent)
         }
 
