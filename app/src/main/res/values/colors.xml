@@ -28,6 +28,19 @@
     <color name="profileTextColor">#000000</color>
     <color name="profileImageTextColor">#5639f3</color>
 
+    <!--Quote Colors-->
+    <color name="quoteCardColor">#eff3fa</color>
+    <color name="quoteCardTitleColor">#3354f1</color>
+    <color name="quoteCardTextColor">#000000</color>
+    <color name="quoteCardTextTitleColor">#FFF</color>
+
+    <!--Treatment Colors-->
+    <color name="treatmentCardColor">#eff3fa</color>
+    <color name="treatmentCardTitleColorActive">#8BC34A</color>
+    <color name="treatmentCardTitleColor">#E91E63</color>
+    <color name="treatmentCardTextColor">#000000</color>
+    <color name="treatmentCardTextTitleColor">#FFF</color>
+
     <color name="playing_color">#32c259</color>
     <color name="pause_color">#FFFFFF</color>
 </resources>

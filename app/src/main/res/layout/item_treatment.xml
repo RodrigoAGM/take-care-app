@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingStart="7.5dp"
+    android:paddingEnd="15dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="7.5dp">
+
+    <androidx.cardview.widget.CardView
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/treatment_card_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:textSize="22sp"
+                android:textColor="@color/treatmentCardTextTitleColor"
+                android:textAlignment="textStart"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:background="@color/treatmentCardTitleColorActive"
+                android:text="@string/treatment_card_date"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/treatment_card_medication_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/treatmentCardTextColor"
+                android:textAlignment="textStart"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="5dp"
+                android:background="@color/treatmentCardColor"
+                android:text="@string/treatment_card_medicine"
+                app:layout_constraintTop_toBottomOf="@id/treatment_card_date"/>
+
+            <TextView
+                android:id="@+id/treatment_card_medication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/treatmentCardTextColor"
+                android:textAlignment="textStart"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@color/treatmentCardColor"
+                app:layout_constraintTop_toBottomOf="@id/treatment_card_medication_title"/>
+
+            <TextView
+                android:id="@+id/treatment_card_indications_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/treatmentCardTextColor"
+                android:textAlignment="textStart"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@color/treatmentCardColor"
+                android:text="@string/treatment_card_indications"
+                app:layout_constraintTop_toBottomOf="@id/treatment_card_medication"/>
+
+            <TextView
+                android:id="@+id/treatment_card_indications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/treatmentCardTextColor"
+                android:textAlignment="textStart"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@color/treatmentCardColor"
+                app:layout_constraintTop_toBottomOf="@id/treatment_card_indications_title"/>
+
+            <TextView
+                android:id="@+id/treatment_card_psychiatrist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:background="@color/treatmentCardColor"
+                android:textColor="@color/treatmentCardTextColor"
+                android:textAlignment="textStart"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
+                android:text="@string/treatment_card_psychiatrist"
+                app:layout_constraintTop_toBottomOf="@id/treatment_card_indications"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
