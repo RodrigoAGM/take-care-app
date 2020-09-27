@@ -175,7 +175,12 @@
     <string name="treatment_card_psychiatrist">Psiquiatra: </string>
 
     <!-- Quotes -->
-    <string name="quote_title">CITAS</string>
+    <string name="quote_title">Citas</string>
+    <string name="quote_text">Aqui puedes observar las citas programadas y el estado de estas.</string>
+    <string name="quote_no_active">No hay citas programadas</string>
+    <string name="quote_no_past">No hay citas pasadas</string>
+    <string name="quote_text_active">Programada: </string>
+    <string name="quote_text_past">Historial de citas: </string>
     <string name="quote_card_date">Fecha: </string>
     <string name="quote_card_time">Hora de la cita: </string>
     <string name="quote_card_psychiatrist">Psiquiatra: </string>

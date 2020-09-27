@@ -16,6 +16,7 @@
     <color name="defaultColorGreen">#99be54</color>
 
     <color name="button_default_color">#3354f4</color>
+    <color name="button_disabled_color">#adaeb6</color>
     <color name="button_second_color">#f33c69</color>
 
     <!--History fragment colors-->

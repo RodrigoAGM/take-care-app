@@ -56,6 +56,8 @@ class TreatmentActivity : AppCompatActivity() {
         val btnVisibility = if (it) View.INVISIBLE else View.VISIBLE
         progressBar.visibility = progressBarVisibility
         recyclerViewTreatment.visibility = btnVisibility
+        text_past_treatment.visibility = btnVisibility
+        text_active_treatment.visibility = btnVisibility
     }
 
     private val isRequestSuccess = Observer<Boolean> {
@@ -97,7 +99,6 @@ class TreatmentActivity : AppCompatActivity() {
                 active_treatment_error.text = getString(R.string.treatment_no_active)
                 active_treatment_error.visibility = View.VISIBLE
             }
-
 
             if(treatmentList.size == 0){
                 recyclerViewTreatment.visibility = View.INVISIBLE
