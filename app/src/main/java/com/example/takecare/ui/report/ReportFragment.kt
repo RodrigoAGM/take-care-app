@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.takecare.R
@@ -36,6 +37,7 @@ class ReportFragment : Fragment() {
 
     private lateinit var viewModel: ReportViewModel
     private lateinit var reportGraph : GraphView
+    private lateinit var reportCard : CardView
     private lateinit var progressBar: ProgressBar
     private lateinit var errorText: TextView
     private lateinit var dateFrom: EditText
@@ -47,6 +49,7 @@ class ReportFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.fragment_report, container, false)
         reportGraph = root.report_graph
+        reportCard = root.report_card
 
         //View model setup
         viewModel = ReportViewModel(DiagnosticRepository())
@@ -62,11 +65,11 @@ class ReportFragment : Fragment() {
         diagnosticList = ArrayList<Diagnostic>()
         filteredDiagnosticList = ArrayList<Diagnostic>()
 
-        root.report_date_picker_from.setOnClickListener {
+        root.report_date_from.setOnClickListener {
             pickDate(report_date_from)
         }
 
-        root.report_date_picker_to.setOnClickListener {
+        root.report_date_to.setOnClickListener {
             pickDate(report_date_to)
         }
         return root
@@ -119,7 +122,7 @@ class ReportFragment : Fragment() {
         val progressBarVisibility = if (it) View.VISIBLE else View.GONE
         val btnVisibility = if (it) View.INVISIBLE else View.VISIBLE
         progressBar.visibility = progressBarVisibility
-        reportGraph.visibility = btnVisibility
+        reportCard.visibility = btnVisibility
     }
 
     private val isRequestSuccess = Observer<Boolean> {
@@ -139,7 +142,7 @@ class ReportFragment : Fragment() {
     private val onMessageError = Observer<Any> {
         if(!it.toString().isBlank()){
             progressBar.visibility = View.INVISIBLE
-            reportGraph.visibility = View.INVISIBLE
+            reportCard.visibility = View.INVISIBLE
             errorText.visibility = View.VISIBLE
             errorText.text = it.toString()
         }

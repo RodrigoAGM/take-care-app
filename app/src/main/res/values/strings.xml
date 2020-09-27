@@ -81,7 +81,7 @@
 
 
     <!-- Advice fragment strings -->
-    <string name="advice_title">Podemos visualizar la evolución de las mediciones realizadas por el usuario</string>
+    <string name="advice_title">Te ofrecemos este espacio para que puedas relajarte y encontrar momentos de paz</string>
     <string name="advice_btn_quotes">Citas</string>
     <string name="advice_btn_treatments">Tratamiento</string>
     <string name="advice_btn_breath_methods">Métodos de respiración</string>
@@ -90,10 +90,11 @@
 
 
     <!-- Report fragment strings -->
-    <string name="report_title">Podemos visualizar la evolución de las mediciones realizadas por el usuario</string>
+    <string name="report_title">Vamos a revisar tus mediciones para ver como te has sentido</string>
     <string name="report_date_hint">Día/Mes/Año</string>
     <string name="report_date_from">De:</string>
     <string name="report_date_to">Hasta:</string>
+    <string name="report_card_title">Reporte de LPM</string>
 
 
     <!-- Profile fragment strings -->

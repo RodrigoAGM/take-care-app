@@ -10,26 +10,53 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <LinearLayout
             android:id="@+id/advice_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:textSize="18sp"
-            android:textColor="@color/adviceTextColor"
-            android:text="@string/advice_title"/>
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/control_image"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/tc_logo_icon" />
+
+            <TextView
+                android:id="@+id/text_control_hello"
+                android:background="@drawable/input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="70dp"
+                android:gravity="start|center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="@string/advice_title"
+                android:textSize="14sp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/advice_btn_treatments"
-            android:background="@drawable/advice_button"
+            android:background="@drawable/button_enabled"
+            android:textColor="@color/defaultTextColorWhite"
+            android:textAllCaps="false"
             android:layout_width="match_parent"
-            android:layout_height="70sp"
+            android:layout_height="60sp"
             android:gravity="center"
             android:layout_marginTop="30sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:textSize="20sp"
             android:text="@string/advice_btn_treatments"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,11 +65,15 @@
 
         <Button
             android:id="@+id/advice_btn_quotes"
-            android:background="@drawable/advice_button"
+            android:background="@drawable/button_enabled"
+            android:textColor="@color/defaultTextColorWhite"
+            android:textAllCaps="false"
             android:layout_width="match_parent"
-            android:layout_height="70sp"
+            android:layout_height="60sp"
             android:gravity="center"
             android:layout_marginTop="30sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:textSize="20sp"
             android:text="@string/advice_btn_quotes"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,11 +82,15 @@
 
         <Button
             android:id="@+id/advice_btn_breath_methods"
-            android:background="@drawable/advice_button"
+            android:background="@drawable/button_enabled"
+            android:textColor="@color/defaultTextColorWhite"
+            android:textAllCaps="false"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="60sp"
             android:gravity="center"
             android:layout_marginTop="30sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:textSize="20sp"
             android:text="@string/advice_btn_breath_methods"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,11 +99,15 @@
 
         <Button
             android:id="@+id/advice_btn_relax_sounds"
-            android:background="@drawable/advice_button"
+            android:background="@drawable/button_enabled"
+            android:textColor="@color/defaultTextColorWhite"
+            android:textAllCaps="false"
             android:layout_width="match_parent"
-            android:layout_height="70sp"
+            android:layout_height="60sp"
             android:gravity="center"
             android:layout_marginTop="30sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:textSize="20sp"
             android:text="@string/advice_btn_relax_sounds"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,11 +116,15 @@
 
         <Button
             android:id="@+id/advice_btn_information"
-            android:background="@drawable/advice_button"
+            android:background="@drawable/button_enabled"
+            android:textColor="@color/defaultTextColorWhite"
+            android:textAllCaps="false"
             android:layout_width="match_parent"
-            android:layout_height="70sp"
+            android:layout_height="60sp"
             android:gravity="center"
             android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:textSize="20sp"
             android:text="@string/advice_btn_information"
             app:layout_constraintStart_toStartOf="parent"

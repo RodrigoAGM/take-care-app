@@ -11,113 +11,124 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
         tools:context=".ui.report.ReportFragment">
 
-        <TextView
+        <LinearLayout
             android:id="@+id/report_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:textSize="18sp"
-            android:textColor="@color/controlTextColor"
-            android:text="@string/report_title"/>
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:orientation="horizontal">
 
-        <TextView
+            <ImageView
+                android:id="@+id/report_image"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/tc_logo_icon" />
+
+            <TextView
+                android:id="@+id/text_report_hello"
+                android:background="@drawable/input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="70dp"
+                android:gravity="start|center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="@string/report_title"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/report_date_from"
+            android:textAlignment="textStart"
+            android:inputType="date"
+            android:padding="8dp"
+            android:background="@drawable/input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="15dp"
-            android:id="@+id/text_report_from"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/report_title"
+            android:hint="@string/history_date_hint"
+            android:drawableStart="@drawable/ic_calendar_24dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/reportTextColor"
-            android:text="@string/report_date_from"/>
+            app:layout_constraintTop_toBottomOf="@id/report_title"/>
 
-        <LinearLayout
-            android:id="@+id/report_from"
+        <EditText
+            android:id="@+id/report_date_to"
+            android:textAlignment="textStart"
+            android:inputType="date"
+            android:padding="8dp"
+            android:background="@drawable/input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/text_report_from">
-
-            <EditText
-                android:id="@+id/report_date_from"
-                android:textAlignment="center"
-                android:inputType="date"
-                android:layout_weight="0.9"
-                android:padding="8dp"
-                android:background="@drawable/rounded_rectangle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:focusable="false"
-                android:cursorVisible="false"
-                android:hint="@string/history_date_hint" />
-
-            <ImageView
-                android:id="@+id/report_date_picker_from"
-                android:layout_marginStart="5dp"
-                android:layout_weight="0.1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_calendar_24dp"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/text_report_to"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/report_from"
+            android:clickable="true"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:hint="@string/report_date_hint"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="15dp"
+            android:drawableStart="@drawable/ic_calendar_24dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/reportTextColor"
-            android:text="@string/report_date_to"/>
+            app:layout_constraintTop_toBottomOf="@id/report_date_from"/>
 
-        <LinearLayout
-            android:id="@+id/report_to"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/report_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/text_report_to">
-
-            <EditText
-                android:id="@+id/report_date_to"
-                android:textAlignment="center"
-                android:inputType="date"
-                android:layout_weight="0.9"
-                android:padding="8dp"
-                android:background="@drawable/rounded_rectangle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:focusable="false"
-                android:cursorVisible="false"
-                android:hint="@string/report_date_hint" />
-
-            <ImageView
-                android:id="@+id/report_date_picker_to"
-                android:layout_marginStart="5dp"
-                android:layout_weight="0.1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_calendar_24dp"/>
-        </LinearLayout>
-
-        <com.jjoe64.graphview.GraphView
-            android:id="@+id/report_graph"
             android:layout_marginTop="30dp"
-            android:padding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            app:layout_constraintTop_toBottomOf="@id/report_to"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toBottomOf="@id/report_date_to"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardBackgroundColor="@color/defaultCardBackgroundColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/report_card_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/defaultColorGreen"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/defaultTextColorWhite"
+                    android:textAlignment="center"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/report_card_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <com.jjoe64.graphview.GraphView
+                    android:id="@+id/report_graph"
+                    android:padding="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    app:layout_constraintTop_toBottomOf="@id/report_card_title"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <ProgressBar
             android:id="@+id/report_progressBar"
@@ -130,13 +141,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/report_to" />
+            app:layout_constraintTop_toBottomOf="@id/report_date_to" />
 
         <TextView
             android:id="@+id/report_error_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/report_to"
+            app:layout_constraintTop_toBottomOf="@id/report_date_to"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
