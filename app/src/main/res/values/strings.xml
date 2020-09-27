@@ -142,7 +142,7 @@
 
     <!-- Sounds -->
     <string name="sounds_title">Sonidos relajantes</string>
-    <string name="sounds_text">A continuación encontrarás algunos sonidos de relajación que te ayudarán a relajarte</string>
+    <string name="sounds_text">Te ofrecemos una biblioteca de sonidos relajantes para que acompañen tu meditación.</string>
     <string name="sound_1_text">Sonidos de la selva y pájaros</string>
     <string name="sound_2_text">Sonidos del bosque</string>
     <string name="sound_3_text">Sonidos de mar y playa</string>
