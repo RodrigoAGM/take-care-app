@@ -10,214 +10,140 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".ui.login.RegisterActivity">
-        
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/register_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="60dp"
-            app:title="@string/register_title"
-            app:titleTextColor="@color/defaultTextColor"
-            app:titleTextAppearance="@style/ToolbarTitleStyleNoCaps"
-            app:layout_constraintTop_toTopOf="parent">
-        </androidx.appcompat.widget.Toolbar>
 
-        <!-- Nombre -->
+        <ImageView
+            android:id="@+id/register_image"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:src="@drawable/tc_logo" />
+
         <TextView
-            android:id="@+id/register_name_text"
+            android:id="@+id/register_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintTop_toBottomOf="@id/register_toolbar"
+            android:text="@string/register_title"
+            android:layout_gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/register_image"
             app:layout_constraintStart_toStartOf="parent"
-            android:textSize="18sp"
-            android:labelFor="@id/register_name"
+            app:layout_constraintEnd_toEndOf="parent"
             android:textColor="@color/defaultTextColor"
-            android:text="@string/register_name_text"/>
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"/>
 
+        <!-- Nombre -->
         <EditText
             android:id="@+id/register_name"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:inputType="textCapWords"
             android:padding="10dp"
-            android:background="@drawable/rounded_rectangle"
+            android:background="@drawable/input"
+            android:hint="@string/register_name_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
+            android:layout_marginTop="30dp"
             android:textColor="@color/defaultTextColor"
-            app:layout_constraintTop_toBottomOf="@id/register_name_text"
+            app:layout_constraintTop_toBottomOf="@id/register_title"
             app:layout_constraintStart_toStartOf="parent"
             android:importantForAutofill="no" />
 
         <!-- Apellido -->
-        <TextView
-            android:id="@+id/register_lastname_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@id/register_name"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textSize="18sp"
-            android:labelFor="@id/register_lastname"
-            android:textColor="@color/defaultTextColor"
-            android:text="@string/register_lastname_text"/>
-
         <EditText
             android:id="@+id/register_lastname"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:inputType="textCapWords"
             android:padding="10dp"
-            android:background="@drawable/rounded_rectangle"
+            android:background="@drawable/input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/register_lastname_text"
             android:textColor="@color/defaultTextColor"
-            app:layout_constraintTop_toBottomOf="@id/register_lastname_text"
+            app:layout_constraintTop_toBottomOf="@id/register_name"
             app:layout_constraintStart_toStartOf="parent"
             android:importantForAutofill="no" />
 
         <!-- Email -->
-        <TextView
-            android:id="@+id/register_email_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@id/register_lastname"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textSize="18sp"
-            android:labelFor="@id/register_email"
-            android:textColor="@color/defaultTextColor"
-            android:text="@string/register_email_text"/>
-
         <EditText
             android:id="@+id/register_email"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:inputType="textEmailAddress"
             android:padding="10dp"
-            android:background="@drawable/rounded_rectangle"
+            android:background="@drawable/input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/register_email_text"
             android:textColor="@color/defaultTextColor"
-            app:layout_constraintTop_toBottomOf="@id/register_email_text"
+            app:layout_constraintTop_toBottomOf="@id/register_lastname"
             app:layout_constraintStart_toStartOf="parent"
             android:importantForAutofill="no" />
 
         <!-- Username -->
-        <TextView
-            android:id="@+id/register_username_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@id/register_email"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textSize="18sp"
-            android:labelFor="@id/register_username"
-            android:textColor="@color/defaultTextColor"
-            android:text="@string/register_username_text"/>
-
         <EditText
             android:id="@+id/register_username"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:inputType="text"
             android:padding="10dp"
-            android:background="@drawable/rounded_rectangle"
+            android:background="@drawable/input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/register_username_text"
             android:textColor="@color/defaultTextColor"
-            app:layout_constraintTop_toBottomOf="@id/register_username_text"
+            app:layout_constraintTop_toBottomOf="@id/register_email"
             app:layout_constraintStart_toStartOf="parent"
             android:importantForAutofill="no" />
 
         <!-- Cumpleaños -->
-        <TextView
-            android:id="@+id/register_birthday_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@id/register_username"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textSize="18sp"
-            android:labelFor="@id/register_birthday"
-            android:textColor="@color/defaultTextColor"
-            android:text="@string/register_birthday_text"/>
-
-        <LinearLayout
-            android:id="@+id/register_birthday_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/register_birthday_text">
-
-            <EditText
-                android:id="@+id/register_birthday"
-                android:textAlignment="center"
-                android:inputType="date"
-                android:layout_weight="0.9"
-                android:padding="10dp"
-                android:background="@drawable/rounded_rectangle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:clickable="false"
-                android:focusable="false"
-                android:cursorVisible="false"
-                android:hint="@string/history_date_hint"
-                android:importantForAutofill="no" />
-
-            <ImageView
-                android:id="@+id/register_birthday_picker"
-                android:layout_marginStart="5dp"
-                android:layout_weight="0.1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_calendar_24dp"/>
-        </LinearLayout>
-
-        <!-- Password -->
-        <TextView
-            android:id="@+id/register_password_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@id/register_birthday_layout"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textSize="18sp"
-            android:labelFor="@id/profile_email"
-            android:textColor="@color/defaultTextColor"
-            android:text="@string/register_password_text"/>
 
         <EditText
+            android:id="@+id/register_birthday"
+            android:textAlignment="textStart"
+            android:inputType="date"
+            android:layout_weight="0.9"
+            android:padding="10dp"
+            android:background="@drawable/input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/defaultTextColor"
+            android:clickable="true"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/register_username"
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="@string/register_birthday_text"
+            android:importantForAutofill="no" />
+
+        <!-- Password -->
+        <EditText
             android:id="@+id/register_password"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:background="@drawable/rounded_rectangle"
+            android:background="@drawable/input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/register_password_text"
             android:textColor="@color/defaultTextColor"
-            app:layout_constraintTop_toBottomOf="@id/register_password_text"
+            app:layout_constraintTop_toBottomOf="@id/register_birthday"
             app:layout_constraintStart_toStartOf="parent"
             android:importantForAutofill="no" />
 
@@ -230,38 +156,26 @@
             app:layout_constraintTop_toBottomOf="@id/register_password"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:labelFor="@id/profile_email"
-            android:textColor="@color/defaultTextColor"
+            android:textColor="@color/defaultTextColorBlue"
             android:text="@string/register_password_label"/>
 
         <!-- Confirm password -->
-        <TextView
-            android:id="@+id/register_confirm_password_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@id/password_label"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textSize="18sp"
-            android:labelFor="@id/register_confirm_password"
-            android:textColor="@color/defaultTextColor"
-            android:text="@string/register_confirm_password_text"/>
-
         <EditText
             android:id="@+id/register_confirm_password"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:background="@drawable/rounded_rectangle"
+            android:background="@drawable/input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
+            android:layout_marginTop="15dp"
+            android:hint="@string/register_confirm_password_text"
             android:textColor="@color/defaultTextColor"
-            app:layout_constraintTop_toBottomOf="@id/register_confirm_password_text"
+            app:layout_constraintTop_toBottomOf="@id/password_label"
             app:layout_constraintStart_toStartOf="parent"
             android:importantForAutofill="no" />
 
@@ -277,15 +191,15 @@
 
         <TextView
             android:id="@+id/register_terms_text"
-            android:layout_width="270dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="30dp"
             android:labelFor="@id/register_confirm_password"
             android:text="@string/register_terms"
-            android:textColor="@color/defaultTextColor"
-            android:textSize="15sp"
+            android:textColor="@color/defaultTextColorBlue"
+            android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@id/register_terms_combo"
             app:layout_constraintTop_toBottomOf="@id/register_confirm_password" />
 

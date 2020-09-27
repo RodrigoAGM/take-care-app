@@ -23,13 +23,10 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        setSupportActionBar(register_toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         viewModel = RegisterViewModel(UserRepository())
         setupViewModel()
 
-        register_birthday_picker.setOnClickListener {
+        register_birthday.setOnClickListener {
             pickDate(register_birthday)
         }
 

@@ -36,15 +36,15 @@
     <string name="update_confirm_new_password_hint">CONFIRMA CONTRASEÑA</string>
     <!-- Register strings-->
     <string name="register_title">Registro de usuario</string>
-    <string name="register_name_text">Nombres:</string>
-    <string name="register_lastname_text">Apellidos:</string>
-    <string name="register_email_text">Correo Electrónico:</string>
-    <string name="register_username_text">Nombre de usuario:</string>
-    <string name="register_birthday_text">Fecha de nacimiento:</string>
-    <string name="register_password_text">Contraseña:</string>
+    <string name="register_name_text">Nombres</string>
+    <string name="register_lastname_text">Apellidos</string>
+    <string name="register_email_text">Correo Electrónico</string>
+    <string name="register_username_text">Nombre de usuario</string>
+    <string name="register_birthday_text">Fecha de nacimiento</string>
+    <string name="register_password_text">Contraseña</string>
     <string name="register_password_label">Mayor a 6 dígitos, 1 mayúscula y 1 número</string>
-    <string name="register_confirm_password_text">Repetir contraseña:</string>
-    <string name="register_terms">Acepto las Condiciones de uso y Políticas de privacidad</string>
+    <string name="register_confirm_password_text">Repetir contraseña</string>
+    <string name="register_terms">Acepto los términos y condiciones de uso</string>
     <string name="register_btn">REGISTRAR</string>
     <!-- History fragment strings -->
     <string name="history_date_hint">Día/Mes/Año</string>
