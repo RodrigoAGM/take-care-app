@@ -117,7 +117,8 @@
     </string-array>
 
     <!-- Information -->
-    <string name="information_title">Cuidado y bienestar</string>
+    <string name="information_title">Tips</string>
+    <string name="information_text">Te ofrecemos tips para que puedas relajarte y disminuir la ansiedad</string>
     <string name="title1">¿Qué es la ansiedad?</string>
     <string name="text1">La ansiedad es una reacción adaptativa ante una preocupación futura que puede o no ocurrir asociada con la tensión muscular y el comportamiento de evitación. Es normal presentar ansiedad ante situaciones estresantes para la persona, como exponer o desarrollar evaluación. </string>
     <string name="title2">Descansar adecuadamente</string>
@@ -130,7 +131,7 @@
     <string name="text6">Estimulantes y alcohol: Algunos alimentos o bebidas que acompañan la comida pueden llevar sustancias que estimulan el sistema nervioso y sobre-activan al organismo, lo que puede provocar ansiedad, nerviosismo e insomnio.</string>
     <string name="text7">Sales y azúcar:  La sal disminuye las reservas de potasio de nuestro cuerpo, un mineral muy importante para el funcionamiento apropiado del sistema nervioso.</string>
     <string name="text8">Aditivos y otros productos artificiales: Existen muchos aditivos químicos utilizados en el procesamiento de comida industrial. No se conocen bien aún sus efectos sobre el organismo a largo plazo. Son productos que nuestro cuerpo procesa con más dificultad. </string>
-    <string name="title5">Conviene poner en práctica:</string>
+    <string name="title5">Conviene poner en práctica</string>
     <string name="text9">Incluye proteínas en el desayuno. Si comes proteínas en el desayuno, puedes sentirte satisfecho durante más tiempo y la glucemia se mantendrá en niveles normales.</string>
     <string name="text10">Consume hidratos de carbono complejos. Se cree que los hidratos de carbono aumentan el nivel de serotonina en el cerebro, lo cual genera un efecto tranquilizante. Bebe mucha agua. Incluso una deshidratación leve puede afectar el estado de ánimo.</string>
     <string name="text11">Intenta consumir comidas equilibradas y saludables. La alimentación saludable es importante para la salud física y mental en general. Come muchas frutas y vegetales frescos, pero no en exceso. También ayuda comer regularmente pescados ricos en ácidos grasos omega-3, como el salmón.</string>

@@ -16,263 +16,49 @@
         app:titleTextAppearance="@style/ToolbarLargeTitleStyle"
         app:titleTextColor="@color/toolbarTittleColor"
         app:title="@string/information_title"
-        android:background="@color/colorPrimary">
+        android:background="@color/toolbarDefaultColor"/>
 
-    </androidx.appcompat.widget.Toolbar>
-
-    <ScrollView
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="?attr/actionBarSize"
+    <LinearLayout
+        android:id="@+id/information_text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_information"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <ImageView
+            android:id="@+id/information_image"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/tc_logo_icon" />
+
+        <TextView
+            android:id="@+id/text_information_hello"
+            android:background="@drawable/input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp">
+            android:minHeight="70dp"
+            android:gravity="start|center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="@string/information_text"
+            android:textSize="14sp" />
+    </LinearLayout>
 
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/tittle1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:textAlignment="textStart"
-                android:textStyle="bold"
-                android:text="@string/title1" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_tips"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/information_text"/>
 
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text1"
-                android:layout_marginTop="10dp"/>
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:adjustViewBounds="true"
-                android:layout_height="200dp"
-                android:src="@drawable/info_img_1"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:contentDescription="@string/title1"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/tittle2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:textAlignment="textStart"
-                android:textStyle="bold"
-                android:text="@string/title2"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text2"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text3"
-                android:layout_marginTop="10dp"/>
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:adjustViewBounds="true"
-                android:layout_height="200dp"
-                android:src="@drawable/info_img_2"
-                android:contentDescription="@string/title2"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/tittle3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:textAlignment="textStart"
-                android:textStyle="bold"
-                android:text="@string/title3"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text4"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/tittle4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:textAlignment="textStart"
-                android:textStyle="bold"
-                android:text="@string/title4"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text5"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text6"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text7"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text8"
-                android:layout_marginTop="10dp"/>
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:adjustViewBounds="true"
-                android:layout_height="200dp"
-                android:src="@drawable/info_img_3"
-                android:layout_gravity="center"
-                android:contentDescription="@string/title4"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/tittle5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:textAlignment="textStart"
-                android:textStyle="bold"
-                android:text="@string/title5"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text9"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text10"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text11"
-                android:layout_marginTop="10dp"/>
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:adjustViewBounds="true"
-                android:layout_height="200dp"
-                android:src="@drawable/info_img_5"
-                android:layout_gravity="center"
-                android:contentDescription="@string/title5"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/tittle6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:textAlignment="textStart"
-                android:textStyle="bold"
-                android:text="@string/title6"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text12"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:text="@string/text13"
-                android:layout_marginTop="10dp"/>
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:adjustViewBounds="true"
-                android:layout_height="200dp"
-                android:src="@drawable/info_img_6"
-                android:layout_gravity="center"
-                android:contentDescription="@string/title6"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/tittle7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/defaultTextColor"
-                android:textAlignment="textStart"
-                android:textStyle="bold"
-                android:text="@string/title7"
-                android:layout_marginTop="10dp"/>
-
-            <com.codesgood.views.JustifiedTextView
-                android:id="@+id/text14"
-                android:textColor="@color/defaultTextColor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/text14" />
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:adjustViewBounds="true"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                android:src="@drawable/info_img_7"
-                android:contentDescription="@string/title7"
-                android:layout_marginTop="10dp"/>
-        </LinearLayout>
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
