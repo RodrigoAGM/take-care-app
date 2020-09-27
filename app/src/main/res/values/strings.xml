@@ -9,6 +9,8 @@
     <!-- Menu -->
     <string name="menu_logout">Cerrar sesión</string>
     <string name="menu_change_pass">Cambiar contraseña</string>
+
+
     <!-- Login strings -->
     <string name="login_title">INICIAR SESIÓN</string>
     <string name="login_username_hint">Usuario</string>
@@ -17,6 +19,8 @@
     <string name="login_button">Ingresar</string>
     <string name="login_register">Regístrate aquí</string>
     <string name="login_no_account">¿No tienes cuenta? </string>
+
+
     <!-- Recover password strings-->
     <string name="recover_title">Recuperar tu cuenta</string>
     <string name="recover_text">Ingresa el correo de la cuenta que deseas recuperar</string>
@@ -66,13 +70,14 @@
 
 
     <!-- Control fragment strings -->
-    <string name="control_title">Para realizar la medición es necesario que tengas vinculado el wearable:</string>
-    <string name="control_results_title">Frecuencia cardiaca:</string>
-    <string name="control_results">110 \nbpms</string>
+    <string name="control_text">Para medir tu frecuencia cardiaca, debes tener tu wearable vinculado a Take Care.</string>
+    <string name="control_results_title">Frecuencia cardiaca</string>
+    <string name="control_results_level">Ansiedad moderada</string>
+    <string name="control_results">110 \nLPM</string>
     <string name="control_results_text">Nivel de Ansiedad: Alto</string>
     <string name="control_date">Fecha: 6/11/2020</string>
-    <string name="control_btn_med">MEDIR</string>
-    <string name="control_btn_vin">VINCULAR</string>
+    <string name="control_btn_med">Medir</string>
+    <string name="control_btn_vin">Vincular</string>
 
 
     <!-- Advice fragment strings -->
