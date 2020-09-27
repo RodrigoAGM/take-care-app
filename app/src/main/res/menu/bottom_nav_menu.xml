@@ -23,6 +23,6 @@
 
     <item
         android:id="@+id/navigation_advice"
-        android:icon="@drawable/ic_report"
+        android:icon="@drawable/ic_advice"
         android:title="@string/title_advice" />
 </menu>
