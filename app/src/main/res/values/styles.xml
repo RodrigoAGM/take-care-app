@@ -11,14 +11,14 @@
 
     <style name="ToolbarTitleStyle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">30sp</item>
-        <item name="android:textAlignment">textStart</item>
+        <item name="android:textAlignment">center</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="ToolbarLargeTitleStyle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">25sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="textAllCaps">true</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="ToolbarTitleStyleNoCaps" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">

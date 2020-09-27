@@ -141,7 +141,7 @@
     <string name="text14">Si empleamos distracciones adecuadas podemos interrumpir, aunque sea temporalmente, el pensamiento que nos provoca ansiedad: parada de pensamiento, lectura, ocio, pasear, entre otros. Aplique estrategias de regulación emocional: Las técnicas de respiración, atención plena, el ejercicio físico, entre otras estrategias pueden ser útiles para la desactivación emocional, fisiológica y/o cognitiva.</string>
 
     <!-- Sounds -->
-    <string name="sounds_title">SONIDOS RELAJANTES</string>
+    <string name="sounds_title">Sonidos relajantes</string>
     <string name="sounds_text">A continuación encontrarás algunos sonidos de relajación que te ayudarán a relajarte</string>
     <string name="sound_1_text">Sonidos de la selva y pájaros</string>
     <string name="sound_2_text">Sonidos del bosque</string>
@@ -155,14 +155,14 @@
     <string name="sounds_5_url">https://firebasestorage.googleapis.com/v0/b/takecare-80b19.appspot.com/o/Audios%2FSonidos%20de%20fogata%20naturaleza%20del%20bosque%20en%20la%20noche%20Para%20dormir%20profundamente.mp3?alt=media&amp;token=ae9e1722-5e79-4059-be82-4d04400ae783</string>
 
     <!-- Breath -->
-    <string name="breath_text">El siguiente método de respiración ayuda a disminuir la ansiedad</string>
-    <string name="breath_title">MÉTODO DE RESPIRACIÓN</string>
-    <string name="breath_circle_text">EMPEZAR</string>
+    <string name="breath_text">Te ofrecemos el siguiente método de respiración para disminuir la ansiedad</string>
+    <string name="breath_title">Métodos de Respiración</string>
+    <string name="breath_circle_text">COMENZAR</string>
     <string name="breath_circle_text_breathing">RESPIRA</string>
     <string name="breath_circle_counter">00:00</string>
 
     <!-- Treatment -->
-    <string name="treatment_title">TRATAMIENTOS</string>
+    <string name="treatment_title">Tratamientos</string>
     <string name="treatment_card_date">Fecha: </string>
     <string name="treatment_card_medicine">Medicamentos: </string>
     <string name="treatment_card_indications">Indicaciones: </string>
