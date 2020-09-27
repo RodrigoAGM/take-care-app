@@ -7,14 +7,14 @@
     <color name="defaultTextColor">#000000</color>
     <color name="defaultTextColorWhite">#FFFFFF</color>
     <color name="defaultTextColorBlue">#3354f4</color>
-    <color name="navDefaultColor">#000000</color>
-    <color name="navDefaultColorText">#000000</color>
+    <color name="navDefaultColor">#adaeb6</color>
     <color name="toolbarTittleColor">#FFFFFF</color>
     <color name="toolbarTextColor">#809497</color>
     <color name="redTextColor">#f33c69</color>
     <color name="toolbarDefaultColor">#f33c69</color>
     <color name="defaultCardBackgroundColor">#eff3fa</color>
     <color name="defaultColorGreen">#99be54</color>
+
     <!--History fragment colors-->
     <color name="historyDatePickerColor">#FFFFFF</color>
     <color name="historyItemBackground">#d1f2f6</color>
