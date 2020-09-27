@@ -19,13 +19,10 @@ import com.example.takecare.R
 import com.example.takecare.data.repository.UserRepository
 import com.example.takecare.utils.PatientUtil
 import com.example.takecare.utils.PreferenceHelper
-import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
-import java.io.File
-import java.net.URI
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Date
 
@@ -58,15 +55,27 @@ class ProfileFragment : Fragment(){
         errorText = root.profile_error_text
         profileImageView = root.profile_image
 
+        if (user.birthday.isNullOrBlank()){
+            root.profile_birthday.setText("")
+        }
+        else {
+            user.birthday
+            val dbFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+            val birthdayDb = LocalDate.parse(user.birthday, dbFormatter)
+
+            val monthText = if(birthdayDb.monthValue < 10) "0${birthdayDb.monthValue}" else birthdayDb.monthValue.toString()
+            val dayText = if(birthdayDb.dayOfMonth < 10) "0${birthdayDb.dayOfMonth}" else birthdayDb.dayOfMonth.toString()
+            root.profile_birthday.setText("${dayText}-${monthText}-${birthdayDb.year}")
+        }
+
         root.profile_name.setText(if (user.name.isBlank()) "" else user.name)
         root.profile_lastname.setText(if (user.lastName.isNullOrBlank()) "" else user.lastName)
-        root.profile_birthday.setText(if (user.birthday.isNullOrBlank()) "" else user.birthday)
         root.profile_email.setText(if (user.mail.isNullOrBlank()) "" else user.mail)
         root.profile_height.setText(if(user.height == null) "" else user.height.toString())
         root.profile_weight.setText(if(user.weight == null) "" else user.weight.toString())
         root.profile_sex.setSelection(if(user.gender == null) 0 else user.gender!! + 1)
 
-        val localUser = resources.getIdentifier("ic_profile", "drawable", this.requireContext().packageName)
+        val localUser = resources.getIdentifier("ic_user_circle_solid", "drawable", this.requireContext().packageName)
 
         if(user.imageUrl.isNullOrBlank()){
             Glide.with(this.requireContext()).load(localUser).apply(RequestOptions.circleCropTransform())
@@ -91,7 +100,11 @@ class ProfileFragment : Fragment(){
             }else if(!mail.contains("@") || !mail.contains(".com")){
                 Toast.makeText(this.requireContext(), "Correo inválido, ingrese otro correo", Toast.LENGTH_SHORT).show()
             }else{
-                profileViewModel.update(name, lastName, gender, mail, birthday, height, weight, imageUri.toString())
+                //Format date for database format
+                val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+                val formattedDate = LocalDate.parse(birthday, formatter)!!
+                val birthdayText = "${formattedDate.year}-${formattedDate.monthValue}-${formattedDate.dayOfMonth}"
+                profileViewModel.update(name, lastName, gender, mail, birthdayText, height, weight, imageUri.toString())
             }
         }
 
@@ -106,7 +119,7 @@ class ProfileFragment : Fragment(){
             }
         }
 
-        root.profile_birthday_picker.setOnClickListener {
+        root.profile_birthday.setOnClickListener {
             pickDate(profile_birthday)
         }
 
@@ -122,7 +135,9 @@ class ProfileFragment : Fragment(){
 
         val picker = DatePickerDialog(this.requireContext(),
             DatePickerDialog.OnDateSetListener{ _, mYear, mMonth, mDay  ->
-                view.setText("" + mDay + "/" + mMonth.plus(1) + "/" + mYear)
+                val monthText = if(mMonth + 1 < 10) "0${mMonth.plus(1)}" else "${mMonth.plus(1)}"
+                val dayText = if(mDay < 10) "0${mDay}" else mDay.toString()
+                view.setText("" + dayText + "-" + monthText + "-" + mYear)
             }, year, month, day)
 
         picker.datePicker.maxDate = Date().time
@@ -146,11 +161,6 @@ class ProfileFragment : Fragment(){
         if (it) {
             PatientUtil.init(PreferenceHelper.userData!!)
             Toast.makeText(this.requireContext(), "Datos actualizados !", Toast.LENGTH_SHORT).show()
-
-            val localUser = resources.getIdentifier("ic_profile", "drawable", this.requireContext().packageName)
-            Glide.with(this.requireContext()).load(PatientUtil.patient.imageUrl).error(localUser)
-                .apply(RequestOptions.circleCropTransform())
-                .into(toolbarImage)
         }
     }
 

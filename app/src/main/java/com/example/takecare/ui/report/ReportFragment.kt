@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.takecare.R
 import com.example.takecare.adapter.DiagnosticAdapter
 import com.example.takecare.data.repository.DiagnosticRepository
-import com.example.takecare.mock.FrequencyMock
 import com.example.takecare.model.Diagnostic
 import com.example.takecare.model.Frequency
 import com.example.takecare.ui.history.HistoryViewModel
@@ -28,6 +27,8 @@ import kotlinx.android.synthetic.main.fragment_history.view.*
 import kotlinx.android.synthetic.main.fragment_report.*
 import kotlinx.android.synthetic.main.fragment_report.view.*
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -97,7 +98,9 @@ class ReportFragment : Fragment() {
 
         val picker = DatePickerDialog(this.requireContext(),
             DatePickerDialog.OnDateSetListener{ _, mYear, mMonth, mDay  ->
-                view.setText("" + mDay + "/" + mMonth.plus(1) + "/" + mYear)
+                val monthText = if(mMonth + 1 < 10) "0${mMonth.plus(1)}" else "${mMonth.plus(1)}"
+                val dayText = if(mDay < 10) "0${mDay}" else mDay.toString()
+                view.setText("" + dayText + "-" + monthText + "-" + mYear)
                 filterData()
             }, year, month, day)
 
@@ -150,28 +153,30 @@ class ReportFragment : Fragment() {
     }
 
     private fun filterData(){
-        val formatter = SimpleDateFormat("dd/MM/yyyy")
+        val dbFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+
         val newFilteredList = ArrayList<Diagnostic>()
         val end = dateTo.text.toString()
         val start = dateFrom.text.toString()
 
         for(diagnostic in diagnosticList){
-            val diagnosticDate = formatter.parse(diagnostic.date)!!
+            val diagnosticDate = LocalDate.parse(diagnostic.date, dbFormatter)!!
 
             if(start.isBlank() && !end.isBlank()){
-                val dateEnd = formatter.parse(end)
-                if(diagnosticDate.before(dateEnd) || diagnosticDate == dateEnd){
+                val dateEnd = LocalDate.parse(end, formatter)
+                if(diagnosticDate.isBefore(dateEnd) || diagnosticDate == dateEnd){
                     newFilteredList.add(diagnostic)
                 }
             }else if(!start.isBlank() && end.isBlank()){
-                val dateStart = formatter.parse(start)
-                if(diagnosticDate.after(dateStart) || diagnosticDate == dateStart){
+                val dateStart = LocalDate.parse(start, formatter)
+                if(diagnosticDate.isAfter(dateStart) || diagnosticDate == dateStart){
                     newFilteredList.add(diagnostic)
                 }
             }else{
-                val dateStart = formatter.parse(start)
-                val dateEnd = formatter.parse(end)
-                if((diagnosticDate.before(dateEnd) || diagnosticDate == dateEnd) && (diagnosticDate.after(dateStart)|| diagnosticDate == dateStart)){
+                val dateStart = LocalDate.parse(start, formatter)
+                val dateEnd = LocalDate.parse(end, formatter)
+                if((diagnosticDate.isBefore(dateEnd) || diagnosticDate == dateEnd) && (diagnosticDate.isAfter(dateStart)|| diagnosticDate == dateStart)){
                     newFilteredList.add(diagnostic)
                 }
             }

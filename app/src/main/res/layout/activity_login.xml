@@ -76,6 +76,7 @@
             android:gravity="center"
             android:layout_marginTop="25dp"
             android:textSize="18sp"
+            android:textAllCaps="false"
             android:text="@string/login_button"
             android:textColor="@color/defaultTextColorWhite"
             app:layout_constraintEnd_toEndOf="parent"

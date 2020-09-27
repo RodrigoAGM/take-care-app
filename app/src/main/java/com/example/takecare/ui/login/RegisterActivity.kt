@@ -12,6 +12,8 @@ import com.example.takecare.MainActivity
 import com.example.takecare.R
 import com.example.takecare.data.repository.UserRepository
 import kotlinx.android.synthetic.main.activity_register.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 import java.util.regex.Pattern
 
@@ -40,8 +42,6 @@ class RegisterActivity : AppCompatActivity() {
             val confirmPassword = register_confirm_password.text.trim().toString()
             val terms = register_terms_combo.isChecked
 
-            //val expression = "^(?=.*[0-9])(?=.*[A-Z])(?=\\S+$).{6,}$";
-
             val patternLength = Pattern.compile("^(?=\\S+$).{6,}$")
             val patternCapital = Pattern.compile( "^(?=.*[A-Z])(?=\\S+$).{6,}$")
             val patternNumber = Pattern.compile("^(?=.*[0-9])(?=\\S+$).{6,}$")
@@ -63,12 +63,17 @@ class RegisterActivity : AppCompatActivity() {
             }else if(!terms){
                 Toast.makeText(this, "Debes aceptar los terminos", Toast.LENGTH_SHORT).show()
             }else{
-                viewModel.register(name, lastName, mail, birthday, password, username)
+                //Format date for database format
+                val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+                val formattedDate = LocalDate.parse(birthday, formatter)!!
+                val birthdayText = "${formattedDate.year}-${formattedDate.monthValue}-${formattedDate.dayOfMonth}"
+
+                viewModel.register(name, lastName, mail, birthdayText, password, username)
             }
         }
     }
 
-    fun pickDate(view: EditText){
+    private fun pickDate(view: EditText){
 
         val calendar = Calendar.getInstance()
         val day = calendar.get(Calendar.DAY_OF_MONTH)
@@ -77,7 +82,9 @@ class RegisterActivity : AppCompatActivity() {
 
         val picker = DatePickerDialog(this,
             DatePickerDialog.OnDateSetListener{_, mYear, mMonth, mDay  ->
-                view.setText("" + mDay + "/" + mMonth.plus(1) + "/" + mYear)
+                val monthText = if(mMonth + 1 < 10) "0${mMonth.plus(1)}" else "${mMonth.plus(1)}"
+                val dayText = if(mDay < 10) "0${mDay}" else mDay.toString()
+                view.setText("" + dayText + "-" + monthText + "-" + mYear)
             }, year, month, day)
 
         picker.datePicker.maxDate = Date().time

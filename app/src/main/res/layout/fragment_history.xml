@@ -87,6 +87,7 @@
         android:textColor="@color/defaultTextColorWhite"
         android:layout_marginTop="15dp"
         android:padding="10dp"
+        android:textAllCaps="false"
         android:text="@string/history_clear_filter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/history_date_to"

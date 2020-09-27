@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.takecare.R
 import com.example.takecare.adapter.DiagnosticAdapter
 import com.example.takecare.data.repository.DiagnosticRepository
-import com.example.takecare.mock.diagnosticsMock
 import com.example.takecare.model.Diagnostic
 import com.example.takecare.utils.PatientUtil
 import kotlinx.android.synthetic.main.activity_login.*
@@ -86,7 +85,9 @@ class HistoryFragment : Fragment(){
         val year = calendar.get(Calendar.YEAR)
         val picker = DatePickerDialog(this.requireContext(),
             DatePickerDialog.OnDateSetListener{_, mYear, mMonth, mDay  ->
-                view.setText("" + mDay + "/" + mMonth.plus(1) + "/" + mYear)
+                val monthText = if(mMonth + 1 < 10) "0${mMonth.plus(1)}" else "${mMonth.plus(1)}"
+                val dayText = if(mDay < 10) "0${mDay}" else mDay.toString()
+                view.setText("" + dayText + "-" + monthText + "-" + mYear)
                 filterData()
             }, year, month, day)
 
@@ -121,10 +122,17 @@ class HistoryFragment : Fragment(){
 
     private val isRequestSuccess = Observer<Boolean> {
         if (it) {
-            recyclerDiagnosticAdapter = DiagnosticAdapter(diagnosticList)
-            recyclerViewDiagnostic.apply {
-                adapter = recyclerDiagnosticAdapter
-                layoutManager = LinearLayoutManager(context)
+            if(diagnosticList.size == 0){
+                progressBar.visibility = View.INVISIBLE
+                recyclerViewDiagnostic.visibility = View.INVISIBLE
+                errorText.visibility = View.VISIBLE
+                errorText.text = "No hay registros"
+            }else{
+                recyclerDiagnosticAdapter = DiagnosticAdapter(diagnosticList)
+                recyclerViewDiagnostic.apply {
+                    adapter = recyclerDiagnosticAdapter
+                    layoutManager = LinearLayoutManager(context)
+                }
             }
         }
     }
