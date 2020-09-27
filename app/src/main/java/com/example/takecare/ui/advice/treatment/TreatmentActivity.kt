@@ -14,6 +14,9 @@ import com.example.takecare.data.repository.TreatmentRepository
 import com.example.takecare.model.Treatment
 import com.example.takecare.ui.history.HistoryViewModel
 import kotlinx.android.synthetic.main.activity_treatment.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import kotlin.math.ceil
 
 class TreatmentActivity : AppCompatActivity() {
 
@@ -57,10 +60,55 @@ class TreatmentActivity : AppCompatActivity() {
 
     private val isRequestSuccess = Observer<Boolean> {
         if (it) {
-            recyclerTreatmentAdapter = TreatmentAdapter(treatmentList)
-            recyclerViewTreatment.apply {
-                adapter = recyclerTreatmentAdapter
-                layoutManager = LinearLayoutManager(context)
+
+            var activeTreatment:Treatment? = null
+
+            for (treatment in treatmentList){
+                if(treatment.status == 1){
+                    activeTreatment = treatment
+                    break
+                }
+            }
+
+            if(activeTreatment != null){
+                active_treatment.visibility = View.VISIBLE
+
+                var medicationDescription = ""
+                for (medicine in activeTreatment.details){
+                    val days = ( medicine.quantity.toDouble() / (24.0/ medicine.frequency.toDouble()) )
+                    medicationDescription += "${medicine.quantity} pastillas de ${medicine.name} " +
+                            "cada ${medicine.frequency} horas por ${ceil(days).toInt()} días\n"
+                }
+
+                active_treatment_card_medication.text = medicationDescription
+                active_treatment_card_indications.text = activeTreatment.indications
+
+                val dbFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+                val treatmentDate = LocalDate.parse(activeTreatment.creationDate, dbFormatter)
+
+                val monthText = if(treatmentDate.monthValue < 10) "0${treatmentDate.monthValue}" else treatmentDate.monthValue.toString()
+                val dayText = if(treatmentDate.dayOfMonth < 10) "0${treatmentDate.dayOfMonth}" else treatmentDate.dayOfMonth.toString()
+
+                active_treatment_card_date.text = "Fecha: ${dayText}-${monthText}-${treatmentDate.year}"
+                active_treatment_card_psychiatrist.text = "Psiquiatra: ${activeTreatment.psychiatristName} ${activeTreatment.psychiatristLastName}"
+
+                treatmentList.remove(activeTreatment)
+            }else{
+                active_treatment_error.text = getString(R.string.treatment_no_active)
+                active_treatment_error.visibility = View.VISIBLE
+            }
+
+
+            if(treatmentList.size == 0){
+                recyclerViewTreatment.visibility = View.INVISIBLE
+                errorText.visibility = View.VISIBLE
+                errorText.text = getString(R.string.treatment_no_past)
+            }else{
+                recyclerTreatmentAdapter = TreatmentAdapter(treatmentList)
+                recyclerViewTreatment.apply {
+                    adapter = recyclerTreatmentAdapter
+                    layoutManager = LinearLayoutManager(context)
+                }
             }
         }
     }
@@ -68,8 +116,12 @@ class TreatmentActivity : AppCompatActivity() {
     private val onMessageError = Observer<Any> {
         if(!it.toString().isBlank()){
             progressBar.visibility = View.INVISIBLE
+            active_treatment.visibility = View.INVISIBLE
             recyclerViewTreatment.visibility = View.INVISIBLE
+
+            active_treatment_error.visibility = View.VISIBLE
             errorText.visibility = View.VISIBLE
+            active_treatment_error.text = it.toString()
             errorText.text = it.toString()
         }
     }

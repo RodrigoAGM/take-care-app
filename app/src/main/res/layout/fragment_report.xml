@@ -61,7 +61,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="15dp"
-            android:hint="@string/history_date_hint"
+            android:hint="@string/report_date_from"
             android:drawableStart="@drawable/ic_calendar_24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/report_title"/>
@@ -77,7 +77,7 @@
             android:clickable="true"
             android:focusable="false"
             android:cursorVisible="false"
-            android:hint="@string/report_date_hint"
+            android:hint="@string/report_date_to"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="15dp"

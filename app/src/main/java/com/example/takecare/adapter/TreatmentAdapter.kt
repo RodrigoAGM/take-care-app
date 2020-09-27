@@ -1,17 +1,15 @@
 package com.example.takecare.adapter
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takecare.R
 import com.example.takecare.model.Treatment
 import kotlinx.android.synthetic.main.item_treatment.view.*
-import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import kotlin.math.ceil
 
 class TreatmentAdapter(private var treatments: ArrayList<Treatment>)  : RecyclerView.Adapter<TreatmentAdapter.HistoryViewHolder>() {
@@ -43,12 +41,19 @@ class TreatmentAdapter(private var treatments: ArrayList<Treatment>)  : Recycler
             var medicationDescription = ""
             for (medicine in treatment.details){
                 val days = ( medicine.quantity.toDouble() / (24.0/ medicine.frequency.toDouble()) )
-                medicationDescription += "${medicine.quantity} pastillas de ${medicine.name} cada ${medicine.frequency} por ${ceil(days).toInt()} días \n"
+                medicationDescription += "${medicine.quantity} pastillas de ${medicine.name} cada ${medicine.frequency} horas por ${ceil(days).toInt()} días\n"
             }
 
             medication.text = medicationDescription
             indications.text = treatment.indications
-            date.text = "Fecha: ${treatment.creationDate.dropLast(14)}"
+
+            val dbFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+            val treatmentDate = LocalDate.parse(treatment.creationDate, dbFormatter)
+
+            val monthText = if(treatmentDate.monthValue < 10) "0${treatmentDate.monthValue}" else treatmentDate.monthValue.toString()
+            val dayText = if(treatmentDate.dayOfMonth < 10) "0${treatmentDate.dayOfMonth}" else treatmentDate.dayOfMonth.toString()
+
+            date.text = "Fecha: ${dayText}-${monthText}-${treatmentDate.year}"
             date.isEnabled = (treatment.status == 1)
 
             psychiatrist.text = "Psiquiatra: ${treatment.psychiatristName} ${treatment.psychiatristLastName}"

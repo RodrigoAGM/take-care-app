@@ -92,8 +92,8 @@
     <!-- Report fragment strings -->
     <string name="report_title">Vamos a revisar tus mediciones para ver como te has sentido</string>
     <string name="report_date_hint">Día/Mes/Año</string>
-    <string name="report_date_from">De:</string>
-    <string name="report_date_to">Hasta:</string>
+    <string name="report_date_from">Fecha inicio</string>
+    <string name="report_date_to">Fecha fin</string>
     <string name="report_card_title">Reporte de LPM</string>
 
 
@@ -164,7 +164,12 @@
 
     <!-- Treatment -->
     <string name="treatment_title">Tratamientos</string>
+    <string name="treatment_text">Aquí puedes observar el tratamiento que sigues actualmente y los tratamientos que ya terminaron.</string>
     <string name="treatment_card_date">Fecha: </string>
+    <string name="treatment_no_active">No hay tratamientos actuales</string>
+    <string name="treatment_no_past">No hay tratamientos pasados</string>
+    <string name="treatment_text_active">Tratamiento actual: </string>
+    <string name="treatment_text_past">Historial de tratamientos: </string>
     <string name="treatment_card_medicine">Medicamentos: </string>
     <string name="treatment_card_indications">Indicaciones: </string>
     <string name="treatment_card_psychiatrist">Psiquiatra: </string>
