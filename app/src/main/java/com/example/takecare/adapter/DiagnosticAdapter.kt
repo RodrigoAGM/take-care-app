@@ -35,8 +35,8 @@ class DiagnosticAdapter(private var diagnostics: ArrayList<Diagnostic>) : Recycl
         val date = view.history_card_date
 
         fun bind(diagnostic: Diagnostic) {
-            title.text = "NIVEL DE ANSIEDAD: ${diagnostic.level.name}"
-            frequency.text = "${diagnostic.frequency.heartRate}\nbpm"
+            title.text = "Nivel de ansiedad - ${diagnostic.level.name}"
+            frequency.text = "${diagnostic.frequency.heartRate}\nLPM"
             date.text = "Fecha: ${diagnostic.frequency.date}"
 
         }

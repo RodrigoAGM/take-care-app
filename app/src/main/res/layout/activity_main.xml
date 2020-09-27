@@ -12,23 +12,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextAppearance="@style/ToolbarTitleStyle"
         app:titleTextColor="@color/toolbarTittleColor"
-        android:background="@color/colorPrimary">
-
-        <ImageView
-            android:id="@+id/toolbar_profile"
-            android:layout_width="?attr/actionBarSize"
-            android:layout_height="?attr/actionBarSize"
-            android:padding="7dp"
-            android:layout_gravity="end"
-            android:src="@drawable/ic_profile"/>
-
-        <TextView
-            android:id="@+id/main_user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:textColor="@color/toolbarTextColor"
-            android:text=""/>
+        android:background="@color/toolbarDefaultColor">
 
     </androidx.appcompat.widget.Toolbar>
 

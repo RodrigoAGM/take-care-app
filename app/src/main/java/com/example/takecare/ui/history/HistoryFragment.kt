@@ -61,11 +61,11 @@ class HistoryFragment : Fragment(){
         //Change username on screen
         root.text_history_hello.text = root.text_history_hello.text.toString().replace("usuario", PatientUtil.patient.username)
 
-        root.history_date_picker_from.setOnClickListener {
+        root.history_date_from.setOnClickListener {
             pickDate(history_date_from)
         }
 
-        root.history_date_picker_to.setOnClickListener {
+        root.history_date_to.setOnClickListener {
             pickDate(history_date_to)
         }
 

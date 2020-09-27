@@ -57,7 +57,6 @@ class ProfileFragment : Fragment(){
         profileProgressBar = root.profile_progressBar
         errorText = root.profile_error_text
         profileImageView = root.profile_image
-        toolbarImage = requireActivity().toolbar_profile!!
 
         root.profile_name.setText(if (user.name.isBlank()) "" else user.name)
         root.profile_lastname.setText(if (user.lastName.isNullOrBlank()) "" else user.lastName)
