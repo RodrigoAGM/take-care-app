@@ -17,8 +17,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/tc_logo" />
 
         <TextView

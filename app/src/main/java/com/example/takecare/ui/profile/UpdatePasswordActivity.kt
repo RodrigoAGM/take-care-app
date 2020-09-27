@@ -45,6 +45,10 @@ class UpdatePasswordActivity : AppCompatActivity() {
                 viewModel.updatePassword(password, oldPassword)
             }
         }
+
+        update_password_cancel_btn.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setupViewModel() {
