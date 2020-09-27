@@ -119,6 +119,11 @@ class ProfileFragment : Fragment(){
             }
         }
 
+        root.profile_change_pass_btn.setOnClickListener {
+            val intent = Intent(this.requireContext(), UpdatePasswordActivity::class.java)
+            startActivity(intent)
+        }
+
         root.profile_birthday.setOnClickListener {
             pickDate(profile_birthday)
         }

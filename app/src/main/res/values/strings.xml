@@ -88,6 +88,7 @@
     <string name="profile_weight_med">kg.</string>
     <string name="profile_height_med">cm.</string>
     <string name="profile_btn_mod">Actualizar</string>
+    <string name="profile_change_pass">Cambiar contraseña</string>
     <string-array name="gender">
         <item>Seleccionar género</item>
         <item>Masculino</item>

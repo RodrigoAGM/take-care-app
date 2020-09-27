@@ -221,6 +221,22 @@
             android:textStyle="bold"
             android:textColor="@color/redTextColor"/>
 
+        <Button
+            android:id="@+id/profile_change_pass_btn"
+            android:background="@drawable/button_enabled"
+            android:backgroundTint="@color/button_second_color"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/defaultTextColorWhite"
+            android:text="@string/profile_change_pass"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_error_text"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
