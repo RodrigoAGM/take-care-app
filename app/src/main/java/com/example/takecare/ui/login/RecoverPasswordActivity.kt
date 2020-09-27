@@ -21,9 +21,6 @@ class RecoverPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recover_password)
 
-        setSupportActionBar(recover_sub_toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         viewModel = RecoverPasswordViewModel(RecoverPasswordRepository())
         setupViewModel()
 

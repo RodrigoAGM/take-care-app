@@ -14,25 +14,25 @@
     <string name="login_username_hint">Usuario</string>
     <string name="login_password_hint">Contraseña</string>
     <string name="forget_password">¿Olvidó su contraseña?</string>
-    <string name="login_button">INGRESAR</string>
+    <string name="login_button">Ingresar</string>
     <string name="login_register">Regístrate aquí</string>
     <string name="login_no_account">¿No tienes cuenta? </string>
     <!-- Recover password strings-->
     <string name="recover_title">Recuperar tu cuenta</string>
     <string name="recover_text">Ingresa el correo de la cuenta que deseas recuperar</string>
-    <string name="recover_mail_hint">CORREO ELECTRÓNICO</string>
-    <string name="recover_button">ENVIAR</string>
-    <string name="change_password_text">Ingrese su nueva contraseña y el token enviado a su correo para realizar el cambio.</string>
-    <string name="password_hint">CONTRASEÑA</string>
-    <string name="new_password_hint">CONFIRMA CONTRASEÑA</string>
-    <string name="recover_token_hint">TOKEN</string>
-    <string name="change_password_button">CONFIRMAR</string>
+    <string name="recover_mail_hint">Correo electrónico</string>
+    <string name="recover_button">Enviar</string>
+    <string name="change_password_text">Ingrese el token enviado a su correo</string>
+    <string name="password_hint">Contraseña nueva</string>
+    <string name="new_password_hint">Confirma contraseña</string>
+    <string name="recover_token_hint">Token</string>
+    <string name="change_password_button">Confirmar</string>
     <!-- Update password strings-->
     <string name="update_password_button">ACTUALIZAR</string>
     <string name="update_password_toolbar_text">ACTUALIZAR CONTRASEÑA</string>
     <string name="update_password_text">Ingrese su contraseña antigua y la contraseña nueva que desea tener.</string>
-    <string name="update_password_hint">CONTRASEÑA ANTIGUA</string>
-    <string name="update_new_password_hint">CONTRASEÑA NUEVA</string>
+    <string name="update_password_hint">Contraseña antigua</string>
+    <string name="update_new_password_hint">Contraseña nueva</string>
     <string name="update_confirm_new_password_hint">CONFIRMA CONTRASEÑA</string>
     <!-- Register strings-->
     <string name="register_title">Registro de usuario</string>

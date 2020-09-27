@@ -2,8 +2,8 @@
 <resources>
     <color name="loginToolbar">#55cedc</color>
     <color name="colorPrimary">#FFFFFF</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#3700B3</color>
+    <color name="colorPrimaryDark">#3354f4</color>
+    <color name="colorAccent">#3354f4</color>
     <color name="defaultTextColor">#000000</color>
     <color name="defaultTextColorWhite">#FFFFFF</color>
     <color name="defaultTextColorBlue">#3354f4</color>
