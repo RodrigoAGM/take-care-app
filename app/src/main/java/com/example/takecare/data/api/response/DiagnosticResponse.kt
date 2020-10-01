@@ -14,7 +14,5 @@ data class GetDiagnosticsResponse(
 data class AddDiagnosticResponse(
     val success: Boolean,
     @SerializedName("data")
-    val diagnostic: Diagnostic,
-    val frequency: Frequency,
-    val level: Level
+    val diagnostic: Diagnostic
 )

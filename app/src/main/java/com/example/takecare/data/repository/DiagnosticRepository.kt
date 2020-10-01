@@ -2,8 +2,10 @@ package com.example.takecare.data.repository
 
 import com.example.takecare.data.TakeCareClient
 import com.example.takecare.data.api.OperationResult
+import com.example.takecare.data.api.request.AddDiagnosticRequest
 import com.example.takecare.data.api.response.AddDiagnosticResponse
 import com.example.takecare.data.api.response.GetDiagnosticsResponse
+import com.example.takecare.model.Frequency
 
 class DiagnosticRepository {
 
@@ -23,9 +25,10 @@ class DiagnosticRepository {
         }
     }
 
-    suspend fun add(): OperationResult<AddDiagnosticResponse> {
+    suspend fun add(frequency: Frequency, date: String, description:String): OperationResult<AddDiagnosticResponse> {
         try {
-            val response = TakeCareClient.build().addDiagnostic()
+            val addDiagnosticRequest = AddDiagnosticRequest(frequency, date, description)
+            val response = TakeCareClient.build().addDiagnostic(addDiagnosticRequest)
             response.let {
                 return if (it.isSuccessful && it.body() != null) {
                     val data = it.body()

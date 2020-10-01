@@ -72,10 +72,9 @@
     <!-- Control fragment strings -->
     <string name="control_text">Para medir tu frecuencia cardiaca, debes tener tu wearable vinculado a Take Care.</string>
     <string name="control_results_title">Frecuencia cardiaca</string>
-    <string name="control_results_level">Ansiedad moderada</string>
-    <string name="control_results">110 \nLPM</string>
-    <string name="control_results_text">Nivel de Ansiedad: Alto</string>
-    <string name="control_date">Fecha: 6/11/2020</string>
+    <string name="control_results_level">---</string>
+    <string name="control_results">--- \nLPM</string>
+    <string name="control_date">Fecha: ---</string>
     <string name="control_btn_med">Ingresar</string>
     <string name="control_btn_vin">Vincular</string>
     <string name="control_dialog_hint">Ritmo cardiaco</string>

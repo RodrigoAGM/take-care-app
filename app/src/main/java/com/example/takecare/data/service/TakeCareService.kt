@@ -42,5 +42,5 @@ interface TakeCareService {
     suspend fun getQuotes() : Response<GetQuotesResponse>
 
     @POST("diagnostics/add")
-    suspend fun addDiagnostic() : Response<AddDiagnosticResponse>
+    suspend fun addDiagnostic(@Body addDiagnosticRequest: AddDiagnosticRequest) : Response<AddDiagnosticResponse>
 }
