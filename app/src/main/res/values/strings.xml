@@ -162,6 +162,7 @@
     <string name="breath_circle_text">COMENZAR</string>
     <string name="breath_circle_text_breathing">RESPIRA</string>
     <string name="breath_circle_counter">00:00</string>
+    <string name="breath_video_url">https://firebasestorage.googleapis.com/v0/b/takecare-80b19.appspot.com/o/videos%2Frespiracion.mp4?alt=media&amp;token=970f7909-391c-439b-977e-681dcac67319</string>
 
     <!-- Treatment -->
     <string name="treatment_title">Tratamientos</string>

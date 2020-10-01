@@ -59,6 +59,30 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
+        <VideoView
+            android:id="@+id/breath_video"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="50sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ProgressBar
+            android:id="@+id/breath_progressBar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:indeterminate="true"
+            android:progress="100"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!--
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/breath_circle"
             android:layout_marginTop="50sp"
@@ -133,6 +157,8 @@
             android:layout_height="30dp"
             android:background="@drawable/circle_border"
             android:orientation="vertical" />
+
+        -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
