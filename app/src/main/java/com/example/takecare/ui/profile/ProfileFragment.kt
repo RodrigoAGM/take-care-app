@@ -103,7 +103,11 @@ class ProfileFragment : Fragment(){
                 //Format date for database format
                 val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
                 val formattedDate = LocalDate.parse(birthday, formatter)!!
-                val birthdayText = "${formattedDate.year}-${formattedDate.monthValue}-${formattedDate.dayOfMonth}"
+
+                val monthText = if(formattedDate.monthValue < 10) "0${formattedDate.monthValue}" else formattedDate.monthValue.toString()
+                val dayText = if(formattedDate.dayOfMonth < 10) "0${formattedDate.dayOfMonth}" else formattedDate.dayOfMonth.toString()
+
+                val birthdayText = "${formattedDate.year}-${monthText}-${dayText}T00:00:00.000Z"
                 profileViewModel.update(name, lastName, gender, mail, birthdayText, height, weight, imageUri.toString())
             }
         }
