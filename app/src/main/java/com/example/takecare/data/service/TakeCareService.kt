@@ -40,4 +40,7 @@ interface TakeCareService {
 
     @GET("/quote/getQuoteByPatient")
     suspend fun getQuotes() : Response<GetQuotesResponse>
+
+    @POST("diagnostics/add")
+    suspend fun addDiagnostic() : Response<AddDiagnosticResponse>
 }

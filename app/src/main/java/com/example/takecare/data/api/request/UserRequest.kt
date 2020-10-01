@@ -1,6 +1,6 @@
 package com.example.takecare.data.api.request
 
-import com.google.gson.annotations.SerializedName
+import com.example.takecare.model.Frequency
 
 data class RegisterRequest(
     val name: String,
