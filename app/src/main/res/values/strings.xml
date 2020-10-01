@@ -76,8 +76,10 @@
     <string name="control_results">110 \nLPM</string>
     <string name="control_results_text">Nivel de Ansiedad: Alto</string>
     <string name="control_date">Fecha: 6/11/2020</string>
-    <string name="control_btn_med">Medir</string>
+    <string name="control_btn_med">Ingresar</string>
     <string name="control_btn_vin">Vincular</string>
+    <string name="control_dialog_hint">Ritmo cardiaco</string>
+    <string name="control_dialog_accept">Aceptar</string>
 
 
     <!-- Advice fragment strings -->
