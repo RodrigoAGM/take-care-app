@@ -57,6 +57,9 @@ class ControlFragment : Fragment() {
                 }else if (heartRate.text.toString().toInt() < 65 ){
                     Toast.makeText(this.requireContext(), "El valor de frecuencia cardiaca no puede ser menor a 65", Toast.LENGTH_SHORT ).show()
                     dialog.dismiss()
+                }else if (heartRate.text.toString().toInt() > 230 ){
+                    Toast.makeText(this.requireContext(), "Introducir un valor válido.", Toast.LENGTH_LONG ).show()
+                    dialog.dismiss()
                 }else{
                     viewModel.addDiagnostics(heartRate.text.toString().toInt())
                     dialog.dismiss()
@@ -100,7 +103,7 @@ class ControlFragment : Fragment() {
         if(it != null){
             controlContent.text = "${it.frequency.heartRate}\nLPM"
             val date = it.frequency.date.split('/')
-            controlDate.text = "${date[2]}-${date[1]}-${date[0]}"
+            controlDate.text = "Fecha: ${date[2]}-${date[1]}-${date[0]}"
             controlLevel.text = it.level.name
         }
     }

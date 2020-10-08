@@ -41,6 +41,8 @@ class UpdatePasswordActivity : AppCompatActivity() {
                 Toast.makeText(this, "Las contraseña debe contener al menos un número", Toast.LENGTH_SHORT).show()
             }else if(password != confirmPassword){
                 Toast.makeText(this, "Las contraseñas no son iguales.", Toast.LENGTH_SHORT).show()
+            }else if(password == oldPassword){
+                Toast.makeText(this, "Colocar una contraseña distinta a la actual.", Toast.LENGTH_SHORT).show()
             }else{
                 viewModel.updatePassword(password, oldPassword)
             }
